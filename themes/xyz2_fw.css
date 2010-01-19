@@ -1,0 +1,338 @@
+/*General settings - fonts, overall page background, etc*/
+body {
+	background-color:#F5F2ED;
+	background-image:url(../xyz/bkg_main.gif);
+	background-position:center top;
+	background-repeat:repeat-y;
+	font-family: Verdana,Tahoma,Arial,Helvetica,sans-serif;
+	font-size: 80%;
+	margin:0;
+	padding:0;
+}
+html {
+	margin: 0;
+	padding: 0;
+}
+
+/*Link styles*/
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+div.mainbody {
+	background-color:#FFFFFF;
+	height:auto;
+	margin:auto;
+	width:1000px;
+}
+
+
+/*Container for course items*/
+div.item {
+	/*border: 1px solid #000;*/
+	/*background-color: #ffffff;*/
+}
+
+/*Container for editor*/
+div.editor {
+	border: 1px solid #000;
+}
+
+/*Default block container*/
+div.block, div.blockitems div.blockitems div.block {
+	border: 1px solid #C3CAC2;
+	background-color: #D1DBD2; /*#ddf;*/
+}
+
+/*Default block item container*/
+div.blockitems, div.blockitems div.blockitems div.blockitems {
+	/*border: 1px solid #000;*/
+	border: 1px solid #C3CAC2;
+	border-top: 0px;
+	background-color: #EAF2E7;/*#eef;*/
+}
+
+/*Second level default block container*/
+div.blockitems div.block {
+	border: 1px solid #C3C2CA;
+	background-color: #D1D2DF;
+}
+
+/*Second level default block item container */
+div.blockitems div.blockitems {
+	border: 1px solid #C3C2CA;
+	background-color: #E9E7F1;
+}
+
+/*toggles for instronly items inside item wrappers */
+div.activewrapper span.instronly {
+	visibility: visible;
+}
+div.inactivewrapper span.instronly {
+	visibility: hidden;
+}
+
+.instrdates, .instronly {
+	font-size: 80%;
+}
+div.block .instronly {
+	display: block;
+}
+
+/*Icons*/
+div.icon {
+	color:#00d;	
+	border: 1px solid #00f;
+	font-weight: bolder;
+}
+
+
+
+/*Control panels*/
+div.cp {
+	/*border: 1px solid #000;*/
+	background-color: #ddd;
+}
+div.cpmid {
+	/*border: 1px solid #000;*/
+	background-color: #ddd;
+}
+
+
+
+
+table thead th {
+	font-weight:bold;
+	cursor:pointer;
+}
+
+/*Tables */
+table.gb thead th, table.gbl thead th, table.gbl thead th.locked {
+	border-bottom: 2px solid #00f;
+	background-color: #eef;
+}
+tr.even {
+	background-color: #fff;	
+}
+tr.odd {
+	background-color: #dfd;
+}
+tr.bordered  td {
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+tr.highlight {
+	background-color: #ddf;
+}
+tr.grid td {
+	border: 1px solid #000;
+}
+tr.dbltop td {
+	border-top: 3px double #000;
+}
+table.gbl td.locked, table.gbl th.locked {
+	border-right: 2px solid #00f;
+}
+
+/*Category header colors*/
+table.gb .catdf {
+	background-color: #eef;
+}
+table.gb .cat0 {
+	background-color: #ddf;
+}
+table.gb .cat1 {
+	background-color: #dfd;
+}
+table.gb .cat2 {
+	background-color: #fdd;
+}
+table.gb .cat3 {
+	background-color: #dff;
+}
+table.gb .cat4 {
+	background-color: #ffd;
+}
+table.gb .cat5 {
+	background-color: #fdf;
+}
+table.gb .cat6 {
+	background-color: #aaf;
+}
+table.gb .cat7 {
+	background-color: #afa;
+}
+table.gb .cat8 {
+	background-color: #faa;
+}
+table.gb .cat9 {
+	background-color: #aff;
+}
+.cattothdr {
+	font-variant: small-caps
+}
+
+/*Fake look of links for Javascript onclicks*/
+span.link {
+	text-decoration: underline;
+	color: #00f;
+	cursor: pointer;
+}
+
+
+/*Containers for instructor leftbar, main content*/
+#leftcontent {
+		/*position: relative;
+		float: left;
+		left:-15px;*/
+		position: absolute;
+		left: 0px;
+		top: 2.2em;
+		/*border:1px solid #000;*/
+		background: #5D5C5D;
+		color:#fff;
+		margin-top: 0px;
+		font-size: 90%;
+		width: 180px;
+		padding-top: 10px;
+		padding-left: 10px;
+}
+#leftcontent a {
+	color: #d2e388;
+}
+#centercontent {
+		margin-left:180px;
+		background:#ffffff;
+		margin-right: 0px;
+		padding-bottom: 5px;
+}
+#headerlogo {
+	right: 0px;
+	top: 0px;
+	width: 120px;
+}
+#headerlogo img {
+	visibility: hidden;
+}
+span.padright {
+	padding-right: 10px;
+}
+.headerwrapper {
+	background:transparent url(../xyz/logo_banner.gif) no-repeat scroll left top;
+	border: 0px;	
+	margin: 0;
+	height: 120px;
+	margin: 0px;
+	width: 1000px;
+	margin-bottom: 0px;
+}
+.headerwrapper h1 {
+	margin: 0;
+	padding: 30px 20px 0px;
+	color:#AE131E;
+	font-weight: normal;
+}
+.footerwrapper {
+	height: 20px;
+}
+
+div.breadcrumb {
+	border: 0;
+	background: #D34135;
+	color: #fff;
+	margin-bottom: 5px;
+	margin-left: -15px;
+	margin-right: -15px;
+	padding: .25em;
+	padding-left: 10px;
+	height: 1.5em;
+}
+div#centercontent div.breadcrumb {
+	margin-left: -10px;
+}
+div.breadcrumb a {
+	color: #e2f398;
+}
+	
+
+.midwrapper {
+	padding-left: 15px;
+	padding-right: 15px;
+	position: relative;
+}
+
+div.ddmenu {
+	padding: 5px;
+	background: #eeffee;
+}
+/*colors and borders for assessments*/
+/*seq question css*/
+div.curquestion {
+
+}
+div.inactive {
+
+}
+hr.seq {
+
+}
+div.seqqinfocur {
+
+}
+div.seqqinfocur span.current{
+
+}
+div.seqqinfoavail {
+
+}
+div.seqqinfoinactive {
+
+}
+div.todoquestion {
+	background-color: #ffffcc; 
+	border: 0px; 
+}
+/*all questions*/
+div.question {
+	background-color: #EAF2E7;; 
+	border: 1px solid #bbd;
+	width: auto;
+	
+}
+div.inset {
+	margin-right: 0px;
+}
+div.review { /*info bar*/
+	margin-top: -6px;
+	background-color: #e0ffe0;
+	border: 1px solid #bbd;
+	width: auto;
+}
+div.intro {
+	border: 0px;
+	background-color: #ffc;
+}
+div.navbar {
+	position: relative;
+	float: left;
+	left: 0px;
+	background:#e0ffe0;
+	border: 1px solid #bbd;
+	color:#000;
+}
+div.navbar a {
+	color: blue;
+}
+span.current {
+	background-color: #ffa;
+}
+span.done {
+	text-decoration: line-through;
+}
+
