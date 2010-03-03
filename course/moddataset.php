@@ -638,6 +638,100 @@ if (isset($images['vars']) && count($images['vars'])>0) {
 }
 ?>
 </div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+function grab_topics(option) {
+	console.log("Alright, we're calling grab_topics()...");
+	
+	// we might not have a parent id to fetch children from
+	var parent_id = $(option).attr('value');
+	parent_id = parent_id != '' ? 'id='+parent_id : '';
+	
+	var url = 'http://mathtv.com/api/topics.php?'+parent_id;
+	
+	$.getJSON(url+"&callback=?", function(data) {
+		console.log("data: "+data);
+		
+		// did we receive a response that includes an image filename?
+		if(data[0][2]) {
+			var new_html = '';
+			$.each(data, function(){
+				new_html += '<input type="radio" name="example" value="'+this[0]+'" style="margin-bottom: 1em;">'
+				          + '<img src="http://schools.mathtv.com/images/examples/'+this[2]+'" alt="'+this[1]+'" style="vertical-align: text-top; margin-bottom: 1em;" />'
+				          + '<br />';
+			});
+			
+			$('#examples div').html(new_html);
+		}
+		else {
+			var new_html = '<select>';
+			new_html += '<option>-----</option>';
+			
+			$.each(data, function(){
+				console.log(this);
+				new_html += '<option value="'+this[0]+'">'+this[1]+'</option>';
+			});
+			new_html += '</select>';
+			
+			// no parent_id means that we're updating this <select> set,
+			// rather than the next one
+			if (parent_id == '') {
+				$(option).parent().parent().html(new_html);
+			}
+			else {
+				$(option).parent().parent().next().html(new_html);
+			}
+		}
+		update_onClicks();
+	});
+};
+
+function update_onClicks() {
+	$('#video option').unbind('click').click(function(){
+		grab_topics(this);
+	});
+	console.log("onClicks updated");
+};
+
+function update_iframe() {
+	var example = $('input[name=example]:checked').val();
+	console.log('example: ' + example);
+	$('iframe').attr('src', 'http://www.mathtv.com/topic_content.php?example_id='+example);
+}
+//]]>
+</script>
+
+<div id="video">
+	MathTV.com video:
+	<span>
+		<select>
+			<option value="">loading...</option>
+		</select>
+	</span>
+	<span>
+		<select>
+		</select>
+	</span>
+	<span>
+		<select>
+		</select>
+	</span>
+</div>
+<iframe width="800px" height="575px">
+	Your browser doesn't seem to support iframes.
+</iframe>
+<div id="examples" style="display: inline-block; vertical-align: top;">
+	<div>
+	</div>
+
+	<input type="button" value="preview" onclick="update_iframe();" />
+</div>
+<script type="text/javascript">
+update_onClicks();
+grab_topics($('#video option'));
+</script>
 <p>
 <input type=submit value="Save">
 <input type=submit name=test value="Save and Test Question">
