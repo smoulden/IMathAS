@@ -35,7 +35,6 @@ div.mainbody {
 div.item {
 	clear: both;
 	border-bottom: 1px solid #ccc;
-	overflow: hidden;
 }
 
 /*Container for editor*/
