@@ -9,6 +9,29 @@ html {
 	margin: 0;
 	padding: 0;
 }
+h2, h3, h4 {
+	font-family:Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	margin:10px 0;
+}
+h2 {
+	font-size: 125%;
+}
+h3 {
+	font-size:100%;
+	color:#069;
+}
+h4 {
+	font-size:100%;
+	margin:5px 0 0 0;
+	color:#666;
+}
+h2 + p, h3 + p, h4 +p, h3 + div p, ul li:first-child  h3 {
+	margin-top:0;
+}
+b {
+	font-weight:bold;
+}
 
 /*Link styles*/
 a {
@@ -94,7 +117,6 @@ div.cpmid {
 	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
 	border: 1px solid #ccc;
 }
-
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
@@ -190,24 +212,31 @@ span.link {
 	padding-top: 0px;
 	padding-left: 0;
 }
-
+#leftcontent p {
+	border: 1px solid #999;
+	margin-bottom: 5px;
+	padding:0;
+	line-height: 20px;
+	font-family: Helvetica, Arial, sans-serif;
+}
 #leftcontent b {
+	font-weight:bold;
 	display: block;
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
+	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
 	color: #666;
 	height: 20px;
 	padding: 8px 10px;
 	font-size: 100%;
-	margin: -10px -10px -5px -10px;
-}
-#leftcontent p {
-	border: 1px solid #999;
-	margin-bottom: 5px;
-	padding:0 10px 10px 10px;
-	line-height: 20px;
+	margin: 0;
 }
 #leftcontent a {
 	text-decoration:none;
+	display:block;
+	padding:0 10px 5px 10px;
+	border-bottom:1px solid #999;
+}
+#leftcontent a:last-child {
+	border-bottom:none;
 }
 #centercontent {
 	margin-left:210px;
@@ -419,24 +448,29 @@ div#topadditem {
 	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll left center;
 	padding: 4px 0;
 	border: 1px solid #ccc;
+	font-family:Helvetica, Arial, sans-serif;
 }
-
 div.additembox span {
 	background-color: #fff;
 }
 div#topadditem span {
 	background-color: transparent;
 }
+div.additembox a {
+	text-decoration:none;
+}
 div#viewbuttoncont {
 	margin-top: 5px;
 	float: right;
 	background: #fff;
+	font-family:Helvetica, Arial, sans-serif;
 }
 div#viewbuttoncont a, a.abutton {
 	color: #fff;
 	display: inline-block;	
 	padding: 4px 10px;
 	margin-left: 2px;
+	text-decoration:none;
 }
 div#viewbuttoncont a:hover {
 	text-decoration: none;
@@ -490,8 +524,10 @@ input[type="submit"], input[type="button"] {
 	border:medium none;
 	cursor:pointer;
 	margin: 1px;
-	padding:2px 6px;
+	padding:4px 10px;
 	color: #fff;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
 }
 input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #666;
