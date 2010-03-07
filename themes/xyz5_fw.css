@@ -212,14 +212,14 @@ span.link {
 	padding-top: 0px;
 	padding-left: 0;
 }
-#leftcontent p {
+#leftcontent div {
 	border: 1px solid #999;
 	margin-bottom: 5px;
 	padding:0;
 	line-height: 20px;
 	font-family: Helvetica, Arial, sans-serif;
 }
-#leftcontent b {
+#leftcontent h3 {
 	font-weight:bold;
 	display: block;
 	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
@@ -295,9 +295,9 @@ div.breadcrumb {
 	border:none;
 	font:normal 90% Helvetica,Arial,sans-serif;
 	color: #fff;
-	margin-bottom: 5px;
-	padding: .3em;
-	padding-left: 10px;
+	margin-bottom: 10px;
+	padding: 5px 10px;
+	width:982px;
 }
 div#centercontent div.breadcrumb {
 	margin-left: -10px;
@@ -412,32 +412,34 @@ ul#navlist {
 	width:1000px;
 }
 ul#navlist li {
-	padding-top:10px;
+	padding:10px 10px 0 10px;
 	line-height:1;
+	border-right:1px solid #999;
+	display:block;
+	float:left;
 }
 ul#navlist li a {
 	color:#666;
-	padding: 15px 13px;
-	line-height: 20px;
+	padding: 10px 10px 0 10px;
 	background-color: transparent;
 	font-weight: bold;
+	height:30px;
 }
 ul#navlist li a.activetab {
-	-moz-border-radius-topright:15px;
-	-moz-border-radius-topleft:15px;
+	-moz-border-radius-topright:10px;
+	-moz-border-radius-topleft:10px;
 	background-color: #069;
 	color: #fff;
-	margin-top: 3px;
-	padding-top: 12px;
 }
 ul#navlist li a.activetab:hover {
 	background-color: #069;
-	color: #9cf;
+	text-decoration:underline;
 }
 ul#navlist li a:hover {
 	color: #069;
-	margin-top: 3px;
-	padding-top: 12px;
+	background: #ccc;
+}
+ul#navlist li:hover {
 	background: #ccc;
 }
 div#navlistwrapper {
