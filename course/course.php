@@ -384,7 +384,7 @@ if ($overwriteBody==1) {
 				Forums</a> <?php echo $newpostscnt ?></li>
 				<?php 
 					if (isset($mathchaturl) &&  $chatset==1) {
-					echo "<li><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\" target=\"chat\">Chat</a></li> ($activechatters)";
+					echo "<li><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\" target=\"chat\">Chat</a> ($activechatters)</li>";
 					}
 				?>
 			</ul>
@@ -598,7 +598,7 @@ if ($overwriteBody==1) {
 			
 			echo "<div class=clear></div></div>\n";
 		}
-		echo "<div class="cp">\n";
+		echo "<div class=\"cp\">\n";
 	   
 	   if (!isset($teacherid)) {
 ?>
