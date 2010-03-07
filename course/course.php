@@ -372,7 +372,7 @@ if ($overwriteBody==1) {
 	<?php
 		if (isset($CFG['CPS']['additemtype']) && $CFG['CPS']['additemtype'][0]=='links') {
 		} else {
-			echo '<p>'.generateadditem($_GET['folder'],'LB').'</p>';
+			echo '<div>'.generateadditem($_GET['folder'],'LB').'</div>';
 		}
 	?>
 		<div>
@@ -382,16 +382,16 @@ if ($overwriteBody==1) {
 				Messages</a> <?php echo $newmsgs ?> </li>
 				<li><a href="<?php echo $imasroot ?>/forums/forums.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
 				Forums</a> <?php echo $newpostscnt ?></li>
-				<li><?php 
+				<?php 
 					if (isset($mathchaturl) &&  $chatset==1) {
-					echo "<br/><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\" target=\"chat\">Chat</a> ($activechatters)";
+					echo "<li><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\" target=\"chat\">Chat</a></li> ($activechatters)";
 					}
-				?></li>
+				?>
 			</ul>
 		</div>
-	<?php
-	if (!isset($CFG['CPS']['leftnavtools']) || $CFG['CPS']['leftnavtools']!==false) {
-	?>
+		<?php
+			if (!isset($CFG['CPS']['leftnavtools']) || $CFG['CPS']['leftnavtools']!==false) {
+		?>
 		<div>
 			<h3>Tools</h3>
 			<ul>
@@ -401,10 +401,10 @@ if ($overwriteBody==1) {
 				<li><a href="showcalendar.php?cid=<?php echo $cid ?>">Calendar</a></li>
 			</ul>
 		</div>
-	<?php
-	}
-	if (!$useviewbuttons) {
-	?>
+		<?php
+			}
+			if (!$useviewbuttons) {
+		?>
 		<div>
 			<h3>Views</h3>
 			<ul>
@@ -412,9 +412,9 @@ if ($overwriteBody==1) {
 				<li><a href="course.php?cid=<?php echo $cid ?>&quickview=on">Quick View</a></li>
 			</ul>
 		</div>
-	<?php
-	}
-	?>
+		<?php
+			}
+		?>
 		<div>
 			<h3>Questions</h3>
 			<ul>
@@ -422,9 +422,9 @@ if ($overwriteBody==1) {
 				<li><a href="managelibs.php?cid=<?php echo $cid ?>">Libraries</a></li>
 			</ul>
 		</div>
-<?php			
-		if ($allowcourseimport) {
-?>
+		<?php			
+			if ($allowcourseimport) {
+		?>
 		<div>
 			<h3>Export/Import</h3>
 			<ul>
@@ -434,9 +434,9 @@ if ($overwriteBody==1) {
 				<li><a href="../admin/importlib.php?cid=<?php echo $cid ?>">Import Libraries</a></li>
 			</ul>
 		</div>
-<?php
-		}
-?>
+		<?php
+			}
+		?>
 		<div>
 			<h3>Course Items</h3>
 			<ul>
@@ -445,7 +445,6 @@ if ($overwriteBody==1) {
 				<li><a href="../admin/importitems.php?cid=<?php echo $cid ?>">Import</a></li>
 			</ul>
 		</div>
-		
 		<div>
 			<h3>Mass Change</h3>
 			<ul>
@@ -453,13 +452,13 @@ if ($overwriteBody==1) {
 				<li><a href="masschgdates.php?cid=<?php echo $cid ?>">Dates</a></li>
 			</ul>
 		</div>
-		<div>
+		<!--<div>
 			<ul>
 				<li><a href="../admin/forms.php?action=modify&id=<?php echo $cid ?>&cid=<?php echo $cid ?>">Course Settings</a></li>
 				<li><a href="<?php echo $imasroot ?>/help.php?section=coursemanagement">Help</a></li>
 				<li><a href="../actions.php?action=logout">Log Out</a></li>
 			</ul>
-		</div>
+		</div>-->
 	</div> <!--leftcontent-->
 	<div id="centercontent">
 <?php	
