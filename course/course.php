@@ -452,14 +452,14 @@ if ($overwriteBody==1) {
 				<li><a href="masschgdates.php?cid=<?php echo $cid ?>">Dates</a></li>
 			</ul>
 		</div>
-		<!--<div>
+		<div>
 			<ul>
 				<li><a href="../admin/forms.php?action=modify&id=<?php echo $cid ?>&cid=<?php echo $cid ?>">Course Settings</a></li>
 				<li><a href="<?php echo $imasroot ?>/help.php?section=coursemanagement">Help</a></li>
 				<li><a href="../actions.php?action=logout">Log Out</a></li>
 			</ul>
-		</div>-->
-	</div> <!--leftcontent-->
+		</div>
+	</div>
 	<div id="centercontent">
 <?php	
 	} else if ($useleftstubar && !isset($teacherid)) {
