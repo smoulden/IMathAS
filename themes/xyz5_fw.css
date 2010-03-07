@@ -228,6 +228,11 @@ span.link {
 	padding: 8px 10px;
 	font-size: 100%;
 	margin: 0;
+	border-bottom:1px solid #999;
+}
+#leftcontent ul {
+	list-style-type:none;
+	padding:0;
 }
 #leftcontent a {
 	text-decoration:none;
@@ -235,8 +240,11 @@ span.link {
 	padding:0 10px 5px 10px;
 	border-bottom:1px solid #999;
 }
-#leftcontent a:last-child {
+#leftcontent li:last-child a {
 	border-bottom:none;
+}
+#leftcontent a:hover {
+	color:#333;
 }
 #centercontent {
 	margin-left:210px;
@@ -424,6 +432,7 @@ ul#navlist li a {
 	background-color: transparent;
 	font-weight: bold;
 	height:30px;
+	border:none;
 }
 ul#navlist li a.activetab {
 	-moz-border-radius-topright:10px;
@@ -452,14 +461,21 @@ div#topadditem {
 	border: 1px solid #ccc;
 	font-family:Helvetica, Arial, sans-serif;
 }
+div.additembox {
+	background-color:#ccc;
+	margin-bottom:5px;
+	padding:5px 0;
+}
 div.additembox span {
-	background-color: #fff;
+	
 }
 div#topadditem span {
 	background-color: transparent;
 }
 div.additembox a {
 	text-decoration:none;
+	display:inline-block;
+	margin-right:10px;
 }
 div#viewbuttoncont {
 	margin-top: 5px;
@@ -497,9 +513,10 @@ a.abutton:hover {
 }
 div.title {
 	margin-left: 50px;
+	font-family:Helvetica, Arial, sans-serif;
 }
 div.itemsum {
-	margin-left: 70px;
+	margin-left: 50px;
 }
 div#headerrightlinks {
 	float: right;
@@ -536,6 +553,7 @@ input[type="submit"]:hover, input[type="button"]:hover {
 }
 table.cal th {
 	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll left center;
+	font-family:Helvetica, Arial, sans-serif;
 }
 table.cal td {
 	cursor: pointer;
