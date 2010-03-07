@@ -458,15 +458,14 @@ div#navlistwrapper {
 	width:1000px;
 }
 div#topadditem {
-	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll left center;
-	padding: 4px 0;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left center;
 	border: 1px solid #ccc;
-	font-family:Helvetica, Arial, sans-serif;
 }
 div.additembox {
 	background-color:#ccc;
 	margin-bottom:5px;
 	padding:5px 0;
+	font-family:Helvetica, Arial, sans-serif;
 }
 div.additembox span {
 	
