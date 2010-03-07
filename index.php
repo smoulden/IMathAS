@@ -173,7 +173,7 @@ if ($showpostsgadget && count($postcheckcids)>0) {
 /*** done pulling stuff.  Time to display something ***/
 require("header.php");
 $msgtotal = array_sum($newmsgcnt);
-echo '<div class="floatright" id="homelinkbox">';
+/*echo '<div class="floatright" id="homelinkbox">';
 echo "<a href=\"forms.php?action=chguserinfo\">Change User Info</a> | \n";
 echo "<a href=\"forms.php?action=chgpwd\">Change Password</a> | \n";
 echo '<a href="actions.php?action=logout">Log Out</a>';
@@ -185,9 +185,8 @@ if ($myrights > 10) {
 	echo " | <a href=\"docs/docs.php\">Documentation</a>\n";
 } else if ($myrights > 9) {
 	echo " | <a href=\"help.php?section=usingimas\">Help</a>\n";
-}
-		
-echo '</div>';
+}	
+echo '</div>';*/
 echo '<div class="pagetitle" id="headerhome"><h2>';
 if (isset($CFG['GEN']['hometitle'])) {
 	echo $CFG['GEN']['hometitle'];
