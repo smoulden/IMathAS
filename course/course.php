@@ -375,71 +375,92 @@ if ($overwriteBody==1) {
 			echo '<p>'.generateadditem($_GET['folder'],'LB').'</p>';
 		}
 	?>
-		<p>
-		<b>Communication</b><br/>
-			<a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
-			Messages</a> <?php echo $newmsgs ?> <br/>
-			<a href="<?php echo $imasroot ?>/forums/forums.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
-			Forums</a> <?php echo $newpostscnt ?>
-<?php 
-		if (isset($mathchaturl) &&  $chatset==1) {
-			echo "<br/><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\" target=\"chat\">Chat</a> ($activechatters)";
-		}
-?>
-		</p>
+		<div>
+			<h3>Communication</h3>
+			<ul>
+				<li><a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
+				Messages</a> <?php echo $newmsgs ?> </li>
+				<li><a href="<?php echo $imasroot ?>/forums/forums.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
+				Forums</a> <?php echo $newpostscnt ?></li>
+				<li><?php 
+					if (isset($mathchaturl) &&  $chatset==1) {
+					echo "<br/><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\" target=\"chat\">Chat</a> ($activechatters)";
+					}
+				?></li>
+			</ul>
+		</div>
 	<?php
 	if (!isset($CFG['CPS']['leftnavtools']) || $CFG['CPS']['leftnavtools']!==false) {
 	?>
-		<p><b>Tools</b><br/>
-			<a href="listusers.php?cid=<?php echo $cid ?>">Roster</a><br/>
-			<a href="gradebook.php?cid=<?php echo $cid ?>">Gradebook</a> <?php if (($coursenewflag&1)==1) {echo '<span class="red">New</span>';}?><br/>
-			<a href="managestugrps.php?cid=<?php echo $cid ?>">Groups</a><br/>
-			<a href="showcalendar.php?cid=<?php echo $cid ?>">Calendar</a>
-		
-		</p>
+		<div>
+			<h3>Tools</h3>
+			<ul>
+				<li><a href="listusers.php?cid=<?php echo $cid ?>">Roster</a></li>
+				<li><a href="gradebook.php?cid=<?php echo $cid ?>">Gradebook</a> <?php if (($coursenewflag&1)==1) {echo '<span class="red">New</span>';}?></li>
+				<li><a href="managestugrps.php?cid=<?php echo $cid ?>">Groups</a></li>
+				<li><a href="showcalendar.php?cid=<?php echo $cid ?>">Calendar</a></li>
+			</ul>
+		</div>
 	<?php
 	}
 	if (!$useviewbuttons) {
 	?>
-		<p><b>Views</b><br/>
-		<a href="course.php?cid=<?php echo $cid ?>&stuview=0">Student View</a><br/>
-			<a href="course.php?cid=<?php echo $cid ?>&quickview=on">Quick View</a>
-		</p>
+		<div>
+			<h3>Views</h3>
+			<ul>
+				<li><a href="course.php?cid=<?php echo $cid ?>&stuview=0">Student View</a></li>
+				<li><a href="course.php?cid=<?php echo $cid ?>&quickview=on">Quick View</a></li>
+			</ul>
+		</div>
 	<?php
 	}
 	?>
-		<p><b>Questions</b><br/>
-			<a href="manageqset.php?cid=<?php echo $cid ?>">Manage</a><br/>
-			<a href="managelibs.php?cid=<?php echo $cid ?>">Libraries</a>
-		</p>
+		<div>
+			<h3>Questions</h3>
+			<ul>
+				<li><a href="manageqset.php?cid=<?php echo $cid ?>">Manage</a></li>
+				<li><a href="managelibs.php?cid=<?php echo $cid ?>">Libraries</a></li>
+			</ul>
+		</div>
 <?php			
 		if ($allowcourseimport) {
 ?>
-		<p><b>Export/Import</b><br/>
-			<a href="../admin/export.php?cid=<?php echo $cid ?>">Export Question Set</a><br/>
-			<a href="../admin/import.php?cid=<?php echo $cid ?>">Import Question Set</a><br/>
-			<a href="../admin/exportlib.php?cid=<?php echo $cid ?>">Export Libraries</a><br/>
-			<a href="../admin/importlib.php?cid=<?php echo $cid ?>">Import Libraries</a>
-		</p>
+		<div>
+			<h3>Export/Import</h3>
+			<ul>
+				<li><a href="../admin/export.php?cid=<?php echo $cid ?>">Export Question Set</a></li>
+				<li><a href="../admin/import.php?cid=<?php echo $cid ?>">Import Question Set</a></li>
+				<li><a href="../admin/exportlib.php?cid=<?php echo $cid ?>">Export Libraries</a></li>
+				<li><a href="../admin/importlib.php?cid=<?php echo $cid ?>">Import Libraries</a></li>
+			</ul>
+		</div>
 <?php
 		}
 ?>
-		<p><b>Course Items</b><br/>
-			<a href="copyitems.php?cid=<?php echo $cid ?>">Copy</a><br/>
-			<a href="../admin/exportitems.php?cid=<?php echo $cid ?>">Export</a><br/>
-			<a href="../admin/importitems.php?cid=<?php echo $cid ?>">Import</a>
-		</p>
+		<div>
+			<h3>Course Items</h3>
+			<ul>
+				<li><a href="copyitems.php?cid=<?php echo $cid ?>">Copy</a></li>
+				<li><a href="../admin/exportitems.php?cid=<?php echo $cid ?>">Export</a></li>
+				<li><a href="../admin/importitems.php?cid=<?php echo $cid ?>">Import</a></li>
+			</ul>
+		</div>
 		
-		<p><b>Mass Change</b><br/>
-			<a href="chgassessments.php?cid=<?php echo $cid ?>">Assessments</a><br/>
-			<a href="masschgdates.php?cid=<?php echo $cid ?>">Dates</a>
-		</p>
-		<p>
-			<a href="../admin/forms.php?action=modify&id=<?php echo $cid ?>&cid=<?php echo $cid ?>">Course Settings</a><br/>
-			<a href="<?php echo $imasroot ?>/help.php?section=coursemanagement">Help</a><br/>
-			<a href="../actions.php?action=logout">Log Out</a>
-		</p>
-	</div>
+		<div>
+			<h3>Mass Change</h3>
+			<ul>
+				<li><a href="chgassessments.php?cid=<?php echo $cid ?>">Assessments</a></li>
+				<li><a href="masschgdates.php?cid=<?php echo $cid ?>">Dates</a></li>
+			</ul>
+		</div>
+		/* <div>
+			<ul>
+				<li><a href="../admin/forms.php?action=modify&id=<?php echo $cid ?>&cid=<?php echo $cid ?>">Course Settings</a></li>
+				<li><a href="<?php echo $imasroot ?>/help.php?section=coursemanagement">Help</a></li>
+				<li><a href="../actions.php?action=logout">Log Out</a></li>
+			</ul>
+		</div> */
+	</div> <!--leftcontent-->
 	<div id="centercontent">
 <?php	
 	} else if ($useleftstubar && !isset($teacherid)) {
@@ -505,8 +526,6 @@ if ($overwriteBody==1) {
 	   }
 	    
 	 
-	  
-	
    } else {
 	   if (isset($teacherid)) {echo generateadditem($_GET['folder'],'t');}
    }
@@ -519,7 +538,7 @@ if ($overwriteBody==1) {
    } else {
 	  
 ?>	   
-	<div class=cp>
+	<div class="cp">
 		<span class=column>
 <?php		 if ($msgset<4) {  ?>
 			<a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
@@ -532,14 +551,14 @@ if ($overwriteBody==1) {
 		}
 	?>
 		</span>
-		<div class=clear></div>
+		<div class="clear"></div>
 	</div>
 <?php
 	   
 	   
 	   if (isset($teacherid)) {
 ?>
-	<div class=cp>
+	<div class="cp">
 		<span class=column>
 			<?php echo generateadditem($_GET['folder'], 'BB') ?>
 			<a href="listusers.php?cid=<?php echo $cid ?>">Roster</a><br/>
@@ -580,7 +599,7 @@ if ($overwriteBody==1) {
 			
 			echo "<div class=clear></div></div>\n";
 		}
-		echo "<div class=cp>\n";
+		echo "<div class="cp">\n";
 	   
 	   if (!isset($teacherid)) {
 ?>
@@ -594,7 +613,7 @@ if ($overwriteBody==1) {
 			}
 	   } else {
 ?>
-	<span class=column>
+	<span class="column">
 		<a href="../actions.php?action=logout">Log Out</a><BR>
 <?php
 			if ($allowcourseimport) {
