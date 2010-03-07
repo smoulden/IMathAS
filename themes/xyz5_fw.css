@@ -11,23 +11,17 @@ html {
 }
 
 /*Link styles*/
-a:link {
-	text-decoration: none;
-	color:#069;
-}
-a:visited {
-	text-decoration: none;
+a {
+	text-decoration:underline;
 	color:#069;
 }
 a:hover {
 	text-decoration: none;
-	color: #666;
+	color:#069;
 }
 div.mainbody {
 	height:auto;
-	
 }
-
 
 /*Container for course items*/
 div.item {
@@ -52,15 +46,14 @@ div.block h3 {
 }
 /*Default block item container*/
 div.blockitems, div.blockitems div.blockitems div.blockitems {
-	/*border: 1px solid #000;*/
 	border: 1px solid #CCC;
 	border-top: 0px;
-	background-color: #EEE;/*#eef;*/
+	background-color: #fff;
 }
 
 /*Second level default block container*/
 div.blockitems div.block {
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
 	border: 1px solid #ccc;
 }
 
@@ -92,8 +85,6 @@ div.icon {
 	font-weight: bolder;
 }
 
-
-
 /*Control panels*/
 div.cp {
 	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
@@ -103,9 +94,6 @@ div.cpmid {
 	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
 	border: 1px solid #ccc;
 }
-
-
-
 
 table thead th {
 	font-weight:bold;
@@ -185,23 +173,22 @@ span.link {
 	cursor: pointer;
 }
 
-
 /*Containers for instructor leftbar, main content*/
 #leftcontent {
-		/*position: relative;
-		float: left;
-		left:-15px;*/
-		position: absolute;
-		left: 0px;
-		top: 38px;
-		/*border:1px solid #000;*/
-		background: #fff;
-		color:#000;
-		margin-top: 0px;
-		font-size: 90%;
-		width: 200px;
-		padding-top: 0px;
-		padding-left: 0;
+	/*position: relative;
+	float: left;
+	left:-15px;*/
+	position: absolute;
+	left: 0px;
+	top: 38px;
+	/*border:1px solid #000;*/
+	background: #fff;
+	color:#000;
+	margin-top: 0px;
+	font-size: 90%;
+	width: 200px;
+	padding-top: 0px;
+	padding-left: 0;
 }
 
 #leftcontent b {
@@ -214,20 +201,21 @@ span.link {
 	margin: -10px -10px -5px -10px;
 }
 #leftcontent p {
-	border: 1px solid #ccc;
-	padding-top: 0px;
+	border: 1px solid #999;
 	margin-bottom: 5px;
-	padding: 10px;
+	padding:0 10px 10px 10px;
 	line-height: 20px;
 }
-
+#leftcontent a {
+	text-decoration:none;
+}
 #centercontent {
-		margin-left:210px;
-		background:#ffffff;
-		margin-right: 0px;
-		padding-bottom: 5px;
-		padding-right: 10px;
-		border:1px solid #CCCCCC;
+	margin-left:210px;
+	background:#fff;
+	margin-right: 0px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	border:1px solid #CCC;
 }
 #headerlogo {
 	right: 0px;
@@ -272,13 +260,11 @@ div#headerbarlogo {
 	margin:auto;
 	width:1000px;
 }
-
 div.breadcrumb {
 	border: 0;
 	background: #069;
-	border: 1px solid #069;
-	font-family:normal Helvetica,Arial,sans-serif;
-	font-size:90%;
+	border:none;
+	font:normal 90% Helvetica,Arial,sans-serif;
 	color: #fff;
 	margin-bottom: 5px;
 	padding: .3em;
@@ -290,8 +276,6 @@ div#centercontent div.breadcrumb {
 div.breadcrumb a {
 	color: #ddf;
 }
-	
-
 .midwrapper {
 	position: relative;
 	margin:auto;
@@ -300,14 +284,14 @@ div.breadcrumb a {
 
 div.ddmenu {
 	padding: 5px;
-	background: #eeffee;
+	background: #efe;
 }
 /*colors and borders for assessments*/
 /*seq question css*/
 div#headershowtest {
 	border: 1px solid #CCC;
 	margin: 10px 0;
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
+	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
 	padding: 10px;
 }
 div#headershowtest h2 {
@@ -337,7 +321,7 @@ div.seqqinfoinactive {
 
 }
 div.todoquestion {
-	background-color: #ffffcc; 
+	background-color: #ffc; 
 	border: 0px; 
 }
 /*all questions*/
@@ -379,11 +363,10 @@ div.navbar a {
 div.navbar h4 {
 	display: block;
 	margin: -10px -10px 10px -10px;
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
+	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
 	padding: 10px;
 	color: #666;
 }
-	
 span.current {
 	background-color: #ffa;
 }
@@ -452,7 +435,7 @@ div#viewbuttoncont {
 div#viewbuttoncont a, a.abutton {
 	color: #fff;
 	display: inline-block;	
-	padding: 4px 6px;
+	padding: 4px 10px;
 	margin-left: 2px;
 }
 div#viewbuttoncont a:hover {
@@ -470,6 +453,8 @@ div#viewbuttoncont a.buttoninactive:hover {
 }
 a.abutton {
 	border: 0;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
 }
 a.abutton:hover {
 	background-color: #666;
@@ -508,7 +493,6 @@ input[type="submit"], input[type="button"] {
 	padding:2px 6px;
 	color: #fff;
 }
-
 input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #666;
 }
@@ -530,4 +514,17 @@ ul.fileattachlist {
 }
 #insert, #cancel {
 	color: #000;
+}
+/*--------------------- FOOTER -----------------------*/
+#footer {
+	background:#333 url(images/chalkboard.jpg) repeat-x center top;
+	width:1000px;
+	clear:both;
+	margin:0 auto 30px auto;
+	border:1px solid #999;
+	color:#fff;
+}
+#footer p {
+	font: normal 75%/200% Helvetica, Arial, sans-serif;
+	text-align:center;
 }
