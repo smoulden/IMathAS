@@ -233,11 +233,12 @@ span.link {
 #leftcontent ul {
 	list-style-type:none;
 	padding:0;
+	margin:0;
 }
 #leftcontent a {
 	text-decoration:none;
 	display:block;
-	padding:0 10px 5px 10px;
+	padding:5px 10px;
 	border-bottom:1px solid #999;
 }
 #leftcontent li:last-child a {
@@ -443,6 +444,7 @@ ul#navlist li a.activetab {
 ul#navlist li a.activetab:hover {
 	background-color: #069;
 	text-decoration:underline;
+	color:fff;
 }
 ul#navlist li a:hover {
 	color: #069;
