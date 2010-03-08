@@ -49,7 +49,7 @@ div.mainbody {
 /*Container for course items*/
 div.item {
 	clear: both;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #999;
 }
 
 /*Container for editor*/
@@ -197,24 +197,19 @@ span.link {
 
 /*Containers for instructor leftbar, main content*/
 #leftcontent {
-	/*position: relative;
-	float: left;
-	left:-15px;*/
 	position: absolute;
 	left: 0px;
-	top: 38px;
-	/*border:1px solid #000;*/
+	top: 33px;
 	background: #fff;
 	color:#000;
-	margin-top: 0px;
+	margin: 0px;
 	font-size: 90%;
 	width: 200px;
-	padding-top: 0px;
-	padding-left: 0;
+	padding: 0px;
 }
 #leftcontent div {
 	border: 1px solid #999;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	padding:0;
 	line-height: 20px;
 	font-family: Helvetica, Arial, sans-serif;
@@ -256,7 +251,7 @@ ul.courselist li a {
 	margin-right: 0px;
 	padding-bottom: 5px;
 	padding-right: 10px;
-	border:1px solid #CCC;
+	border:1px solid #999;
 }
 #headerhome h2 {
 	border:1px solid #999;
@@ -467,7 +462,7 @@ div#navlistwrapper {
 }
 div#topadditem {
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left center;
-	border: 1px solid #ccc;
+	border: 1px solid #999;
 }
 div.additembox {
 	background-color:#ccc;
