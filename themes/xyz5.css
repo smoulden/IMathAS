@@ -9,6 +9,25 @@ html {
 	margin: 0;
 	padding: 0;
 }
+h2, h3, h4 {
+	font-family:Helvetica, Arial, sans-serif;
+	font-weight:bold;
+	margin:10px 0;
+}
+h2 {
+	font-size: 125%;
+}
+h3 {
+	font-size: 100%;
+	color:#069;
+}
+h4 {
+	font-size: 100%;
+	margin:5px 0 0 0;
+}
+h2 + p, h3 + p, h4 +p, h3 + div p, ul li:first-child  h3 {
+	margin-top:0;
+}
 
 /*Link styles*/
 a {
@@ -43,8 +62,8 @@ div.editor {
 /*Default block container*/
 div.block, div.blockitems div.blockitems div.block {
 	clear: both;
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
-	border: 1px solid #ccc;
+	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	border: 1px solid #999;
 }
 div.block h3 {
 	color: #666;
@@ -181,13 +200,9 @@ span.link {
 
 /*Containers for instructor leftbar, main content*/
 #leftcontent {
-	/*position: relative;
-	float: left;
-	left:-15px;*/
-	position: absolute;
-	left: 0px;
-	top: 38px;
-	/*border:1px solid #000;*/
+	position: relative;
+	top:35px;
+	left:0;
 	background: #fff;
 	color:#000;
 	margin-top: 0px;
@@ -206,7 +221,7 @@ span.link {
 	margin: -10px -10px -5px -10px;
 }
 #leftcontent p {
-	border: 1px solid #ccc;
+	border: 1px solid #999;
 	padding-top: 0px;
 	margin-bottom: 5px;
 	padding: 10px;
@@ -218,7 +233,7 @@ span.link {
 	margin-right: 0px;
 	padding-bottom: 5px;
 	padding-right: 10px;
-	border:1px solid #CCC;
+	border:1px solid #999;
 }
 #headerlogo {
 	right: 0px;
@@ -265,9 +280,8 @@ div.breadcrumb {
 	font-family:normal Helvetica,Arial,sans-serif;
 	font-size:90%;
 	color: #fff;
-	margin-bottom: 5px;
-	padding: .3em;
-	padding-left: 10px;
+	margin-bottom: 10px;
+	padding:5px 10px;
 }
 div#centercontent div.breadcrumb {
 	margin-left: -10px;
@@ -371,7 +385,6 @@ ul#navlist {
 	padding: 0px;
 	border:1px solid #999;
 	border-bottom:none;
-	width:1000px;
 }
 ul#navlist li {
 	padding:10px 10px 0 10px;
@@ -452,9 +465,10 @@ a.abutton:hover {
 }
 div.title {
 	margin-left: 50px;
+	font-family:Helvetica,Arial,sans-serif;
 }
 div.itemsum {
-	margin-left: 70px;
+	margin-left: 50px;
 }
 div#headerrightlinks {
 	float: right;
@@ -505,4 +519,18 @@ ul.fileattachlist {
 }
 #insert, #cancel {
 	color: #000;
+}
+
+/*--------------------- FOOTER -----------------------*/
+#footer {
+	background:#333 url(img/chalkboard.jpg) repeat-x center top;
+	width:1000px;
+	clear:both;
+	margin:0 auto 30px auto;
+	border:1px solid #999;
+	color:#fff;
+}
+#footer p {
+	font: normal 75%/200% Helvetica, Arial, sans-serif;
+	text-align:center;
 }
