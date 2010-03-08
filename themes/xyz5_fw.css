@@ -64,7 +64,7 @@ div.block, div.blockitems div.blockitems div.block {
 	border: 1px solid #ccc;
 }
 div.block h3 {
-	color: #666;
+	color: #333;
 	font-size: 120%;
 }
 /*Default block item container*/
@@ -230,6 +230,9 @@ span.link {
 	margin: 0;
 	border-bottom:1px solid #999;
 }
+ul.courselist li a {
+	text-decoration:none;
+}
 #leftcontent ul {
 	list-style-type:none;
 	padding:0;
@@ -254,6 +257,11 @@ span.link {
 	padding-bottom: 5px;
 	padding-right: 10px;
 	border:1px solid #CCC;
+}
+#headerhome h2 {
+	border:1px solid #999;
+	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
+	padding:5px;
 }
 #headerlogo {
 	right: 0px;
