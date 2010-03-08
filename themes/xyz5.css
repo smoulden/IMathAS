@@ -1,7 +1,6 @@
 /*General settings - fonts, overall page background, etc*/
 body {
-	/*font-family:"Minion Pro","Times New Roman",Times,serif;*/
-	font-family:normal Helvetica,Arial,sans-serif;
+	font-family:"Minion Pro","Times New Roman",Times,serif;
 	font-size:90%;
 	margin:0;
 	padding: 0px 10px;
@@ -12,8 +11,8 @@ html {
 }
 
 /*Link styles*/
-a:link {
-	text-decoration: none;
+a {
+	text-decoration: underline;
 	color:#069;
 }
 a:visited {
@@ -22,14 +21,13 @@ a:visited {
 }
 a:hover {
 	text-decoration: none;
-	color: #666;
+	color: #069;
 }
 
 div.mainbody {
 	height:auto;
 	
 }
-
 
 /*Container for course items*/
 div.item {
@@ -55,14 +53,14 @@ div.block h3 {
 /*Default block item container*/
 div.blockitems, div.blockitems div.blockitems div.blockitems {
 	/*border: 1px solid #000;*/
-	border: 1px solid #CCC;
+	border: 1px solid #999;
 	border-top: 0px;
-	background-color: #EEE;/*#eef;*/
+	background-color: #fff;
 }
 
 /*Second level default block container*/
 div.blockitems div.block {
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
 	border: 1px solid #ccc;
 }
 
@@ -79,7 +77,6 @@ div.activewrapper span.instronly {
 div.inactivewrapper span.instronly {
 	visibility: hidden;
 }
-
 .instrdates, .instronly {
 	font-size: 80%;
 }
@@ -94,20 +91,15 @@ div.icon {
 	font-weight: bolder;
 }
 
-
-
 /*Control panels*/
 div.cp {
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
 	border: 1px solid #ccc;
 }
 div.cpmid {
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
 	border: 1px solid #ccc;
 }
-
-
-
 
 table thead th {
 	font-weight:bold;
@@ -187,28 +179,26 @@ span.link {
 	cursor: pointer;
 }
 
-
 /*Containers for instructor leftbar, main content*/
 #leftcontent {
-		/*position: relative;
-		float: left;
-		left:-15px;*/
-		position: absolute;
-		left: 0px;
-		top: 38px;
-		/*border:1px solid #000;*/
-		background: #fff;
-		color:#000;
-		margin-top: 0px;
-		font-size: 90%;
-		width: 200px;
-		padding-top: 0px;
-		padding-left: 0;
+	/*position: relative;
+	float: left;
+	left:-15px;*/
+	position: absolute;
+	left: 0px;
+	top: 38px;
+	/*border:1px solid #000;*/
+	background: #fff;
+	color:#000;
+	margin-top: 0px;
+	font-size: 90%;
+	width: 200px;
+	padding-top: 0px;
+	padding-left: 0;
 }
-
 #leftcontent b {
 	display: block;
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
+	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
 	color: #666;
 	height: 20px;
 	padding: 8px 10px;
@@ -222,14 +212,13 @@ span.link {
 	padding: 10px;
 	line-height: 20px;
 }
-
 #centercontent {
-		margin-left:210px;
-		background:#ffffff;
-		margin-right: 0px;
-		padding-bottom: 5px;
-		padding-right: 10px;
-		border:1px solid #CCCCCC;
+	margin-left:210px;
+	background:#fff;
+	margin-right: 0px;
+	padding-bottom: 5px;
+	padding-right: 10px;
+	border:1px solid #CCC;
 }
 #headerlogo {
 	right: 0px;
@@ -244,7 +233,6 @@ span.padright {
 }
 .headerwrapper {
 	border: 0px;	
-
 }
 .headerwrapper h1 {
 	margin: 0;
@@ -270,7 +258,6 @@ div#headerbarlogo {
 .footerwrapper {
 	height: 20px;
 }
-
 div.breadcrumb {
 	border: 0;
 	background: #069;
@@ -288,22 +275,19 @@ div#centercontent div.breadcrumb {
 div.breadcrumb a {
 	color: #ddf;
 }
-	
-
 .midwrapper {
 	position: relative;
 }
-
 div.ddmenu {
 	padding: 5px;
-	background: #eeffee;
+	background: #efe;
 }
 /*colors and borders for assessments*/
 /*seq question css*/
 div#headershowtest {
 	border: 1px solid #CCC;
 	margin: 10px 0;
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
+	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
 	padding: 10px;
 }
 div#headershowtest h2 {
@@ -333,7 +317,7 @@ div.seqqinfoinactive {
 
 }
 div.todoquestion {
-	background-color: #ffffcc; 
+	background-color: #ffc; 
 	border: 0px; 
 }
 /*all questions*/
@@ -341,7 +325,6 @@ div.question {
 	background-color: #fff;; 
 	border: 1px solid #ccc;
 	width: auto;
-	
 }
 div.inset {
 	margin-right: 0px;
@@ -372,7 +355,7 @@ div.navbar a {
 div.navbar h4 {
 	display: block;
 	margin: -10px -10px 10px -10px;
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
+	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
 	padding: 10px;
 	color: #666;
 }
@@ -382,53 +365,55 @@ span.current {
 span.done {
 	text-decoration: line-through;
 }
-
 ul#navlist {
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
-	font-family:Helvetica,Arial,sans-serif;
-	font-size:100%;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
+	font:bold 100% Helvetica,Arial,sans-serif;
 	padding: 0px;
-	border:1px solid #CCCCCC;
-	border-bottom: 0;
-	width: 998px;
+	border:1px solid #999;
+	border-bottom:none;
+	width:1000px;
+}
+ul#navlist li {
+	padding:10px 10px 0 10px;
+	line-height:1;
+	border-right:1px solid #999;
+	display:block;
+	float:left;
 }
 ul#navlist li a {
-	color:#666666;
-	padding: 15px 13px;
-	line-height: 20px;
+	color:#666;
+	padding: 10px 10px 0 10px;
 	background-color: transparent;
 	font-weight: bold;
+	height:30px;
+	border:none;
 }
-
 ul#navlist li a.activetab {
-	-moz-border-radius-topright:15px;
-	-moz-border-radius-topleft:15px;
+	-moz-border-radius-topright:10px;
+	-moz-border-radius-topleft:10px;
 	background-color: #069;
 	color: #fff;
-	margin-top: 3px;
-	padding-top: 12px;
 }
 ul#navlist li a.activetab:hover {
 	background-color: #069;
-	color: #9cf;
+	text-decoration:underline;
+	color:fff;
 }
 ul#navlist li a:hover {
 	color: #069;
-	-moz-border-radius-topright:15px;
-	-moz-border-radius-topleft:15px;
-	margin-top: 3px;
-	padding-top: 12px;
+	background: #ccc;
+}
+ul#navlist li:hover {
 	background: #ccc;
 }
 div#navlistwrapper {
 
 }
 div#topadditem {
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll left center;
+	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left center;
 	padding: 4px 0;
 	border: 1px solid #ccc;
 }
-
 div.additembox span {
 	background-color: #fff;
 }
@@ -478,10 +463,10 @@ div#headerrightlinks {
 	color: #666;
 }
 div#headerrightlinks a {
-	color: #FF9933;
+	color: #F93;
 }
 div#headerrightlinks a:hover {
-	color: #DD6600;
+	color: #D60;
 }
 .buttoncurveleft {
 	-moz-border-radius-bottomleft:15px;
@@ -503,7 +488,7 @@ input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #666;
 }
 table.cal th {
-	background:#FFFFFF url(../xyz/grey_gradient.gif) repeat-x scroll left center;
+	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left center;
 }
 table.cal td {
 	cursor: pointer;
