@@ -117,6 +117,7 @@ div.cp {
 div.cpmid {
 	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
 	border: 1px solid #999;
+	font-family:Helvetica, Arial, sans-serif;
 }
 table thead th {
 	font-weight:bold;
@@ -202,7 +203,7 @@ span.link {
 	left: 0px;
 	top: 33px;
 	background: #fff;
-	color:#000;
+	color:#333;
 	margin: 0px;
 	font-size: 90%;
 	width: 200px;
@@ -240,13 +241,14 @@ ul.courselist li a {
 	display:block;
 	padding:5px 10px;
 	border-bottom:1px solid #999;
+	color:#069;
 }
 #leftcontent li:last-child a {
 	border-bottom:none;
 }
 #leftcontent a:hover {
 	color:#333;
-	background-color:none;
+	background-color:#fff;
 }
 #centercontent {
 	margin-left:210px;
@@ -455,7 +457,6 @@ ul#navlist li a.activetab {
 }
 ul#navlist li a.activetab:hover {
 	background-color: #069;
-	text-decoration:underline;
 	color:#fff;
 }
 ul#navlist li a:hover {
@@ -528,6 +529,9 @@ a.abutton:hover {
 div.title {
 	margin-left: 50px;
 	font-family:Helvetica, Arial, sans-serif;
+}
+div.title h2 {
+	margin:10px 0;
 }
 div.itemsum {
 	margin-left: 50px;
