@@ -32,17 +32,13 @@ h2 + p, h3 + p, h4 +p, h3 + div p, ul li:first-child  h3 {
 /*Link styles*/
 a {
 	text-decoration: underline;
-	color:#069;
-}
-a:visited {
-	text-decoration: none;
-	color:#069;
+	color:#C60;
 }
 a:hover {
 	text-decoration: none;
-	color: #069;
+	color: #fff;
+	background-color:#c60;
 }
-
 div.mainbody {
 	height:auto;
 	
@@ -64,6 +60,7 @@ div.block, div.blockitems div.blockitems div.block {
 	clear: both;
 	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
 	border: 1px solid #999;
+	padding:10px;
 }
 div.block h3 {
 	color: #666;
@@ -71,7 +68,6 @@ div.block h3 {
 }
 /*Default block item container*/
 div.blockitems, div.blockitems div.blockitems div.blockitems {
-	/*border: 1px solid #000;*/
 	border: 1px solid #999;
 	border-top: 0px;
 	background-color: #fff;
@@ -403,13 +399,14 @@ ul#navlist li a {
 ul#navlist li a.activetab {
 	-moz-border-radius-topright:10px;
 	-moz-border-radius-topleft:10px;
+	-webkit-border-top-right-radius:10px;
+	-webkit-border-top-left-radius:10px;
 	background-color: #069;
 	color: #fff;
 }
 ul#navlist li a.activetab:hover {
 	background-color: #069;
-	text-decoration:underline;
-	color:fff;
+	color:#fff;
 }
 ul#navlist li a:hover {
 	color: #069;
@@ -462,6 +459,29 @@ a.abutton {
 a.abutton:hover {
 	background-color: #666;
 }
+ul.buttonlist {
+	list-style-type:none;
+	padding:0;
+}
+ul.buttonlist li {
+	display:inline;
+}
+ul.buttonlist li input {
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+}
+ul.buttonlist li:first-child input {
+	-moz-border-radius-topleft:15px;
+	-moz-border-radius-bottomleft:15px;
+	-webkit-border-top-left-radius:15px;
+	-webkit-border-bottom-left-radius:15px;
+}
+ul.buttonlist li:last-child input {
+	-moz-border-radius-topright:15px;
+	-moz-border-radius-bottomright:15px;
+	-webkit-border-top-right-radius:15px;
+	-webkit-border-bottom-right-radius:15px;
+}
 div.title {
 	margin-left: 50px;
 	font-family:Helvetica,Arial,sans-serif;
@@ -484,10 +504,14 @@ div#headerrightlinks a:hover {
 .buttoncurveleft {
 	-moz-border-radius-bottomleft:15px;
 	-moz-border-radius-topleft:15px;
+	-webkit-border-bottom-left-radius:15px;
+	-webkit-border-bottom-left-radius:15px;
 }
 .buttoncurveright {
 	-moz-border-radius-bottomright:15px;
 	-moz-border-radius-topright:15px;
+	-webkit-border-top-right-radius:15px;
+	-webkit-border-bottom-right-radius:15px;
 }
 input[type="submit"], input[type="button"] {
 	background-color: #999;
