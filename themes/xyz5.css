@@ -1,13 +1,13 @@
 /*General settings - fonts, overall page background, etc*/
-body {
-	font-family:"Minion Pro","Times New Roman",Times,serif;
-	font-size:90%;
-	margin:0;
-	padding: 0px 10px;
-}
 html {
 	margin: 0;
 	padding: 0;
+}
+body {
+	font:normal 90% "Minion Pro","Times New Roman",Times,serif;
+	margin:0;
+	padding: 0px 10px;
+	color:#333;
 }
 h2, h3, h4 {
 	font-family:Helvetica, Arial, sans-serif;
@@ -51,7 +51,7 @@ div.mainbody {
 /*Container for course items*/
 div.item {
 	clear: both;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #999;
 }
 
 /*Container for editor*/
@@ -200,20 +200,17 @@ span.link {
 
 /*Containers for instructor leftbar, main content*/
 #leftcontent {
-	position: relative;
-	top:35px;
-	left:0;
+	float:left
 	background: #fff;
-	color:#000;
-	margin-top: 0px;
+	margin: 0px;
 	font-size: 90%;
 	width: 200px;
-	padding-top: 0px;
-	padding-left: 0;
+	padding: 0px;
+	font-family:Helvetica,Arial,sans-serif;
 }
 #leftcontent b {
 	display: block;
-	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
 	color: #666;
 	height: 20px;
 	padding: 8px 10px;
@@ -223,7 +220,7 @@ span.link {
 #leftcontent p {
 	border: 1px solid #999;
 	padding-top: 0px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	padding: 10px;
 	line-height: 20px;
 }
@@ -231,7 +228,7 @@ span.link {
 	margin-left:210px;
 	background:#fff;
 	margin-right: 0px;
-	padding-bottom: 5px;
+	padding-bottom: 10px;
 	padding-right: 10px;
 	border:1px solid #999;
 }
