@@ -122,6 +122,9 @@ div.cpmid {
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
+	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	border: 1px solid #999;
+	font-family:Helvetica, Arial, sans-serif;
 }
 
 /*Tables */
@@ -538,7 +541,7 @@ div.title {
 	margin-left: 50px;
 	font-family:Helvetica, Arial, sans-serif;
 }
-div.title h2 {
+div.pagetitle h2 {
 	margin:10px 0;
 }
 div.itemsum {
