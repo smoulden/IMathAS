@@ -231,6 +231,10 @@ ul.courselist li a {
 	color:#069;
 	text-decoration:none;
 }
+ul.courselist li a:hover {
+	color:#ccc;
+	background-color:#fff;
+}
 #leftcontent ul {
 	list-style-type:none;
 	padding:0;
@@ -257,6 +261,10 @@ ul.courselist li a {
 	padding-bottom: 5px;
 	padding-right: 10px;
 	border:1px solid #999;
+}
+#fullcontent {
+	border:1px solid #999;
+	padding:10px;
 }
 #headerhome h2 {
 	border:1px solid #999;
