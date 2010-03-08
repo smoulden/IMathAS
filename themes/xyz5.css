@@ -123,6 +123,7 @@ div.cpmid {
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
+	font-family:Helvetica,Arial,sans-serif;
 }
 
 /*Tables */
@@ -284,7 +285,8 @@ div#centercontent div.breadcrumb {
 	margin-left: -10px;
 }
 div.breadcrumb a {
-	color: #ddf;
+	color: #fff;
+	text-decoration:underline;
 }
 .midwrapper {
 	position: relative;
