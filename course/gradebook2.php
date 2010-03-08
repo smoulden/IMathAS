@@ -247,7 +247,12 @@ if (!$isteacher || $stu!=0) { //show student view
 	echo "</div>";
 	
 	echo "Check/Uncheck All: <input type=\"checkbox\" name=\"ca\" value=\"1\" onClick=\"chkAll(this.form, 'checked[]', this.checked)\"> \n";
-	echo "With Selected:  <input type=submit name=submit value=\"E-mail\"> <input type=submit name=submit value=\"Message\"> <input type=submit name=submit value=\"Unenroll\"> <input type=submit name=submit value=\"Make Exception\"> ";
+	echo "With Selected: <ul class=\"buttonlist\">
+				<li><input type=\"submit\" name=\"submit\" value=\"E-mail\"></li>
+				<li><input type=\"submit\" name=\"submit\" value=\"Message\"></li>
+				<li><input type=\"submit\" name=\"submit\" value=\"Unenroll\"></li>
+				<li><input type=\"submit\" name=\"submit\" value=\"Make Exception\"></li>
+			</ul>";
 	
 	$gbt = gbinstrdisp();
 	echo "</form>";
