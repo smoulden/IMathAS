@@ -396,12 +396,14 @@ function picshow(size) {
 	
 ?>
 	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
-	With Selected: <input type=submit name="unread" value="Mark as Unread">
-	<input type=submit name="markread" value="Mark as Read">
-	<input type=submit name="remove" value="Delete">
-	<input type="button" value="Pictures" onclick="rotatepics()" />
+	With Selected: <ul class="buttonlist">
+		<li><input type="submit" name="unread" value="Mark as Unread"></li>
+		<li><input type="submit" name="markread" value="Mark as Read"></li>
+		<li><input type="submit" name="remove" value="Delete"></li>
+		<li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
+	</ul>
 			
-	<table class=gb id="myTable">
+	<table class="gb" id="myTable">
 	<thead>
 	<tr><th></th><th>Message</th><th>Replied</th><th></th><th>From</th><th>Course</th><th>Sent</th></tr>
 	</thead>
