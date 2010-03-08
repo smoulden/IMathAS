@@ -230,6 +230,9 @@ span.link {
 	margin: 0;
 	border-bottom:1px solid #999;
 }
+ul.courselist {
+	font-family: Helvetica, Arial, sans-serif;
+}
 ul.courselist li a {
 	color:#069;
 	text-decoration:none;
@@ -502,14 +505,19 @@ div.additembox a {
 	text-decoration:none;
 	display:inline-block;
 	margin-right:10px;
+	color:#069;
+}
+div.additembox a {
+	background:none;
+	color:#333;
 }
 div#viewbuttoncont {
 	margin-top: 5px;
 	float: right;
 	background: #fff;
-	font-family:Helvetica, Arial, sans-serif;
 }
 div#viewbuttoncont a, a.abutton {
+	font-family:Helvetica, Arial, sans-serif;
 	color: #fff;
 	display: inline-block;	
 	padding: 4px 10px;
@@ -563,6 +571,13 @@ ul.buttonlist li:last-child input {
 div.title {
 	margin-left: 50px;
 	font-family:Helvetica, Arial, sans-serif;
+}
+div.title, div.title a {
+	color:#069;
+}
+div.title a:hover {
+	background-color:#069;
+	color:#fff;
 }
 div.pagetitle h2 {
 	margin:10px 0;
@@ -643,6 +658,9 @@ GB_caption {
 }
 legend {
 	font-family:Helvetica, Arial, sans-serif;
+}
+table.forum td {
+	border:1px solid #999;
 }
 
 /*--------------------- FOOTER -----------------------*/
