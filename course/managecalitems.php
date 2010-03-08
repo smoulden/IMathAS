@@ -51,7 +51,8 @@ if (isset($_POST['submit'])) {
 $placeinhead = "<script type=\"text/javascript\" src=\"$imasroot/javascript/DatePicker.js\"></script>";
 require("../header.php");
 
-echo "<div class=breadcrumb>$breadcrumbbase <a href=\"course.php?cid=$cid\">$coursename</a> ";	
+echo "<div class=breadcrumb>$breadcrumbbase <a href=\"course.php?cid=$cid\">$coursename</a> ";
+echo " <div id=\"fullcontent\"> ";	
 echo "&gt; Manage Calendar Items</div>\n";
 echo '<div id="headermanagecalitems" class="pagetitle"><h2>Manage Calendar Items</h2></div>';
 echo "<p>This page allows you to add items only to the calendar.  Course items automatically place themselves on the calendar</p>";
@@ -60,23 +61,23 @@ $query = "SELECT id,date,title,tag FROM imas_calitems WHERE courseid='$cid' ORDE
 $result = mysql_query($query) or die("Query failed : " . mysql_error());
 
 ?>
-<form method=post action="managecalitems.php?cid=<?php echo $cid;?>">
+<form method=\"post\" action="managecalitems.php?cid=<?php echo $cid;?>">
 <table>
 <thead>
-<tr><th>Delete?</th><th>Date</th><th>Tag</th><th>Text</th></tr>
+<tr><th>Delete?</th><th>Date</th><th>Title</th><th>Description</th></tr>
 </thead>
 <tbody>
 <?php
 $cnt = 0;
 while ($row = mysql_fetch_row($result)) {
 	echo '<tr>';
-	echo '<td><input type=checkbox name="del['.$row[0].']" /></td>';
+	echo '<td><input type=\"checkbox\" name="del['.$row[0].']" /></td>';
 	$date = tzdate("m/d/Y",$row[1]);
-	echo "<td><input type=text size=10 id=\"date{$row[0]}\" name=\"date{$row[0]}\" value=\"$date\"/> ";	
+	echo "<td><input type=\"text\" size=\"10\" id=\"date{$row[0]}\" name=\"date{$row[0]}\" value=\"$date\"/> ";	
 	echo "<a href=\"#\" onClick=\"displayDatePicker('date{$row[0]}', this); return false\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a></td>";
 	$cnt++;
-	echo '<td><input name="tag['.$row[0].']" type=text size=1 value="'.$row[3].'" /></td>';
-	echo '<td><input name="txt['.$row[0].']" type=text size=80 value="'.str_replace('"','&quot;',$row[2]).'" /></td>';
+	echo '<td><input name="tag['.$row[0].']" type=\"text\" size=\"10\" value="'.$row[3].'" /></td>';
+	echo '<td><input name="txt['.$row[0].']" type=\"text\" size=\"80\" value="'.str_replace('"','&quot;',$row[2]).'" /></td>';
 	echo '<tr/>';
 }
 $now = time();
@@ -103,6 +104,7 @@ echo '<tr/>';
 <input type=submit name="submit" value="Save and Add another" />
 <input type=submit name="submit" value="Save" />
 </form>
+</div> <!--fullcontent-->
 
 <?php
 require("../footer.php");
