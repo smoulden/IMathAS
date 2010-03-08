@@ -62,7 +62,7 @@ $result = mysql_query($query) or die("Query failed : " . mysql_error());
 
 ?>
 <form method=\"post\" action="managecalitems.php?cid=<?php echo $cid;?>">
-<table>
+<table cellspacing="0">
 <thead>
 <tr><th>Delete?</th><th>Date</th><th>Title</th><th>Description</th></tr>
 </thead>
