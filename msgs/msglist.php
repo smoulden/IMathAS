@@ -131,7 +131,7 @@ isread:
 				$msgset = $msgset%5;
 			}
 				
-			echo "<form method=post action=\"msglist.php?page=$page&cid=$cid&add={$_GET['add']}&replyto=$replyto\">\n";
+			echo "<form method=\"post\" action=\"msglist.php?page=$page&cid=$cid&add={$_GET['add']}&replyto=$replyto\">\n";
 			echo "<span class=form>To:</span><span class=formright>\n";
 			if (isset($_GET['to'])) {
 				$query = "SELECT LastName,FirstName FROM imas_users WHERE id='{$_GET['to']}'";
@@ -237,7 +237,7 @@ isread:
 	require("../header.php");
 	$curdir = rtrim(dirname(__FILE__), '/\\');
 	
-	echo "<div class=breadcrumb><a href=\"../index.php\">Home</a> ";
+	echo "<div class=\"breadcrumb\"><a href=\"../index.php\">Home</a> ";
 	if ($cid>0) {
 		echo "&gt; <a href=\"../course/course.php?cid=$cid\">$coursename</a> ";
 	}
@@ -318,9 +318,6 @@ isread:
 			$cansendmsgs = true;
 		}
 	}	
-	if ($cansendmsgs) {
-		echo "<a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Send New Message</a>\n";
-	}
 ?>
 <script type="text/javascript">
 function chgfilter() {
@@ -393,8 +390,13 @@ function picshow(size) {
 		echo " >{$row[1]}, {$row[2]}</option>";
 	}
 	echo "</select>";
+
 	if ($cansendmsgs) {
-		echo "<a href=\"sentlist.php?cid=$cid\" class=\"abutton\">Sent Messages</a>\n";
+		echo "<ul class=\"buttonlist\"><li>"
+		echo "<a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Compose new message</a>\n";
+		echo "</li><li>
+		echo "<a href=\"sentlist.php?cid=$cid\">Sent messages</a>\n";
+		echo "</li></ul>";
 	}
 	echo "</p>";	
 ?>
@@ -475,9 +477,8 @@ function picshow(size) {
 	</form>
 <?php
 	if ($cansendmsgs) {
-		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"abutton\">Send New Message</a></p>\n";
+		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"abutton\">Compose new message</a></p>\n";
 	}
-	echo "<p><a href=\"sentlist.php?cid=$cid\">Sent Messages</a></p>";
 	
 	if ($isteacher && $cid>0 && $msgmonitor==1) {
 		echo "<p><a href=\"allstumsglist.php?cid=$cid\">Student Messages</a></p>";
