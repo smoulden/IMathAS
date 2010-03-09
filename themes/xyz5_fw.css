@@ -545,7 +545,7 @@ a.abutton, div#viewbuttoncont a, ul.buttonlist li a {
 a.abutton, div#viewbuttoncont a.buttoninactive, ul.buttonlist li a  {
 	background-color: #999;
 }
-a.abutton:hover, div#viewbuttoncont a.buttoninactive:hover, ul.buttonlist li a:hover, {
+a.abutton:hover, div#viewbuttoncont a.buttoninactive:hover, ul.buttonlist li a:hover {
 	background-color: #666;
 }
 div#viewbuttoncont {
@@ -555,6 +555,7 @@ div#viewbuttoncont {
 }
 div#viewbuttoncont a {
 	border-left:1px solid #fff;
+	margin:0;
 }
 div#viewbuttoncont a.buttonactive{
 	background-color: #333;
