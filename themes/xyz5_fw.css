@@ -665,10 +665,14 @@ table.forum td {
 div.quickview_options {
 	background-color:#069;
 	color:#fff;
+	padding:5px 10px;
 }
 div.quickview_options input {
 	background-color:#fff;
 	color:#069;
+}
+div.quickview_options input:hover {
+	background-color:#ccc;
 }
 
 /*--------------------- FOOTER -----------------------*/
