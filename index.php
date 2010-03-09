@@ -264,9 +264,9 @@ function printCourses($data,$title,$type=null) {
 	}
 	echo '</ul>';
 	if ($type=='take') {
-		echo '<div class="center"><a class="abutton" href="forms.php?action=enroll">Enroll in a New Class</a></div>';
+		echo '<div class="center"><a class="abutton specialbutton" href="forms.php?action=enroll">Enroll in a New Class</a></div>';
 	} else if ($type=='teach' && $myrights>39) {
-		echo '<div class="center"><a class="abutton" href="admin/admin.php">Admin Page</a></div>';
+		echo '<div class="center"><a class="abutton specialbutton" href="admin/admin.php">Admin Page</a></div>';
 	}
 	echo '</div>';
 }
@@ -365,6 +365,4 @@ function printPostsGadget() {
 	
 	echo '</div>';
 }
-
-
 ?>
