@@ -375,7 +375,7 @@
 	echo "<div class=breadcrumb>$breadcrumbbase <a href=\"../course/course.php?cid=$cid\">$coursename</a> &gt; Forum Topics</div>\n";
 	echo '<div id="headerthread" class="pagetitle"><h2>Forum: '.$forumname.'</h2></div>';
 
-echo "<div class="cpmid">";
+echo "<div class=\"cpmid\">";
 	$query = "SELECT threadid,COUNT(id) AS postcount,MAX(postdate) AS maxdate FROM imas_forum_posts ";
 	$query .= "WHERE forumid='$forumid' ";
 	if ($dofilter) {
