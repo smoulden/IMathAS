@@ -354,7 +354,7 @@ function picshow(size) {
 	}
 }
 </script>	
-	<form id="qform" method=post action="msglist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
+	<form id="qform" method="post" action="msglist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
 	<p>Filter by course: <select id="filtercid" onchange="chgfilter()">
 <?php
 	echo "<option value=\"0\" ";
@@ -392,7 +392,11 @@ function picshow(size) {
 		}
 		echo " >{$row[1]}, {$row[2]}</option>";
 	}
-	echo "</select></p>";
+	echo "</select>";
+	if ($cansendmsgs) {
+		echo "<a href=\"sentlist.php?cid=$cid\" class=\"abutton\">Sent Messages</a>";
+	}
+	echo "</p>";
 	
 ?>
 	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
@@ -403,7 +407,7 @@ function picshow(size) {
 		<li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
 	</ul>
 			
-	<table class="gb" id="myTable">
+	<table class="gb" id="myTable" cellpadding="0">
 	<thead>
 	<tr><th></th><th>Message</th><th>Replied</th><th></th><th>From</th><th>Course</th><th>Sent</th></tr>
 	</thead>
@@ -472,9 +476,9 @@ function picshow(size) {
 	</form>
 <?php
 	if ($cansendmsgs) {
-		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Send New Message</a></p>\n";
+		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"abutton\">Send New Message</a></p>\n";
 	}
-	echo "<p><a href=\"sentlist.php?cid=$cid\">Sent Messages</a></p>";
+	<!--echo "<p><a href=\"sentlist.php?cid=$cid\">Sent Messages</a></p>";-->
 	
 	if ($isteacher && $cid>0 && $msgmonitor==1) {
 		echo "<p><a href=\"allstumsglist.php?cid=$cid\">Student Messages</a></p>";
