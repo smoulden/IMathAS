@@ -485,7 +485,7 @@ echo "<div class="cpmid">";
 		echo "  window.location = \"thread.php?page=$pages&cid=$cid&forum=$forumid&ffilter=\"+ffilter;";
 		echo '}';
 		echo '</script>';
-		echo '<p>Show posts for group: <select id="ffilter" onChange="chgfilter()"><option value="0" ';
+		echo '<br /><label for="ffilter">Show posts for group:</label> <select id="ffilter" onChange="chgfilter()"><option value="0" ';
 		if ($curfilter==0) { echo 'selected="1"';}
 		echo '>All groups</option>';
 		$grpcnt = 1;
@@ -501,7 +501,7 @@ echo "<div class="cpmid">";
 			}
 			$groupnums[$row[1]] = $grpcnt-1;
 		}
-		echo '</select></p>';
+		echo '</select>';
 	}
 	echo '<br />';
 	if (($myrights > 5 && time()<$postby) || $isteacher) {
@@ -510,7 +510,7 @@ echo "<div class="cpmid">";
 	if ($isteacher) {
 		echo "<a class=\"abutton\" href=\"postsbyname.php?page=$page&cid=$cid&forum=$forumid\">List Posts by Name</a>\n";
 	}
-	echo "<ul class\"buttonlist\">";
+	echo "<ul class=\"buttonlist\">";
 		if ($page < 0) {
 			echo "<li><a href=\"thread.php?cid=$cid&forum=$forumid&page=1\">Show All</a></li>";
 		} else {
@@ -526,7 +526,7 @@ echo "<div class="cpmid">";
 	
 	echo "</div><!--cpmid-->";
 ?>
-	<table class=forum>
+	<table class="forum">
 	<thead>
 	<tr><th>Topic</th>
 <?php
