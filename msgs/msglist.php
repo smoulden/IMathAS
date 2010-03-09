@@ -195,9 +195,9 @@ isread:
 			echo htmlentities($message);
 			echo "</textarea></div></span><br class=form>\n";
 			
-			echo "<div class=submit><input type=submit value='Submit'></div>\n";
+			echo "<div class=\"submit\"><input type=\"submit\" value='Submit'></div>\n";
 			if ($msgmonitor==1) {
-				echo "<p><span class=red>Note</span>: Student-to-student messages may be monitored by your instructor</p>";
+				echo "<p><span class=\"#EB6F00\">Note</span>: Student-to-student messages may be monitored by your instructor</p>";
 			}
 			require("../footer.php");
 			exit;
@@ -390,6 +390,7 @@ function picshow(size) {
 		echo " >{$row[1]}, {$row[2]}</option>";
 	}
 	echo "</select>";
+	echo "</p>";
 
 	if ($cansendmsgs) {
 		echo "<ul class=\"buttonlist\"><li>";
@@ -397,8 +398,7 @@ function picshow(size) {
 		echo "</li><li>";
 		echo "<a href=\"sentlist.php?cid=$cid\">Sent messages</a>\n";
 		echo "</li></ul>";
-	}
-	echo "</p>";	
+	}	
 ?>
 	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
 	With Selected: <ul class="buttonlist">
