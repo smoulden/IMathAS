@@ -394,10 +394,9 @@ function picshow(size) {
 	}
 	echo "</select>";
 	if ($cansendmsgs) {
-		echo "<a href=\"sentlist.php?cid=$cid\" class=\"abutton\">Sent Messages</a>";
+		echo "<a href=\"sentlist.php?cid=$cid\" class=\"abutton\">Sent Messages</a>\n";
 	}
-	echo "</p>";
-	
+	echo "</p>";	
 ?>
 	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
 	With Selected: <ul class="buttonlist">
