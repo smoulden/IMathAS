@@ -633,7 +633,7 @@ echo "<div class=\"cpmid\">";
 	</table>
 <?php
 	if (($myrights > 5 && time()<$postby) || $isteacher) {
-		echo "<p><a href=\"thread.php?page=$page&cid=$cid&forum=$forumid&modify=new\">Add New Thread</a></p>\n";
+		echo "<p><a class="\abutton specialbutton\" href=\"thread.php?page=$page&cid=$cid&forum=$forumid&modify=new\">Add New Thread</a></p>\n";
 	}
 	
 	require("../footer.php");
