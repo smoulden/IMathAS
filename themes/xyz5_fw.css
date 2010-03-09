@@ -588,6 +588,27 @@ ul.buttonlist li:last-child input {
 	-webkit-border-bottom-right-radius:15px;
 	-webkit-border-top-right-radius:15px;
 }
+ul.buttonlist li a {
+	font-family:Helvetica, Arial, sans-serif;
+	background-color:#999;
+	color:#fff;
+	padding:4px 10px;
+}
+ul.buttonlist li a:hover {
+	background-color:#666;
+}
+ul.buttonlist li:first-child a {
+	-moz-border-radius-bottomleft:15px;
+	-moz-border-radius-topleft:15px;
+	-webkit-border-bottom-left-radius:15px;
+	-webkit-border-top-left-radius:15px;
+}
+ul.buttonlist li:last-child a {
+	-moz-border-radius-bottomright:15px;
+	-moz-border-radius-topright:15px;
+	-webkit-border-bottom-right-radius:15px;
+	-webkit-border-top-right-radius:15px;
+}
 div.title {
 	margin-left: 50px;
 	font-family:Helvetica, Arial, sans-serif;
