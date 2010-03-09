@@ -1022,17 +1022,17 @@ function getnextprev(formn,loc) {
 	
 	echo "<div class=\"cpmid\">";	
 		echo "<form method=post action=\"manageqset.php?cid=$cid\">\n";
-		echo "In Libraries: <span id=\"libnames\">$lnames</span><input type=hidden name=\"libs\" id=\"libs\"  value=\"$searchlibs\">\n";
+		echo "Selected Libraries: <span id=\"libnames\">$lnames</span><input type=hidden name=\"libs\" id=\"libs\"  value=\"$searchlibs\">\n";
 		//echo " <input type=button value=\"Select Libraries\" onClick=\"libselect()\"> <br>"; 
-		echo '<input type="button" value="Select Libraries" onClick="GB_show(\'Library Select\',\'libtree2.php?libtree=popup&libs=\'+curlibs,500,500)" /> <br>';
+		echo '<input type="button" value="Select Libraries" onClick="GB_show(\'Library Select\',\'libtree2.php?libtree=popup&libs=\'+curlibs,500,500)" class=\"specialbutton\" /> <br>';
 		
 		echo "Search: <input type=\"text\" size=15 name=search value=\"$search\"> <input type=checkbox name=\"searchall\" value=\"1\" ";
 		if ($searchall==1) {echo "checked=1";}
-		echo "/>Search all libs <input type=checkbox name=\"searchmine\" value=\"1\" ";
+		echo "/>Search all libs <input type=\"checkbox\" name=\"searchmine\" value=\"1\" ";
 		if ($searchmine==1) {echo "checked=1";}
 		echo "/>Mine only ";
 		
-		echo "<input type=submit value=Search>\n";
+		echo "<input type=submit value=Search class=\"specialbutton\">\n";
 		echo "<input type=button value=\"Add New Question\" onclick=\"window.location='moddataset.php?cid=$cid'\">\n";
 		echo "</form>";
 		
