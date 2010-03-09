@@ -226,7 +226,7 @@ span.link {
 	text-decoration:none;
 }
 #leftcontent a:hover {
-	color:#ccc;
+	color:#333;
 	background-color:#fff;
 }
 #centercontent {
@@ -291,6 +291,9 @@ div#centercontent div.breadcrumb {
 div.breadcrumb a {
 	color: #fff;
 	text-decoration:underline;
+}
+div.breadcrumb a:hover {
+	background:none;
 }
 .midwrapper {
 	position: relative;
@@ -509,9 +512,10 @@ div.itemsum {
 }
 div#headerrightlinks {
 	float: right;
-	margin-top: 15px;
+	margin-top: 35px;
 	margin-right: 20px;
 	color: #666;
+	font-family:Helvetica,Arial,sans-serif;
 }
 div#headerrightlinks a {
 	color: #F93;
