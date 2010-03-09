@@ -41,13 +41,16 @@ a:hover {
 }
 div.mainbody {
 	height:auto;
-	
 }
 
 /*Container for course items*/
 div.item {
 	clear: both;
 	border-bottom: 1px solid #999;
+}
+div.item:last-child {
+	border-bottom:none;
+	margin-bottom:0;
 }
 
 /*Container for editor*/
@@ -58,7 +61,7 @@ div.editor {
 /*Default block container*/
 div.block, div.blockitems div.blockitems div.block {
 	clear: both;
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
 	padding:10px;
 }
@@ -66,6 +69,10 @@ div.block h3 {
 	color: #666;
 	font-size: 120%;
 }
+div.block div.title {
+	margin-left:30px;
+}
+
 /*Default block item container*/
 div.blockitems, div.blockitems div.blockitems div.blockitems {
 	border: 1px solid #999;
@@ -75,7 +82,7 @@ div.blockitems, div.blockitems div.blockitems div.blockitems {
 
 /*Second level default block container*/
 div.blockitems div.block {
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
 }
 
@@ -107,12 +114,8 @@ div.icon {
 }
 
 /*Control panels*/
-div.cp {
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
-	border: 1px solid #ccc;
-}
-div.cpmid {
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+div.cpmid, div.cp {
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
 }
 
@@ -124,8 +127,8 @@ table thead th {
 
 /*Tables */
 table.gb thead th, table.gbl thead th, table.gbl thead th.locked {
-	border-bottom: 2px solid #00f;
-	background-color: #eee;
+	border: 1px solid #999;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 }
 tr.even {
 	background-color: #fff;	
@@ -133,7 +136,7 @@ tr.even {
 tr.odd {
 	background-color: #eee;
 }
-tr.bordered  td {
+tr.bordered td {
 	border-top: 1px solid #999;
 	border-bottom: 1px solid #999;
 }
@@ -218,7 +221,7 @@ span.link {
 }
 #leftcontent h3 {
 	display: block;
-	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll 0 top;
 	color: #666;
 	height: 20px;
 	padding: 8px 10px;
@@ -238,7 +241,7 @@ span.link {
 	color:#333;
 	background-color:#fff;
 }
-#leftcontent li:last-child a {
+#leftcontent li:last-child {
 	border-bottom:none;
 }
 #centercontent {
@@ -275,7 +278,7 @@ div#headercontent, div#navlistcont {
 div#headercontent {
 	margin-top: 10px;
 	height: 70px;
-	background:#000 url(../xyz/chalkboard.jpg) repeat-x scroll center top;
+	background:#333 url(../xyz/chalkboard.jpg) repeat-x scroll center top;
 	margin-bottom: 15px;
 	border: 1px solid #999;
 }
@@ -320,7 +323,7 @@ div.ddmenu {
 div#headershowtest {
 	border: 1px solid #999;
 	margin: 10px 0;
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	padding: 10px;
 }
 div#headershowtest h2 {
@@ -388,7 +391,7 @@ div.navbar a {
 div.navbar h4 {
 	display: block;
 	margin: -10px -10px 10px -10px;
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left bottom;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	padding: 10px;
 	color: #666;
 }
@@ -399,7 +402,7 @@ span.done {
 	text-decoration: line-through;
 }
 ul#navlist {
-	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll 0 top;
 	font:bold 100% Helvetica,Arial,sans-serif;
 	padding: 0px;
 	border:1px solid #999;
@@ -443,7 +446,7 @@ div#navlistwrapper {
 
 }
 div#topadditem {
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left center;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left top;
 	padding: 4px 0;
 	border: 1px solid #999;
 }
@@ -560,7 +563,7 @@ input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #666;
 }
 table.cal th {
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left center;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left top;
 }
 table.cal td {
 	cursor: pointer;
@@ -583,6 +586,12 @@ ul.fileattachlist {
 }
 #insert, #cancel {
 	color: #000;
+}
+GB_caption {
+	font-family:Helvetica, Arial, sans-serif;
+}
+legend {
+	font-family:Helvetica, Arial, sans-serif;
 }
 
 /*--------------------- FOOTER -----------------------*/
