@@ -32,9 +32,6 @@ h2 + p, h3 + p, h4 +p, h3 + div p, ul li:first-child  h3 {
 b {
 	font-weight:bold;
 }
-th, td {
-	padding:0;
-}
 
 /*Link styles*/
 a {
@@ -114,26 +111,26 @@ div.icon {
 
 /*Control panels*/
 div.cp {
-	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
 }
 div.cpmid {
-	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
 	font-family:Helvetica, Arial, sans-serif;
 }
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
-	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center bottom;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
 	font-family:Helvetica, Arial, sans-serif;
 }
 
 /*Tables */
 table.gb thead th, table.gbl thead th, table.gbl thead th.locked {
-	border-bottom: 2px solid #999;
-	background-color: #eee;
+	border: 1px solid #999;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 }
 tr.even {
 	background-color: #fff;	
@@ -141,7 +138,7 @@ tr.even {
 tr.odd {
 	background-color: #eee;
 }
-tr.bordered  td {
+tr.bordered td {
 	border-top: 1px solid #999;
 	border-bottom: 1px solid #999;
 }
@@ -194,6 +191,25 @@ table.gb .cat9 {
 }
 .cattothdr {
 	font-variant: small-caps
+}
+table.cal thead th {
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left center;
+	font-family:Helvetica, Arial, sans-serif;
+	border:1px solid #999;
+}
+table.cal td {
+	cursor: pointer;
+	border:1px solid #999;
+}
+table.cal td.today {
+	background-color:#ccc;
+}
+span.day {
+	background-color: transparent;
+}
+span.calitem {
+	background-color:#069;
+	color:#fff;
 }
 
 /*Fake look of links for Javascript onclicks*/
@@ -602,6 +618,7 @@ div#headerrightlinks a {
 div#headerrightlinks a:hover {
 	color: #fff;
 	background-color:#f93;
+	text-shadow:none;
 }
 .buttoncurveleft {
 	-moz-border-radius-bottomleft:15px;
@@ -619,7 +636,6 @@ input[type="submit"], input[type="button"] {
 	background-color: #999;
 	border:none;
 	cursor:pointer;
-	margin: 1px;
 	padding:4px 10px;
 	color: #fff;
 	-moz-border-radius:15px;
@@ -627,25 +643,6 @@ input[type="submit"], input[type="button"] {
 }
 input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #666;
-}
-table.cal thead th {
-	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left center;
-	font-family:Helvetica, Arial, sans-serif;
-	border:1px solid #999;
-}
-table.cal td {
-	cursor: pointer;
-	border:1px solid #999;
-}
-table.cal td.today {
-	background-color:#ccc;
-}
-span.day {
-	background-color: transparent;
-}
-span.calitem {
-	background-color:#069;
-	color:#fff;
 }
 a.newnote {
 	color: #f00;
@@ -670,6 +667,7 @@ div.quickview_options {
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left center;
 	padding:5px 10px;
 	margin-top:10px;
+	border:1px solid #999;
 }
 
 /*--------------------- FOOTER -----------------------*/
