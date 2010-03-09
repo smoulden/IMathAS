@@ -29,19 +29,19 @@ h4 {
 h2 + p, h3 + p, h4 +p, h3 + div p, ul li:first-child  h3 {
 	margin-top:0;
 }
-b {
+strong, b {
 	font-weight:bold;
 }
 
 /*Link styles*/
 a {
 	text-decoration:underline;
-	color:#c60;
+	color:#EB6F00;
 }
 a:hover {
 	text-decoration: none;
 	color:#fff;
-	background-color:#c60;
+	background-color:#EB6F00;
 }
 div.mainbody {
 	height:auto;
@@ -122,6 +122,9 @@ div.cpmid {
 }
 div.cpmid br {
 	margin-bottom:15px;
+}
+div.cpmid select {
+	margin-right:10px;
 }
 table thead th {
 	font-weight:bold;
