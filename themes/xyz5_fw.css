@@ -591,12 +591,13 @@ div.itemsum {
 div#headerrightlinks {
 	font-family:Helvetica, Arial, sans-serif;
 	float: right;
-	margin-top: 15px;
+	margin-top: 35px;
 	margin-right: 20px;
 }
 div#headerrightlinks a {
 	color: #F93;
 	text-decoration:none;
+	text-shadow:2px 2px 2px #000;
 }
 div#headerrightlinks a:hover {
 	color: #fff;
@@ -628,7 +629,7 @@ input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #666;
 }
 table.cal thead th {
-	background:#FFF url(../xyz/grey_gradient.gif) repeat-x scroll left center;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left center;
 	font-family:Helvetica, Arial, sans-serif;
 	border:1px solid #999;
 }
@@ -666,16 +667,9 @@ table.forum td {
 	border:1px solid #999;
 }
 div.quickview_options {
-	background-color:#069;
-	color:#fff;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left center;
 	padding:5px 10px;
-}
-div.quickview_options input {
-	background-color:#fff;
-	color:#069;
-}
-div.quickview_options input:hover {
-	background-color:#ccc;
+	margin-top:10px;
 }
 
 /*--------------------- FOOTER -----------------------*/
