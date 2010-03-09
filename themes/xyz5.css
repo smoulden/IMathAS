@@ -4,7 +4,7 @@ html {
 	padding: 0;
 }
 body {
-	font:normal 90% "Minion Pro","Times New Roman",Times,serif;
+	font:normal 90%/160% "Minion Pro","Times New Roman",Times,serif;
 	margin:0;
 	padding: 0px 10px;
 	color:#333;
@@ -28,16 +28,19 @@ h4 {
 h2 + p, h3 + p, h4 +p, h3 + div p, ul li:first-child  h3 {
 	margin-top:0;
 }
+strong, b {
+	font-weight:bold;
+}
 
 /*Link styles*/
 a {
 	text-decoration: underline;
-	color:#C60;
+	color:#EB6F00;
 }
 a:hover {
 	text-decoration: none;
 	color: #fff;
-	background-color:#c60;
+	background-color:#EB6F00;
 }
 div.mainbody {
 	height:auto;
@@ -100,7 +103,7 @@ div.inactivewrapper span.instronly {
 	visibility: hidden;
 }
 .instrdates, .instronly {
-	font-size: 80%;
+	font-size: 85%;
 }
 div.block .instronly {
 	
@@ -117,12 +120,24 @@ div.icon {
 div.cpmid, div.cp {
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
+	font-family:Helvetica,Arial,sans-serif;
+	padding:5px 10px;
 }
-
+div.cpmid br {
+	margin-bottom:15px;
+}
+div.cpmid select {
+	margin-right:10px;
+}
+div.cpmid ul.buttonlist {
+	margin-right:5px;
+}
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
 	font-family:Helvetica,Arial,sans-serif;
+	border: 1px solid #999;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 }
 
 /*Tables */
@@ -294,8 +309,7 @@ div.breadcrumb {
 	border: 0;
 	background: #069;
 	border: 1px solid #069;
-	font-family:normal Helvetica,Arial,sans-serif;
-	font-size:90%;
+	font:normal 90% Helvetica,Arial,sans-serif;
 	color: #fff;
 	margin-bottom: 10px;
 	padding:5px 10px;
@@ -305,7 +319,6 @@ div#centercontent div.breadcrumb {
 }
 div.breadcrumb a {
 	color: #fff;
-	text-decoration:underline;
 }
 div.breadcrumb a:hover {
 	background:#fff;
@@ -456,39 +469,45 @@ div.additembox span {
 div#topadditem span {
 	background-color: transparent;
 }
+a.abutton {
+	border: 0;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+}
+a.abutton, div#viewbuttoncont a, ul.buttonlist li a {
+	font:normal 12px/15px Helvetica, Arial, sans-serif;
+	color: #fff;
+	display: inline-block;	
+	padding: 5px 15px;
+	text-decoration:none;
+	height:14px;
+}
+a.abutton, div#viewbuttoncont a.buttoninactive, ul.buttonlist li a {
+	background-color: #999;
+}
+a.abutton:hover, div#viewbuttoncont a.buttoninactive:hover, ul.buttonlist li a:hover {
+	background-color: #666;
+}
 div#viewbuttoncont {
 	margin-top: 5px;
 	float: right;
-	background: #fff;
+	background:none;
 }
-div#viewbuttoncont a, a.abutton {
-	color: #fff;
-	display: inline-block;	
-	padding: 4px 6px;
-	margin-left: 2px;
+div#viewbuttoncont a, ul.buttonlist li a, ul.buttonlist li input {
+	border-right:1px solid #fff;
+	margin:0;
 }
-div#viewbuttoncont a:hover {
-	text-decoration: none;
+div#viewbuttoncont a:last-child {
+	border-right:none;
 }
 div#viewbuttoncont a.buttonactive {
-	background-color: #666;
-	cursor: default;
-}
-div#viewbuttoncont a.buttoninactive, a.abutton {
-	background-color: #999;
-}
-div#viewbuttoncont a.buttoninactive:hover {
 	background-color: #333;
-}
-a.abutton {
-	border: 0;
-}
-a.abutton:hover {
-	background-color: #666;
+	cursor: default;
 }
 ul.buttonlist {
 	list-style-type:none;
 	padding:0;
+	display:inline;
 }
 ul.buttonlist li {
 	display:inline;
@@ -497,17 +516,18 @@ ul.buttonlist li input {
 	-moz-border-radius:0;
 	-webkit-border-radius:0;
 }
-ul.buttonlist li:first-child input {
+ul.buttonlist li:first-child input, ul.buttonlist li:first-child a {
 	-moz-border-radius-topleft:15px;
 	-moz-border-radius-bottomleft:15px;
 	-webkit-border-top-left-radius:15px;
 	-webkit-border-bottom-left-radius:15px;
 }
-ul.buttonlist li:last-child input {
+ul.buttonlist li:last-child input, ul.buttonlist li:last-child a {
 	-moz-border-radius-topright:15px;
 	-moz-border-radius-bottomright:15px;
 	-webkit-border-top-right-radius:15px;
 	-webkit-border-bottom-right-radius:15px;
+	border-right:none;
 }
 div.title {
 	margin-left: 50px;
@@ -530,14 +550,17 @@ div#headerrightlinks {
 	float: right;
 	margin-top: 35px;
 	margin-right: 20px;
-	color: #666;
 	font-family:Helvetica,Arial,sans-serif;
 }
 div#headerrightlinks a {
 	color: #F93;
+	text-shadow:2px 2px 2px #000;
+	text-decoration:none;
 }
 div#headerrightlinks a:hover {
-	color: #D60;
+	color: #fff;
+	background-color:#f93;
+	text-shadow:none;
 }
 .buttoncurveleft {
 	-moz-border-radius-bottomleft:15px;
@@ -555,9 +578,10 @@ input[type="submit"], input[type="button"] {
 	background-color: #999;
 	border:none;
 	cursor:pointer;
-	margin: 1px;
-	padding:2px 6px;
+	padding:4px 15px;
 	color: #fff;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
 }
 input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #666;
@@ -592,6 +616,12 @@ GB_caption {
 }
 legend {
 	font-family:Helvetica, Arial, sans-serif;
+}
+table.forum td {
+	border:1px solid #999;
+}
+.invisible {
+	display:none;
 }
 
 /*--------------------- FOOTER -----------------------*/
