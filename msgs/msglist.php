@@ -390,21 +390,18 @@ function picshow(size) {
 		}
 		echo " >{$row[1]}, {$row[2]}</option>";
 	}
-	echo "</select><br />";
+	echo "</select>";
 
 	if ($cansendmsgs) {
 		echo "<ul class=\"buttonlist\">";
-		echo "<li><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Compose new message</a></li>\n";
-		echo "<li><a href=\"sentlist.php?cid=$cid\">Sent messages</a></li>\n";
+		echo "<li><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Compose new message</a></li>\n";echo "<li><a href=\"sentlist.php?cid=$cid\">Sent messages</a></li>\n";
 		echo "</ul>";
-	}	
+	}
+	echo "<br />";	
 ?>
 		Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
 		With Selected: <ul class="buttonlist">
-			<li><input type="submit" name="unread" value="Mark as Unread"></li>
-			<li><input type="submit" name="markread" value="Mark as Read"></li>
-			<li><input type="submit" name="remove" value="Delete"></li>
-			<li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
+			<li><input type="submit" name="unread" value="Mark as Unread"></li><li><input type="submit" name="markread" value="Mark as Read"></li><li><input type="submit" name="remove" value="Delete"></li><li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
 		</ul>
 	</div> <!--cpmid-->		
 	<table class="gb" id="myTable" cellpadding="0">
