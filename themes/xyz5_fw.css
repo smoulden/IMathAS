@@ -120,7 +120,7 @@ div.cpmid {
 	font-family:Helvetica, Arial, sans-serif;
 	padding:5px 10px 10px 10px;
 }
-div cpmid br {
+div.cpmid br {
 	margin-bottom:15px;
 }
 table thead th {
