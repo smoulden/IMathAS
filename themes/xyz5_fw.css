@@ -44,10 +44,10 @@ a:hover {
 	background-color:#EB6F00;
 }
 a.abutton.specialbutton, input[type="submit"].specialbutton, input[type="button"].specialbutton {
-	background-color:#f93;
+	background-color:#069;
 }
-a.specialbutton:hover, input[type="submit"].specialbutton:hover, input[type="button"].specialbutton:hover {
-	background-color:#EB6F00;
+a.abutton.specialbutton:hover, input[type="submit"].specialbutton:hover, input[type="button"].specialbutton:hover {
+	background-color:#036;
 }
 div.mainbody {
 	height:auto;
