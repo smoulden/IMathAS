@@ -238,7 +238,7 @@ ul.courselist li a {
 	text-decoration:none;
 }
 ul.courselist li a:hover {
-	color:#ccc;
+	color:#333;
 	background-color:#fff;
 }
 #leftcontent ul {
