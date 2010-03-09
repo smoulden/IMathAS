@@ -354,7 +354,7 @@ if ($overwriteBody==1) {
 		exit;
 	}
 ?>
-	<div class=breadcrumb>
+	<div class="breadcrumb">
 		<span class="padright">
 		<?php if (isset($guestid)) {
 			echo '<span class="red">Instructor Preview</span> ';
@@ -362,7 +362,7 @@ if ($overwriteBody==1) {
 		<?php echo $userfullname ?>
 		</span>
 		<?php echo $curBreadcrumb ?>
-		<div class=clear></div>
+		<div class="clear"></div>
 	</div>
 	
 <?php  
@@ -538,7 +538,7 @@ if ($overwriteBody==1) {
 	  
 ?>	   
 	<div class="cp">
-		<span class=column>
+		<span class="column">
 <?php		 if ($msgset<4) {  ?>
 			<a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
 			Messages</a><?php echo $newmsgs ?> <br/>
@@ -691,11 +691,11 @@ function makeTopMenu() {
 		if ($useviewbuttons) {
 			echo '<br class="clear"/>';
 		}
-		echo "<div class=breadcrumb>";
+		echo "<div class=\"quickview_options\">";
 		if (!$useviewbuttons) {
 			echo "Quick View. <a href=\"course.php?cid=$cid&quickview=off\">Back to regular view</a>. ";
 		} 
-		 echo 'Use colored boxes to drag-and-drop order.  <input type="button" id="recchg" disabled="disabled" value="Record Changes" onclick="submitChanges()"/>';
+		 echo 'Use icons to drag-and-drop order.  <input type="button" id="recchg" disabled="disabled" value="Record Changes" onclick="submitChanges()"/>';
 		 echo '<span id="submitnotice" style="color:red;"></span>';
 		 echo '</div>';
 		
@@ -706,7 +706,7 @@ function makeTopMenu() {
 		$gbnewflag = '';
 	}
 	if (isset($teacherid) && count($topbar[1])>0 && $topbar[2]==0) {
-		echo '<div class=breadcrumb>';
+		echo '<div class=\"breadcrumb\">';
 		if (in_array(0,$topbar[1]) && $msgset<4) { //messages
 			echo "<a href=\"$imasroot/msgs/msglist.php?cid=$cid\">Messages</a>$newmsgs &nbsp; ";
 		}
@@ -776,12 +776,7 @@ function makeTopMenu() {
 			echo '</select>';
 			echo " <a href=\"course.php?cid=$cid&teachview=1\">Back to instructor view</a>";
 		}
-		echo '<div class=clear></div></div>';
+		echo '<div class=\"clear\"></div></div>';
 	}
 }
-
-
-
-
 ?>
-
