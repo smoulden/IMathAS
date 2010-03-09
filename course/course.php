@@ -465,27 +465,27 @@ if ($overwriteBody==1) {
 	} else if ($useleftstubar && !isset($teacherid)) {
 ?>
 		<div id="leftcontent">
-			<p>
-			<a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
-			Messages</a> <?php echo $newmsgs ?> <br/>
-			<a href="<?php echo $imasroot ?>/forums/forums.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
-			Forums</a> <?php echo $newpostscnt ?><br/>
-			<a href="showcalendar.php?cid=<?php echo $cid ?>">Calendar</a>
-	<?php if (isset($mathchaturl) && $chatset==1) {
-			echo "<br/><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\"  target=\"chat\">Chat</a>  ($activechatters)";
-		}
-	?>
-			</p>
-			<p>
-			<a href="gradebook.php?cid=<?php echo $cid ?>">Gradebook</a> <?php if (($coursenewflag&1)==1) {echo '<span class="red">New</span>';}?>
-			</p>
-			<p>
-			<a href="../actions.php?action=logout">Log Out</a><br/>   
-			<a href="<?php echo $imasroot ?>/help.php?section=usingimas">Help Using <?php echo $installname;?></a>
-			</p>
+			<div><ul>
+			<li><a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
+			Messages</a> <?php echo $newmsgs ?> </li>
+			<li><a href="<?php echo $imasroot ?>/forums/forums.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
+			Forums</a> <?php echo $newpostscnt ?></li>
+			<li><a href="showcalendar.php?cid=<?php echo $cid ?>">Calendar</a></li>
+			<?php if (isset($mathchaturl) && $chatset==1) {
+				echo "<li><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\"  target=\"chat\">Chat</a>  ($activechatters)</li>";
+				}
+			?>
+			</ul></div>
+			<div><ul>
+			<li><a href="gradebook.php?cid=<?php echo $cid ?>">Gradebook</a> <?php if (($coursenewflag&1)==1) {echo '<span class="red">New</span>';}?></li>
+			</ul></div>
+			<div><ul>
+			<li><a href="../actions.php?action=logout">Log Out</a></li>   
+			<li><a href="<?php echo $imasroot ?>/help.php?section=usingimas">Help Using <?php echo $installname;?></a></li>
+			</ul></div>
 			<?php		  
 			if ($myrights > 5 && $allowunenroll==1) {
-				echo "<p><a href=\"../forms.php?action=unenroll&cid=$cid\">Unenroll From Course</a></p>\n";
+				echo "<div><ul><li><a href=\"../forms.php?action=unenroll&cid=$cid\">Unenroll From Course</a></li></ul></div>\n";
 			}
 			?>
 		</div>
