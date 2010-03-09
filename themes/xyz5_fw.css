@@ -116,13 +116,16 @@ div.cpmid, div.cp {
 	font-family:Helvetica, Arial, sans-serif;
 	padding:5px 10px;
 }
-div.cpmid br {
+div.cpmid form, div.cp form {
+	margin-bottom:10px;
+}
+div.cpmid br, div.cp br {
 	margin-bottom:15px;
 }
 div.cpmid select {
 	margin-right:10px;
 }
-div.cpmid ul.buttonlist {
+div.cpmid ul.buttonlist, div.cp ul.buttonlist {
 	margin-right:5px;
 }
 table thead th {
