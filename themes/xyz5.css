@@ -205,7 +205,19 @@ span.link {
 	padding: 0px;
 	font-family:Helvetica,Arial,sans-serif;
 }
-#leftcontent b {
+#leftcontent div {
+	border: 1px solid #999;
+	padding-top: 0px;
+	margin-bottom: 10px;
+	padding: 10px;
+	line-height: 20px;
+}
+#leftcontent ul {
+	list-style-type:none;
+	padding:0;
+	margin:0;
+}
+#leftcontent h3 {
 	display: block;
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll 0 0;
 	color: #666;
@@ -214,20 +226,19 @@ span.link {
 	font-size: 100%;
 	margin: -10px -10px -5px -10px;
 }
-#leftcontent p {
-	border: 1px solid #999;
-	padding-top: 0px;
-	margin-bottom: 10px;
-	padding: 10px;
-	line-height: 20px;
-}
 #leftcontent a {
 	color:#069;
 	text-decoration:none;
+	display:block;
+	border-bottom:1px solid #999;
+	padding:5px 10px;
 }
 #leftcontent a:hover {
 	color:#333;
 	background-color:#fff;
+}
+#leftcontent li:last-child a {
+	border-bottom:none;
 }
 #centercontent {
 	margin-left:210px;
