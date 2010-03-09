@@ -567,6 +567,7 @@ a.abutton:hover {
 ul.buttonlist {
 	list-style-type:none;
 	padding:0;
+	display:inline;
 }
 ul.buttonlist li {
 	display:inline;
