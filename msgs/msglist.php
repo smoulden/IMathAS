@@ -477,7 +477,7 @@ function picshow(size) {
 	if ($cansendmsgs) {
 		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"abutton\">Send New Message</a></p>\n";
 	}
-	<!--echo "<p><a href=\"sentlist.php?cid=$cid\">Sent Messages</a></p>";-->
+	echo "<p><a href=\"sentlist.php?cid=$cid\">Sent Messages</a></p>";
 	
 	if ($isteacher && $cid>0 && $msgmonitor==1) {
 		echo "<p><a href=\"allstumsglist.php?cid=$cid\">Student Messages</a></p>";
@@ -485,5 +485,3 @@ function picshow(size) {
 	
 	require("../footer.php");
 ?>
-		
-	
