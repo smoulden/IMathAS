@@ -186,7 +186,7 @@ isread:
 				$message = '';
 				$courseid=$cid;
 			}
-			echo "</span><br class=form />";
+			echo "</span><br class=\"form\" />";
 			echo "<input type=hidden name=courseid value=\"$courseid\"/>\n";
 			echo "<span class=form><label for=\"subject\">Subject:</label></span>";
 			echo "<span class=formright><input type=text size=50 name=subject id=subject value=\"$title\"></span><br class=form>\n";
@@ -289,7 +289,7 @@ isread:
 		}
 		if ($max!=$numpages-1) { echo " ... ";}
 		if ($page == $numpages) {
-			echo "<b>$numpages</b> ";
+			echo "<strong>$numpages</strong> ";
 		} else {
 			echo "<a href=\"msglist.php?page=$numpages&cid=$cid&filtercid=$filtercid&filteruid=$filteruid\">$numpages</a> ";
 		}
@@ -393,11 +393,10 @@ function picshow(size) {
 	echo "</select><br />";
 
 	if ($cansendmsgs) {
-		echo "<ul class=\"buttonlist\"><li>";
-		echo "<a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Compose new message</a>\n";
-		echo "</li><li>";
-		echo "<a href=\"sentlist.php?cid=$cid\">Sent messages</a>\n";
-		echo "</li></ul>";
+		echo "<ul class=\"buttonlist\">";
+		echo "<li><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Compose new message</a></li>\n";
+		echo "<li><a href=\"sentlist.php?cid=$cid\">Sent messages</a></li>\n";
+		echo "</ul>";
 	}	
 ?>
 		Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
