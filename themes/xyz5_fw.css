@@ -118,6 +118,10 @@ div.cpmid {
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
 	font-family:Helvetica, Arial, sans-serif;
+	padding:5px 10px 10px 10px;
+}
+div cpmid br {
+	margin-bottom:15px;
 }
 table thead th {
 	font-weight:bold;
@@ -536,11 +540,12 @@ a.abutton {
 	-webkit-border-radius:15px;
 }
 a.abutton, div#viewbuttoncont a, ul.buttonlist li a {
-	font-family:Helvetica, Arial, sans-serif;
+	font:normal 12px/15px Helvetica, Arial, sans-serif;
 	color: #fff;
-	display:inline;	
-	padding:4px 10px;
+	display:inline-block;	
+	padding:5px 15px;
 	text-decoration:none;
+	height:14px;
 }
 a.abutton, div#viewbuttoncont a.buttoninactive, ul.buttonlist li a  {
 	background-color: #999;
@@ -646,7 +651,7 @@ input[type="submit"], input[type="button"] {
 	background-color: #999;
 	border:none;
 	cursor:pointer;
-	padding:4px 10px;
+	padding:4px 15px;
 	color: #fff;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
