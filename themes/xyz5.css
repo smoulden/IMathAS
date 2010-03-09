@@ -304,6 +304,7 @@ div.breadcrumb a {
 }
 div.breadcrumb a:hover {
 	background:#fff;
+	color:#069;
 }
 .midwrapper {
 	position: relative;
