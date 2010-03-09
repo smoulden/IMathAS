@@ -190,7 +190,7 @@ isread:
 			echo "<input type=hidden name=courseid value=\"$courseid\"/>\n";
 			echo "<span class=form><label for=\"subject\">Subject:</label></span>";
 			echo "<span class=formright><input type=text size=50 name=subject id=subject value=\"$title\"></span><br class=form>\n";
-			echo "<span class=form><label for=\"message\">Message:</label></span>";
+			echo "<span class=\"form\"><label for=\"message\">Message:</label></span>";
 			echo "<span class=left><div class=editor><textarea id=message name=message style=\"width: 100%;\" rows=20 cols=70>";
 			echo htmlentities($message);
 			echo "</textarea></div></span><br class=form>\n";
@@ -392,9 +392,9 @@ function picshow(size) {
 	echo "</select>";
 
 	if ($cansendmsgs) {
-		echo "<ul class=\"buttonlist\"><li>"
+		echo "<ul class=\"buttonlist\"><li>";
 		echo "<a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Compose new message</a>\n";
-		echo "</li><li>
+		echo "</li><li>";
 		echo "<a href=\"sentlist.php?cid=$cid\">Sent messages</a>\n";
 		echo "</li></ul>";
 	}
