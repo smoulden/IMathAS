@@ -110,11 +110,7 @@ div.icon {
 }
 
 /*Control panels*/
-div.cp {
-	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
-	border: 1px solid #999;
-}
-div.cpmid {
+div.cpmid, div.cp {
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
 	font-family:Helvetica, Arial, sans-serif;
