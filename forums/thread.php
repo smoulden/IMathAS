@@ -503,12 +503,12 @@ echo "<div class="cpmid">";
 		}
 		echo '</select></p>';
 	}
-	echo '<p>';
+	echo '<br />';
 	if (($myrights > 5 && time()<$postby) || $isteacher) {
 		echo "<a class=\"abutton specialbutton\" href=\"thread.php?page=$page&cid=$cid&forum=$forumid&modify=new\">Add New Thread</a>\n";
 	}
 	if ($isteacher) {
-		echo "<a class=\"abutton\" href=\"postsbyname.php?page=$page&cid=$cid&forum=$forumid\">List Posts by Name</a>";
+		echo "<a class=\"abutton\" href=\"postsbyname.php?page=$page&cid=$cid&forum=$forumid\">List Posts by Name</a>\n";
 	}
 	echo "<ul class\"buttonlist\">";
 		if ($page < 0) {
@@ -519,13 +519,12 @@ echo "<div class="cpmid">";
 			}
 		echo "<li><a href=\"thread.php?cid=$cid&forum=$forumid&page=-2\">Limit to Flagged</a></li>";
 		}
-	echo "</div>";
+	echo "</ul>";
 	if (count($newpost) > 0) {
-		echo "<a class=\"abutton\" href=\"thread.php?page=$page&cid=$cid&forum=$forumid&markallread=true\">Mark all Read</a>";
+		echo "<a class=\"abutton\" href=\"thread.php?page=$page&cid=$cid&forum=$forumid&markallread=true\">Mark all Read</a>\n";
 	}
 	
-	echo "</p></div><!--cpmid-->";
-	
+	echo "</div><!--cpmid-->";
 ?>
 	<table class=forum>
 	<thead>
