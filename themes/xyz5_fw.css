@@ -69,10 +69,12 @@ div.block, div.blockitems div.blockitems div.block {
 	clear: both;
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
+	padding:5px 10px;
 }
 div.block h3 {
 	color: #333;
 	font-size: 120%;
+	margin:0;
 }
 /*Default block item container*/
 div.blockitems, div.blockitems div.blockitems div.blockitems {
@@ -312,7 +314,7 @@ ul.courselist li a:hover {
 #headerhome h2 {
 	border:1px solid #999;
 	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center top;
-	padding:5px;
+	padding:5px 10px;
 }
 #headerlogo {
 	right: 0px;
