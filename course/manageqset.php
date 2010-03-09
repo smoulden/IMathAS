@@ -1024,7 +1024,7 @@ function getnextprev(formn,loc) {
 		echo "<form method=post action=\"manageqset.php?cid=$cid\">\n";
 		echo "Selected Libraries: <span id=\"libnames\">$lnames</span><input type=hidden name=\"libs\" id=\"libs\"  value=\"$searchlibs\">\n";
 		//echo " <input type=button value=\"Select Libraries\" onClick=\"libselect()\"> <br>"; 
-		echo '<input type="button" value="Select Libraries" onClick="GB_show(\'Library Select\',\'libtree2.php?libtree=popup&libs=\'+curlibs,500,500)" class=\"specialbutton\" /> <br>';
+		echo '<input type="button" value="Select Libraries" onClick="GB_show(\'Library Select\',\'libtree2.php?libtree=popup&libs=\'+curlibs,500,500)" class="specialbutton" /> <br>';
 		
 		echo "Search: <input type=\"text\" size=15 name=search value=\"$search\"> <input type=checkbox name=\"searchall\" value=\"1\" ";
 		if ($searchall==1) {echo "checked=1";}
@@ -1032,8 +1032,8 @@ function getnextprev(formn,loc) {
 		if ($searchmine==1) {echo "checked=1";}
 		echo "/>Mine only ";
 		
-		echo "<input type=submit value=Search class=\"specialbutton\">\n";
-		echo "<input type=button value=\"Add New Question\" onclick=\"window.location='moddataset.php?cid=$cid'\">\n";
+		echo "<input type=\"submit\" value=\"Search\" class=\"specialbutton\">\n";
+		echo "<input type=\"button\" value=\"Add New Question\" onclick=\"window.location='moddataset.php?cid=$cid'\">\n";
 		echo "</form>";
 		
 		echo "<script type=\"text/javascript\" src=\"$imasroot/javascript/tablesorter.js\"></script>\n";
