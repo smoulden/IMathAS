@@ -225,11 +225,13 @@ span.link {
 	font-size: 100%;
 	margin: -10px -10px -5px -10px;
 }
+#leftcontent li {
+	border-bottom:1px solid #999;
+}
 #leftcontent a {
 	color:#069;
 	text-decoration:none;
 	display:block;
-	border-bottom:1px solid #999;
 	padding:5px 10px;
 }
 #leftcontent a:hover {
