@@ -375,6 +375,7 @@
 	echo "<div class=breadcrumb>$breadcrumbbase <a href=\"../course/course.php?cid=$cid\">$coursename</a> &gt; Forum Topics</div>\n";
 	echo '<div id="headerthread" class="pagetitle"><h2>Forum: '.$forumname.'</h2></div>';
 
+echo "<div class="cpmid">";
 	$query = "SELECT threadid,COUNT(id) AS postcount,MAX(postdate) AS maxdate FROM imas_forum_posts ";
 	$query .= "WHERE forumid='$forumid' ";
 	if ($dofilter) {
@@ -471,7 +472,7 @@
 	echo "<input type=hidden name=forum value=\"$forumid\"/>";
 	
 ?>
-	Search: <input type=text name="search" /> <input type=checkbox name="allforums" />All forums in course? <input type="submit" value="Search"/>
+	<label for="search">Search:</label> <input type="text" name="search" id="search" /> <input type="checkbox" name="allforums" id="allforums" /><label for="allforums">All forums in course?</label> <input type="submit" value="Search"/>
 	</form>
 <?php
 	if ($isteacher && $grpaid>0) {
@@ -504,25 +505,26 @@
 	}
 	echo '<p>';
 	if (($myrights > 5 && time()<$postby) || $isteacher) {
-		echo "<a href=\"thread.php?page=$page&cid=$cid&forum=$forumid&modify=new\">Add New Thread</a>\n";
+		echo "<a class=\"abutton specialbutton\" href=\"thread.php?page=$page&cid=$cid&forum=$forumid&modify=new\">Add New Thread</a>\n";
 	}
 	if ($isteacher) {
-		echo " | <a href=\"postsbyname.php?page=$page&cid=$cid&forum=$forumid\">List Posts by Name</a>";
+		echo "<a class=\"abutton\" href=\"postsbyname.php?page=$page&cid=$cid&forum=$forumid\">List Posts by Name</a>";
 	}
-	
-	if ($page<0) {
-		echo " | <a href=\"thread.php?cid=$cid&forum=$forumid&page=1\">Show All</a>";
-	} else {
-		if (count($newpost)>0) {
-			echo " | <a href=\"thread.php?cid=$cid&forum=$forumid&page=-1\">Limit to New</a>";
+	echo "<ul class\"buttonlist\">";
+		if ($page < 0) {
+			echo "<li><a href=\"thread.php?cid=$cid&forum=$forumid&page=1\">Show All</a></li>";
+		} else {
+			if (count($newpost) > 0) {
+				echo "<li><a href=\"thread.php?cid=$cid&forum=$forumid&page=-1\">Limit to New</a></li>";
+			}
+		echo "<li><a href=\"thread.php?cid=$cid&forum=$forumid&page=-2\">Limit to Flagged</a></li>";
 		}
-		echo " | <a href=\"thread.php?cid=$cid&forum=$forumid&page=-2\">Limit to Flagged</a>";
-	} 
-	if (count($newpost)>0) {
-		echo " | <a href=\"thread.php?page=$page&cid=$cid&forum=$forumid&markallread=true\">Mark all Read</a>";
+	echo "</div>";
+	if (count($newpost) > 0) {
+		echo "<a class=\"abutton\" href=\"thread.php?page=$page&cid=$cid&forum=$forumid&markallread=true\">Mark all Read</a>";
 	}
 	
-	echo "</p>";
+	echo "</p></div><!--cpmid-->";
 	
 ?>
 	<table class=forum>
