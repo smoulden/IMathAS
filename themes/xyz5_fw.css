@@ -119,6 +119,9 @@ div.cpmid, div.cp {
 div.cpmid form, div.cp form {
 	margin-bottom:10px;
 }
+div.cpmid form:last-child, div.cp form:last-child {
+	margin-bottom:0;
+}
 div.cpmid br, div.cp br {
 	margin-bottom:15px;
 }
