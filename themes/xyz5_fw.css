@@ -43,10 +43,10 @@ a:hover {
 	color:#fff;
 	background-color:#EB6F00;
 }
-a.specialbutton {
+.specialbutton {
 	background-color:#f93;
 }
-a.specialbutton:hover {
+.specialbutton:hover {
 	background-color:#EB6F00;
 }
 div.mainbody {
