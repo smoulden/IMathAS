@@ -477,11 +477,7 @@ if ($overwriteBody==1) {
 	<div class="cpmid">
 		<span class="invisible">With Selected: </span>
 		<ul class="buttonlist">
-			<li><input type="submit" name="submit" value="E-mail"></li>
-			<li><input type="submit" name="submit" value="Message"></li>
-			<li><input type="submit" name="submit" value="Unenroll"></li>
-			<li><input type="submit" name="submit" value="Make Exception"></li>
-			<li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
+			<li><input type="submit" name="submit" value="E-mail"></li><li><input type="submit" name="submit" value="Message"></li><li><input type="submit" name="submit" value="Unenroll"></li><li><input type="submit" name="submit" value="Make Exception"></li><li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
 		</ul><br />
 		Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
 	</div>	
