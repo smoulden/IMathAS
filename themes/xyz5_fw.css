@@ -610,6 +610,9 @@ ul.buttonlist li:last-child input, ul.buttonlist li:last-child a {
 	-webkit-border-top-right-radius:15px;
 	border-right:none;
 }
+div.pagetitle h2 {
+	margin:10px 0;
+}
 div.title {
 	margin-left: 50px;
 	font-family:Helvetica, Arial, sans-serif;
@@ -621,8 +624,8 @@ div.title a:hover {
 	background-color:#069;
 	color:#fff;
 }
-div.pagetitle h2 {
-	margin:10px 0;
+div.block div.title {
+	margin-left:30px;
 }
 div.itemsum {
 	margin-left: 50px;
