@@ -485,7 +485,7 @@ echo "<div class=\"cpmid\">";
 		echo "  window.location = \"thread.php?page=$pages&cid=$cid&forum=$forumid&ffilter=\"+ffilter;";
 		echo '}';
 		echo '</script>';
-		echo '<br /><label for="ffilter">Show posts for group:</label> <select id="ffilter" onChange="chgfilter()"><option value="0" ';
+		echo '<label for="ffilter">Show posts for group:</label> <select id="ffilter" onChange="chgfilter()"><option value="0" ';
 		if ($curfilter==0) { echo 'selected="1"';}
 		echo '>All groups</option>';
 		$grpcnt = 1;
@@ -503,7 +503,6 @@ echo "<div class=\"cpmid\">";
 		}
 		echo '</select>';
 	}
-	echo '<br />';
 	if (($myrights > 5 && time()<$postby) || $isteacher) {
 		echo "<a class=\"abutton specialbutton\" href=\"thread.php?page=$page&cid=$cid&forum=$forumid&modify=new\">Add New Thread</a>\n";
 	}
