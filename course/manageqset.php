@@ -16,7 +16,7 @@ $helpicon = "";
 $isadmin = false;
 $isgrpadmin = false; 
 
-	//CHECK PERMISSIONS AND SET FLAGS
+//CHECK PERMISSIONS AND SET FLAGS
 if ($myrights<20) {
  	$overwriteBody = 1;
 	$body = "You need to log in as a teacher to access this page";
@@ -899,15 +899,15 @@ function getnextprev(formn,loc) {
 <?php
 	} else if (isset($_POST['transfer'])) {
 ?>
-		<form method=post action="manageqset.php?cid=<?php echo $cid ?>">
-			<input type=hidden name=transfer value="<?php echo $tlist ?>">
+		<form method="post" action="manageqset.php?cid=<?php echo $cid ?>">
+			<input type="hidden" name="transfer" value="<?php echo $tlist ?>">
 			Transfer to: 
 		
 			<?php writeHtmlSelect("newowner",$page_transferUserList['val'],$page_transferUserList['label']); ?>
 		
 			<p>
-				<input type=submit value="Transfer">
-				<input type=button value="Never Mind" onclick="window.location='manageqset.php?cid=<?php echo $cid ?>'">
+				<input type="submit" value="Transfer">
+				<input type="button" value="Never Mind" onclick="window.location='manageqset.php?cid=<?php echo $cid ?>'">
 			</p>
 		</form>
 <?php
@@ -928,9 +928,9 @@ function getnextprev(formn,loc) {
 			 
 		}
 		</script>
-		<form method=post action="manageqset.php?cid=<?php echo $cid ?>">
-			<input type=hidden name=chglib value="true">
-			<input type=hidden name=qtochg value="<?php echo $clist ?>">
+		<form method="post" action="manageqset.php?cid=<?php echo $cid ?>">
+			<input type="hidden" name="chglib" value="true">
+			<input type="hidden" name="qtochg" value="<?php echo $clist ?>">
 			What do you want to do with these questions?<br/>
 			<input type=radio name="action" value="0" onclick="chglibtoggle(this)" checked="checked"/> Add to libraries, keeping any existing library assignments<br/>
 			<input type=radio name="action" value="1" onclick="chglibtoggle(this)"/> Add to libraries, removing existing library assignments<br/>
@@ -943,16 +943,16 @@ function getnextprev(formn,loc) {
 
 			
 			<p>
-				<input type=submit value="Make Changes">
-				<input type=button value="Never Mind" onclick="window.location='manageqset.php?cid=<?php echo $cid ?>'">
+				<input type="submit" value="Make Changes">
+				<input type="button" value="Never Mind" onclick="window.location='manageqset.php?cid=<?php echo $cid ?>'">
 			</p>
 		</form>		
 <?php		
 	} else if (isset($_POST['template'])) {
 ?>
 
-		<form method=post action="manageqset.php?cid=<?php echo $cid ?>">
-			<input type=hidden name=template value="true">
+		<form method="post" action="manageqset.php?cid=<?php echo $cid ?>">
+			<input type="hidden" name=template value="true">
 			
 			<p>
 				This page will create new copies of these questions.  It is recommended that you place these new copies in a 
@@ -1019,14 +1019,14 @@ function getnextprev(formn,loc) {
 	} else { //DEFAULT DISPLAY
 		
 		echo $page_adminMsg;
-		
+	
+	echo "<div class=\"cpmid\">";	
 		echo "<form method=post action=\"manageqset.php?cid=$cid\">\n";
-
 		echo "In Libraries: <span id=\"libnames\">$lnames</span><input type=hidden name=\"libs\" id=\"libs\"  value=\"$searchlibs\">\n";
 		//echo " <input type=button value=\"Select Libraries\" onClick=\"libselect()\"> <br>"; 
 		echo '<input type="button" value="Select Libraries" onClick="GB_show(\'Library Select\',\'libtree2.php?libtree=popup&libs=\'+curlibs,500,500)" /> <br>';
 		
-		echo "Search: <input type=text size=15 name=search value=\"$search\"> <input type=checkbox name=\"searchall\" value=\"1\" ";
+		echo "Search: <input type=\"text\" size=15 name=search value=\"$search\"> <input type=checkbox name=\"searchall\" value=\"1\" ";
 		if ($searchall==1) {echo "checked=1";}
 		echo "/>Search all libs <input type=checkbox name=\"searchmine\" value=\"1\" ";
 		if ($searchmine==1) {echo "checked=1";}
@@ -1038,19 +1038,21 @@ function getnextprev(formn,loc) {
 		
 		echo "<script type=\"text/javascript\" src=\"$imasroot/javascript/tablesorter.js\"></script>\n";
 		echo "<form id=\"selform\" method=post action=\"manageqset.php?cid=$cid\">\n";
-		//echo "Check/Uncheck All: <input type=\"checkbox\" name=\"ca2\" value=\"1\" onClick=\"chkAll(this.form, 'nchecked[]', this.checked)\">\n";
-		echo 'Check: <a href="#" onclick="return chkAllNone(\'selform\',\'nchecked[]\',true)">All</a> <a href="#" onclick="return chkAllNone(\'selform\',\'nchecked[]\',false)">None</a> ';
 
-		echo "With Selected: <input type=submit name=\"transfer\" value=\"Transfer\">\n";
-		echo "<input type=submit name=\"remove\" value=\"Delete\">\n";
-		echo "<input type=submit name=\"chglib\" value=\"Library Assignment\">\n";
-		echo "<input type=submit name=\"chgrights\" value=\"Chg Rights\">\n";
-		echo "<input type=submit name=\"template\" value=\"Template\">\n";
+		echo "<span class=\"invisible\">With Selected: </span>\n";
+		echo "<ul class=\"buttonlist\">";
+			echo "<li><input type=submit name=\"transfer\" value=\"Transfer\"></li><li><input type=submit name=\"remove\" value=\"Delete\"></li><li><input type=submit name=\"chglib\" value=\"Library Assignment\"></li><li><input type=submit name=\"chgrights\" value=\"Chg Rights\"></li><li><input type=submit name=\"template\" value=\"Template\"></li>\n";
+		echo "</ul>";
 		if (!$isadmin && !$isgrpadmin) { 
-			echo "<br/>(Delete and Transfer only applies to your questions)\n";
+			echo "(Delete and Transfer only applies to your questions)\n";
 		} else if ($isgrpadmin) {
-			echo "<br/>(Delete and Transfer only apply to group's questions)\n";
+			echo "(Delete and Transfer only apply to group's questions)\n";
 		}
+		echo "<br />";
+		//echo "Check/Uncheck All: <input type=\"checkbox\" name=\"ca2\" value=\"1\" onClick=\"chkAll(this.form, 'nchecked[]', this.checked)\">\n";
+		echo 'Check: <a href="#" onclick="return chkAllNone(\'selform\',\'nchecked[]\',true)">All</a>, <a href="#" onclick="return chkAllNone(\'selform\',\'nchecked[]\',false)">None</a> ';
+	echo "</div> <!--cpmid-->";
+
 		echo "<table id=myTable class=gb><thead>\n";
 		echo "<tr><th>&nbsp;</th><th>Description</th><th>&nbsp;</th><th>Action</th><th>Type</th><th>Times Used</th><th>Last Mod</th>";
 		if ($isadmin || $isgrpadmin) { echo "<th>Owner</th>";} else {echo "<th>Mine</th>";}
