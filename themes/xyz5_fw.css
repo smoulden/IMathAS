@@ -558,9 +558,12 @@ div#viewbuttoncont {
 	float: right;
 	background:none;
 }
-div#viewbuttoncont a {
-	border-left:1px solid #fff;
+div#viewbuttoncont a, ul.buttonlist li a, ul.buttonlist li input {
+	border-right:1px solid #fff;
 	margin:0;
+}
+div#viewbuttoncont a:last-child {
+	border-right:none;
 }
 div#viewbuttoncont a.buttonactive{
 	background-color: #333;
@@ -578,29 +581,18 @@ ul.buttonlist li input {
 	-moz-border-radius:0;
 	-webkit-border-radius:0;
 }
-ul.buttonlist li:first-child input {
+ul.buttonlist li:first-child input, ul.buttonlist li:first-child a {
 	-moz-border-radius-bottomleft:15px;
 	-moz-border-radius-topleft:15px;
 	-webkit-border-bottom-left-radius:15px;
 	-webkit-border-top-left-radius:15px;
 }
-ul.buttonlist li:last-child input {
+ul.buttonlist li:last-child input, ul.buttonlist li:last-child a {
 	-moz-border-radius-bottomright:15px;
 	-moz-border-radius-topright:15px;
 	-webkit-border-bottom-right-radius:15px;
 	-webkit-border-top-right-radius:15px;
-}
-ul.buttonlist li:first-child a {
-	-moz-border-radius-bottomleft:15px;
-	-moz-border-radius-topleft:15px;
-	-webkit-border-bottom-left-radius:15px;
-	-webkit-border-top-left-radius:15px;
-}
-ul.buttonlist li:last-child a {
-	-moz-border-radius-bottomright:15px;
-	-moz-border-radius-topright:15px;
-	-webkit-border-bottom-right-radius:15px;
-	-webkit-border-top-right-radius:15px;
+	border-right:none;
 }
 div.title {
 	margin-left: 50px;
