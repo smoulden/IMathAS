@@ -679,6 +679,9 @@ div.quickview_options {
 	margin-top:10px;
 	border:1px solid #999;
 }
+.invisible {
+	display:none;
+}
 
 /*--------------------- FOOTER -----------------------*/
 #footer {
