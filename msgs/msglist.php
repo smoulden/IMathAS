@@ -352,16 +352,17 @@ function picshow(size) {
 }
 </script>	
 	<form id="qform" method="post" action="msglist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
-	<p>Filter by course: <select id="filtercid" onchange="chgfilter()">
-<?php
-	echo "<option value=\"0\" ";
-	if ($filtercid==0) {
-		echo "selected=1 ";
-	}
-	echo ">All courses</option>";
-	$query = "SELECT DISTINCT imas_courses.id,imas_courses.name FROM imas_courses,imas_msgs WHERE imas_courses.id=imas_msgs.courseid AND imas_msgs.msgto='$userid'";
-	$query .= " ORDER BY imas_courses.name";
-	$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
+	<div class="cpmid">
+	Filter by course: <select id="filtercid" onchange="chgfilter()">
+	<?php
+		echo "<option value=\"0\" ";
+		if ($filtercid==0) {
+			echo "selected=1 ";
+		}
+		echo ">All courses</option>";
+		$query = "SELECT DISTINCT imas_courses.id,imas_courses.name FROM imas_courses,imas_msgs WHERE imas_courses.id=imas_msgs.courseid AND imas_msgs.msgto='$userid'";
+		$query .= " ORDER BY imas_courses.name";
+		$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
 	while ($row = mysql_fetch_row($result)) {
 		echo "<option value=\"{$row[0]}\" ";
 		if ($filtercid==$row[0]) {
@@ -389,8 +390,7 @@ function picshow(size) {
 		}
 		echo " >{$row[1]}, {$row[2]}</option>";
 	}
-	echo "</select>";
-	echo "</p>";
+	echo "</select><br />";
 
 	if ($cansendmsgs) {
 		echo "<ul class=\"buttonlist\"><li>";
@@ -400,14 +400,14 @@ function picshow(size) {
 		echo "</li></ul>";
 	}	
 ?>
-	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
-	With Selected: <ul class="buttonlist">
-		<li><input type="submit" name="unread" value="Mark as Unread"></li>
-		<li><input type="submit" name="markread" value="Mark as Read"></li>
-		<li><input type="submit" name="remove" value="Delete"></li>
-		<li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
-	</ul>
-			
+		Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
+		With Selected: <ul class="buttonlist">
+			<li><input type="submit" name="unread" value="Mark as Unread"></li>
+			<li><input type="submit" name="markread" value="Mark as Read"></li>
+			<li><input type="submit" name="remove" value="Delete"></li>
+			<li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
+		</ul>
+	</div> <!--cpmid-->		
 	<table class="gb" id="myTable" cellpadding="0">
 	<thead>
 	<tr><th></th><th>Message</th><th>Replied</th><th></th><th>From</th><th>Course</th><th>Sent</th></tr>
