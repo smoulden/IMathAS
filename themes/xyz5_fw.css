@@ -662,6 +662,14 @@ legend {
 table.forum td {
 	border:1px solid #999;
 }
+div.quickview_options {
+	background-color:#069;
+	color:#fff;
+}
+div.quickview_options input {
+	background-color:#fff;
+	color:#069;
+}
 
 /*--------------------- FOOTER -----------------------*/
 #footer {
