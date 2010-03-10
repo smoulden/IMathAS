@@ -723,6 +723,24 @@ div.quickview_options {
 .invisible {
 	display:none;
 }
+
+/*--------------------- MASS CHANGE DATES -----------------------*/
+table.masschgdates img.toggle {
+	cursor:pointer;
+	vertical-align:middle;
+	padding:2px;
+	margin-right:5px;
+}
+table.masschgdates .show {
+	display:-moz-inline-stack;
+	display:inline-block;
+	vertical-align:middle;
+	zoom: 1;
+        *display: inline;
+}
+.hide {
+	display:none;
+}
 .shortday {
 	font:bold 100% Helvetica, Arial, sans-serif;
 }
