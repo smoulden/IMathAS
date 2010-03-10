@@ -143,6 +143,10 @@ div.cpmid a.abutton, div.cpmid input[type="button"], div.cpmid input[type="submi
 div.cp a.abutton, div.cp input[type="button"], div.cp input[type="submit"] {
 	margin-right:5px;
 }
+div.cpmid ul.buttonlist input[type="button"], div.cpmid ul.buttonlist input[type="submit"],
+div.cp ul.buttonlist input[type="button"], ul.buttonlist div.cp input[type="submit"] {
+	margin-right:0;
+}
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
