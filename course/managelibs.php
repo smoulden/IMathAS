@@ -637,33 +637,30 @@ if ($overwriteBody==1) {
 	} else { //DEFAULT DISPLAY 
 
 		echo $page_AdminModeMsg; 
-?>		
-	<form method=post action="managelibs.php?cid=<?php echo $cid ?>">
-		<input type=button value="Add New Library" onclick="window.location='managelibs.php?modify=new&cid=<?php echo $cid ?>'">
-	</form>
-
-<?php		
-		foreach ($rights as $k=>$n) {
-			setparentrights($k);
-		}
+?>	
+	<div class="cpmid">
+	<form id="qform" method="post" action="managelibs.php?cid=<?php echo $cid ?>">
+		<span class="invisible">With Selected:</span> 
+			<ul class="buttonlist">
+				<li><input type=submit name="transfer" value="Transfer"></li><li><input type=submit name="remove" value="Delete"></li><li><input type=submit name="setparent" value="Change Parent"></li><li><input type=submit name="chgrights" value="Change Rights"></li>
+			</ul>
+		<?php echo $page_appliesToMsg ?>
+		<input type="button" value="Add New Library" onclick="window.location='managelibs.php?modify=new&cid=<?php echo $cid ?>'">
+		<?php		
+			foreach ($rights as $k=>$n) {
+				setparentrights($k);
+			}
 		
-		$qcount[0] = addupchildqs(0);
-?>
-		
-	<form id="qform" method=post action="managelibs.php?cid=<?php echo $cid ?>">
-		<div>
-			Check: <a href="#" onclick="return chkAllNone('qform','nchecked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','nchecked[]',false)">None</a>
-			With Selected: <input type=submit name="transfer" value="Transfer">
-			<input type=submit name="remove" value="Delete">
-			<input type=submit name="setparent" value="Change Parent">
-			<input type=submit name="chgrights" value="Change Rights">
-			<?php echo $page_appliesToMsg ?>
-		
-		</div>
+			$qcount[0] = addupchildqs(0);
+		?>
+		<br />	
+		Check: <a href="#" onclick="return chkAllNone('qform','nchecked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('qform','nchecked[]',false)">None</a>
+			
+	</div> <!--cpmid-->
 		<p>
 			Root
 	
-			<ul class=base>
+			<ul class="base">
 <?php		
 		$count = 0;
 	
