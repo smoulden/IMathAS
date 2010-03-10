@@ -428,7 +428,7 @@ div.curquestion div.question {
 div.inactive {
 
 }
-div.seqqinfocur, div.seqqinfoavail {
+div.seqqinfocur, div.seqqinfoavail, div.seqqinfoinactive {
 	font-family: Helvetica,Arial,sans-serif;
 	text-transform:uppercase;
 }
@@ -436,7 +436,8 @@ div.seqqinfocur a, div.seqqinfoavail a {
 	color:#069
 }
 div.seqqinfocur a:hover, div.seqqinfoavail a:hover {
-	background-color:#069
+	background-color:#069;
+	color:fff;
 }
 div.seqqinfocur {
 	border:1px solid #999;
@@ -448,12 +449,21 @@ div.seqqinfocur span.current{
 }
 div.seqqinfoavail {
 	border-top:1px solid #999;
+	padding-top:10px;
 }
 div.seqqinfoinactive {
-
+	color:#666;
+}
+div.seqqinfoinactive a {
+	color:#666;
+	cursor:default;
+}
+div.seqqinfoinactive a:hover {
+	color:#666;
+	background:none;
 }
 div.todoquestion {
-	background-color: #fff; 
+	background:none; 
 	border: 0px; 
 	padding-left:20px;
 }
@@ -462,6 +472,7 @@ div.question {
 	background-color: #fff;; 
 	border: 1px solid #999;
 	width: auto;
+	margin:0;
 }
 div.inset {
 	margin: 0px;
