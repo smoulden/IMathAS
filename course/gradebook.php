@@ -332,9 +332,9 @@ if (isset($studentid) || $stu!=0) { //show student view
 			echo "<option value=2 "; writeHtmlSelected($showpics,2); echo ">Big</option></select>";
 		if ($isteacher) {
 			echo "<br />";
-			echo "Offline Grades: <ul class=\"buttonlist\">
+			echo "Offline Grades: <ul class=\"buttonlist\">;
 				echo "<li><a href=\"addgrades.php?cid=$cid&gbitem=new&grades=all\">Add</a></li><li><a href=\"chgoffline.php?cid=$cid\">Manage</a></li>";
-				echo "</ul>";
+			echo "</ul>";
 			echo '<label for="exportsel">Export to</label> <select id="exportsel" onchange="chgexport()">';
 				echo '<option value="0">Select</option>';
 				echo '<option value="1">...file</option>';
@@ -344,7 +344,7 @@ if (isset($studentid) || $stu!=0) { //show student view
 			//echo "<a href=\"gb-export.php?stu=$stu&cid=$cid&emailgb=me\">My Email</a>, or <a href=\"gb-export.php?stu=$stu&cid=$cid&emailgb=ask\">Other Email</a>";
 			echo "<a class=\"abutton\" href=\"gbsettings.php?cid=$cid\">GB Settings</a>";
 			echo "<ul class=\"buttonlist\">";
-			echo "<li><a href=\"gradebook.php?cid=$cid&stu=-1\">Averages</a></li><li><a href=\"gbcomments.php?cid=$cid&stu=0\">Comments</a></li>";
+			echo "<li><a href=\"gradebook.php?cid=$cid&stu=-1\">Averages</a></li><li><a href=\"gbcomments.php?cid=$cid&stu=0\">Comments</a></li>\n";
 			echo "</ul>";
 			echo "<input type=\"button\" id=\"lockbtn\" onclick=\"lockcol()\" value=\"";
 			if ($headerslocked) {
@@ -353,7 +353,7 @@ if (isset($studentid) || $stu!=0) { //show student view
 				echo "Lock headers";
 			}
 			echo "\"/>";
-			echo '<a class="abutton" href="#" onclick="chgnewflag(); return false;">New flag</a>';
+			echo "<a class=\"abutton\" href=\"#\" onclick=\"chgnewflag(); return false;\">New flag</a>";
 			//echo '<input type="button" value="Pics" onclick="rotatepics()" />';
 			echo "<br/ >";
 		}	
@@ -371,7 +371,7 @@ if (isset($studentid) || $stu!=0) { //show student view
 			echo 'Check: <a href="#" onclick="return chkAllNone(\'qform\',\'checked[]\',true)">All</a>, <a href="#" onclick="return chkAllNone(\'qform\',\'checked[]\',false)">None</a> ';
 			echo "<span class=\"invisible\">With Selected:</span>";
 			echo "<ul class=\"buttonlist\">";
-			echo "<li><input type=submit name=submit value=\"E-mail\"></li><li><input type=submit name=submit value=\"Message\"></li><li><input type=submit name=submit value=\"Unenroll\"></li><li><input type=submit name=submit value=\"Make Exception\"></li> ";
+			echo "<li><input type=submit name=submit value=\"E-mail\"></li><li><input type=submit name=submit value=\"Message\"></li><li><input type=submit name=submit value=\"Unenroll\"></li><li><input type=submit name=submit value=\"Make Exception\"></li>\n";
 			echo "</ul>";
 		}
 	echo "</div> <!--cpmid-->";
