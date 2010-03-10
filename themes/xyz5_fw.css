@@ -147,6 +147,8 @@ div.cpmid ul.buttonlist input[type="button"], div.cpmid ul.buttonlist input[type
 div.cp ul.buttonlist input[type="button"], ul.buttonlist div.cp input[type="submit"] {
 	margin-right:0;
 }
+
+/*Tables */
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
@@ -154,10 +156,11 @@ table thead th {
 	border: 1px solid #999;
 	font-family:Helvetica, Arial, sans-serif;
 }
-
-/*Tables */
+table.gb thead {
+	border:1px solid #999;
+}
 table.gb thead th, table.gbl thead th, table.gbl thead th.locked {
-	border: 1px solid #999;
+	border:none;
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 }
 tr.even {
