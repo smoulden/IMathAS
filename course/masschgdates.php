@@ -99,7 +99,6 @@ if (!(isset($teacherid))) { // loaded by a NON-teacher
 	} else { //DEFAULT DATA MANIPULATION
 		$pagetitle = "Mass Change Dates";
 		$placeinhead = "<script type=\"text/javascript\" src=\"$imasroot/javascript/masschgdates.js\"></script>";
-		$placeinhead .= ;
 	}
 }	
 
@@ -202,7 +201,7 @@ if ($overwriteBody==1) {
 	echo '<th width="150px">End Date</th>';
 	echo '<th width="100px">Review Date</th>';
 	echo '<th width="125px">Send Date Chg Down List</th>';
-	echo '</thead><tbody>';
+	echo '</tr></thead><tbody>';
 	
 	$names = Array();
 	$startdates = Array();
