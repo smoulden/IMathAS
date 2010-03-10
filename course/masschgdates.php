@@ -195,11 +195,11 @@ if ($overwriteBody==1) {
 	echo ' <input type="button" value="Go" onclick="MCDtoggleselected(this.form)" />';
 	
 	echo '<table class="gb masschgdates"><thead><tr>';
-	echo '<th width="300px">Name</th>';
+	echo '<th width="250px">Name</th>';
 	echo '<th width="125px">Type</th>';
-	echo '<th width="150px">Start Date</th>';
-	echo '<th width="150px">End Date</th>';
-	echo '<th width="100px">Review Date</th>';
+	echo '<th width="175px">Start Date</th>';
+	echo '<th width="175px">End Date</th>';
+	echo '<th width="175px">Review Date</th>';
 	echo '<th width="125px">Send Date Chg Down List</th>';
 	echo '</tr></thead><tbody>';
 	
