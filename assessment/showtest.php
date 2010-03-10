@@ -1145,7 +1145,7 @@
 					if ($i==$toshow) {
 						echo "<div><input type=\"submit\" class=\"btn\" value=\"Submit Question ".($i+1)."\" /></div><p></p>\n";
 					}
-					echo '<hr class="seq"/>';
+					//echo '<hr class="seq"/>';
 				}
 				
 			}
@@ -1306,7 +1306,7 @@
 						echo "<div><input type=\"submit\" class=\"btn\" value=\"Submit Question ".($i+1)."\" /></div><p></p>\n";
 					}
 					
-					echo '<hr class="seq"/>';
+					//echo '<hr class="seq"/>';
 				}
 			}
 		}
