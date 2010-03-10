@@ -466,7 +466,10 @@ function copyfromtoggle(frm,mark) {
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgfeedback"/></td>
-				<td><label for="showansprac showans">Show Answers:</label></td>
+				<td class="r">
+					<span id="showanspracspan" class="<?php echo ($testtype=="Practice" || $testtype=="Homework") ? "show" : "hidden"; ?>"><label for="showansprac">Show Answers:</label></span>
+					<span id="showansspan" class="<?php echo ($testtype!="Practice" && $testtype!="Homework") ? "show" : "hidden"; ?>"><label for="showans">Show Answers:</label></span>
+				</td>
 				<td><span id="showanspracspan" class="<?php echo ($testtype=="Practice" || $testtype=="Homework") ? "show" : "hidden"; ?>">
 					<select name="showansprac" id="showansprac">
 						<option value="V">Never, but allow students to review their own answers</option>
