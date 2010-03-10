@@ -144,6 +144,8 @@ div.cpmid select {
 div.cpmid ul.buttonlist, div.cp ul.buttonlist {
 	margin-right:5px;
 }
+
+/*Tables */
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
@@ -151,8 +153,6 @@ table thead th {
 	border: 1px solid #999;
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 }
-
-/*Tables */
 table.gb thead th, table.gbl thead th, table.gbl thead th.locked {
 	border: 1px solid #999;
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
@@ -216,6 +216,22 @@ table.gb .cat9 {
 }
 .cattothdr {
 	font-variant: small-caps
+}
+/* Calendar styles /*
+table.cal th {
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left top;
+}
+table.cal td {
+	cursor: pointer;
+}
+table.cal td.today {
+	background-color:#ccc;
+}
+table.forum td {
+	border:1px solid #999;
+}
+span.day {
+	background-color: transparent;
 }
 
 /*Fake look of links for Javascript onclicks*/
@@ -598,20 +614,19 @@ input[type="submit"], input[type="button"] {
 input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: #666;
 }
-table.cal th {
-	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left top;
+fieldset {
+	margin:0;
+	padding:5px 10px 10px 10px;
 }
-table.cal td {
-	cursor: pointer;
+fieldset fieldset {
+	margin:0;
+	padding:0;
+	border:none;
 }
-table.cal td.today {
-	background-color:#ccc;
-}
-table.forum td {
-	border:1px solid #999;
-}
-span.day {
-	background-color: transparent;
+fieldset ul {
+	padding:0;
+	list-style-type:none;
+	margin:0;
 }
 a.newnote {
 	color: #f00;
