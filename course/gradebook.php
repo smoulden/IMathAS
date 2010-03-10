@@ -332,7 +332,7 @@ if (isset($studentid) || $stu!=0) { //show student view
 			echo "<option value=2 "; writeHtmlSelected($showpics,2); echo ">Big</option></select>";
 		if ($isteacher) {
 			echo "<br />";
-			echo "Offline Grades: <ul class=\"buttonlist\">;
+			echo "Offline Grades: <ul class=\"buttonlist\">";
 				echo "<li><a href=\"addgrades.php?cid=$cid&gbitem=new&grades=all\">Add</a></li><li><a href=\"chgoffline.php?cid=$cid\">Manage</a></li>";
 			echo "</ul>";
 			echo '<label for="exportsel">Export to</label> <select id="exportsel" onchange="chgexport()">';
