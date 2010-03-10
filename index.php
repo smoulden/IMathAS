@@ -280,7 +280,7 @@ function printMessagesGadget() {
 		echo '</div>';
 		return;
 	}
-	echo '<table class="gb" id="newmsglist"><thead><tr><th>Message</th><th>From</th><th>Course</th><th>Sent</th></tr></thead>';
+	echo '<table class="gb" id="newmsglist" cellspacing="0"><thead><tr><th>Message</th><th>From</th><th>Course</th><th>Sent</th></tr></thead>';
 	echo '<tbody>';
 	foreach ($page_newmessagelist as $line) {
 		echo '<tr>';
@@ -330,7 +330,7 @@ function printPostsGadget() {
 		$threaddata[$tline['id']] = $tline;
 	}
 	
-	echo '<table class="gb" id="newpostlist"><thead><tr><th>Thread</th><th>Started By</th><th>Course</th><th>Last Post</th></tr></thead>';
+	echo '<table class="gb" id="newpostlist" cellspacing="0"><thead><tr><th>Thread</th><th>Started By</th><th>Course</th><th>Last Post</th></tr></thead>';
 	echo '<tbody>';
 	foreach ($page_newpostlist as $line) {
 		echo '<tr>';
