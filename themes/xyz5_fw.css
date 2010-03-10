@@ -723,6 +723,9 @@ div.quickview_options {
 .invisible {
 	display:none;
 }
+.shortday {
+	font:bold 100% Helvetica, Arial, sans-serif;
+}
 
 /*--------------------- FOOTER -----------------------*/
 #footer {
