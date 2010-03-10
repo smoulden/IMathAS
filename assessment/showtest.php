@@ -1262,7 +1262,7 @@
 				echo "<a name=\"beginquestions\"></a>\n";
 				basicshowq($i);
 				showqinfobar($i,true,true);
-				echo '<input type="submit" class="btn" value="Submit" />';
+				echo '<input type="submit" class="btn specialbutton" value="Submit" />';
 				if (($testsettings['showans']=='J' && $qi[$questions[$i]]['showans']=='0') || $qi[$questions[$i]]['showans']=='J') {
 						echo ' <input type="button" class="btn" value="Jump to Answer" onclick="if (confirm(\'If you jump to the answer, you must generate a new version to earn credit\')) {window.location = \'showtest.php?action=skip&amp;jumptoans='.$i.'&amp;to='.$i.'\'}"/>';
 					}
