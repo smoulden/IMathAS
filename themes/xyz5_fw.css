@@ -420,7 +420,7 @@ form#qform {
 div.curquestion {
 	border:1px solid #999;
 	border-top:none;
-	padding-left:10px;
+	padding-left:20px;
 }
 div.curquestion div.question {
 	border:none;
