@@ -413,7 +413,7 @@ div#headershowtest h2 {
 	margin: 0px;
 	color: #666;
 }
-form.qform {
+form#qform {
 	padding:10px;
 	border:1px solid #999;
 }
@@ -441,7 +441,7 @@ div.seqqinfocur span.current{
 
 }
 div.seqqinfoavail {
-
+	border-top:1px solid #999;
 }
 div.seqqinfoinactive {
 
@@ -454,7 +454,7 @@ div.todoquestion {
 div.question {
 	background-color: #fff;; 
 	border: 1px solid #999;
-	border-top:1px solid #999;
+	border-top:none;
 	width: auto;
 }
 div.inset {
