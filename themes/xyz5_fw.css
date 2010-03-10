@@ -34,7 +34,7 @@ strong, b {
 }
 
 /*Link styles*/
-a {
+a:link, a:active, a:visited {
 	text-decoration:underline;
 	color:#EB6F00;
 }
@@ -445,7 +445,8 @@ div.seqqinfocur {
 	padding:10px 0 0 10px;
 }
 div.seqqinfocur span.current{
-
+	background:none;
+	font-weight:bold;
 }
 div.seqqinfoavail {
 	border-top:1px solid #999;
