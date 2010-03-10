@@ -472,13 +472,7 @@ div.navbar {
 	width:200px;
 	margin-right:10px;
 	padding:0;
-}
-div.navbar a {
-	color: #069;
-}
-div.navbar a:hover {
-	background-color: #069;
-	color:#fff;
+	font-family:Helvetica, Arial, sans-serif;
 }
 div.navbar h4 {
 	display: block;
@@ -487,12 +481,22 @@ div.navbar h4 {
 	padding: 10px;
 	color: #666;
 }
+div.navbar p {
+	padding: 0 10px;
+}
 ul.qlist {
 	padding:10px;
 }
 ul.qlist li {
 	margin:0;
 	border-bottom:1px solid #999;
+}
+ul.qlist a {
+	color: #069;
+}
+ul.qlist a:hover {
+	background-color: #069;
+	color:#fff;
 }
 span.current {
 	background-color: #ffa;
