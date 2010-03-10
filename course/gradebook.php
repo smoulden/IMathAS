@@ -313,20 +313,20 @@ if (isset($studentid) || $stu!=0) { //show student view
 		if ($catfilter==-2) {echo "selected=1";}
 		echo '>Category Totals</option>';
 		echo '</select>';
-		echo "<label for=\"toggle2\">By not counted:</label> <select id=\"toggle2\" onchange=\"chgtoggle()\">";
-			echo "<option value=0 "; writeHtmlSelected($hidenc,0); echo ">Show all</option>";
-			echo "<option value=1 "; writeHtmlSelected($hidenc,1); echo ">Show stu view</option>";
-			echo "<option value=2 "; writeHtmlSelected($hidenc,2); echo ">Hide all</option>";
-		echo "</select>";
 		echo "<label for=\"toggle3\">By date:</label> <select id=\"toggle3\" onchange=\"chgtoggle()\">";
 			echo "<option value=0 "; writeHtmlSelected($availshow,0); echo ">Past due</option>";
 			echo "<option value=3 "; writeHtmlSelected($availshow,3); echo ">Current</option>";
 			echo "<option value=1 "; writeHtmlSelected($availshow,1); echo ">Past & Current</option>";
 			echo "<option value=2 "; writeHtmlSelected($availshow,2); echo ">All</option></select>";
+		echo "<label for=\"toggle2\">Non counted grades:</label> <select id=\"toggle2\" onchange=\"chgtoggle()\">";
+			echo "<option value=0 "; writeHtmlSelected($hidenc,0); echo ">Show all</option>";
+			echo "<option value=1 "; writeHtmlSelected($hidenc,1); echo ">Show stu view</option>";
+			echo "<option value=2 "; writeHtmlSelected($hidenc,2); echo ">Hide all</option>";
+		echo "</select>";
 		echo "<label for=\"toggle1\">Link type:</label> <select id=\"toggle1\" onchange=\"chgtoggle()\">";
 			echo "<option value=0 "; writeHtmlSelected($links,0); echo ">View/Edit</option>";
 			echo "<option value=1 "; writeHtmlSelected($links,1); echo ">Scores</option></select>";
-		echo "<label for=\"toggle4\">Show pictures:</label> <select id=\"toggle4\" onchange=\"chgtoggle()\">";
+		echo "<label for=\"toggle4\">Pictures:</label> <select id=\"toggle4\" onchange=\"chgtoggle()\">";
 			echo "<option value=0 "; writeHtmlSelected($showpics,0); echo ">None</option>";
 			echo "<option value=1 "; writeHtmlSelected($showpics,1); echo ">Small</option>";
 			echo "<option value=2 "; writeHtmlSelected($showpics,2); echo ">Big</option></select>";
@@ -355,7 +355,6 @@ if (isset($studentid) || $stu!=0) { //show student view
 			echo "\"/>";
 			echo "<a class=\"abutton\" href=\"#\" onclick=\"chgnewflag(); return false;\">New flag</a>";
 			//echo '<input type="button" value="Pics" onclick="rotatepics()" />';
-			echo "<br/ >";
 		}	
 		if (!$isteacher) {
 			echo "<input type=\"button\" id=\"lockbtn\" onclick=\"lockcol()\" value=\"";
