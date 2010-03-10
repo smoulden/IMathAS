@@ -188,37 +188,37 @@ table.gbl td.locked, table.gbl th.locked {
 
 /*Category header colors*/
 table.gb .catdf {
-	background-color: #eef;
+	background: #eef;
 }
 table.gb .cat0 {
-	background-color: #ddf;
+	background: #ddf;
 }
 table.gb .cat1 {
-	background-color: #dfd;
+	background: #dfd;
 }
 table.gb .cat2 {
-	background-color: #fdd;
+	background: #fdd;
 }
 table.gb .cat3 {
-	background-color: #dff;
+	background: #dff;
 }
 table.gb .cat4 {
-	background-color: #ffd;
+	background: #ffd;
 }
 table.gb .cat5 {
-	background-color: #fdf;
+	background: #fdf;
 }
 table.gb .cat6 {
-	background-color: #aaf;
+	background: #aaf;
 }
 table.gb .cat7 {
-	background-color: #afa;
+	background: #afa;
 }
 table.gb .cat8 {
-	background-color: #faa;
+	background: #faa;
 }
 table.gb .cat9 {
-	background-color: #aff;
+	background: #aff;
 }
 .cattothdr {
 	font-variant: small-caps
@@ -418,12 +418,14 @@ form#qform {
 	border:1px solid #999;
 }
 div.curquestion {
-
+	border:1px solid #999;
+	border-top:none;
+	padding-left:10px;
+}
+div.curquestion div.question {
+	border:none;
 }
 div.inactive {
-
-}
-hr.seq {
 
 }
 div.seqqinfocur, div.seqqinfoavail {
@@ -433,9 +435,13 @@ div.seqqinfocur, div.seqqinfoavail {
 div.seqqinfocur a, div.seqqinfoavail a {
 	color:#069
 }
+div.seqqinfocur a:hover, div.seqqinfoavail a:hover {
+	background-color:#069
+}
 div.seqqinfocur {
 	border:1px solid #999;
 	border-bottom:none;
+	padding:10px 0 0 10px;
 }
 div.seqqinfocur span.current{
 
@@ -447,14 +453,14 @@ div.seqqinfoinactive {
 
 }
 div.todoquestion {
-	background-color: #ffc; 
+	background-color: #fff; 
 	border: 0px; 
+	padding-left:20px;
 }
 /*all questions*/
 div.question {
 	background-color: #fff;; 
 	border: 1px solid #999;
-	border-top:none;
 	width: auto;
 }
 div.inset {
