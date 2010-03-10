@@ -99,7 +99,7 @@ if (!(isset($teacherid))) { // loaded by a NON-teacher
 	} else { //DEFAULT DATA MANIPULATION
 		$pagetitle = "Mass Change Dates";
 		$placeinhead = "<script type=\"text/javascript\" src=\"$imasroot/javascript/masschgdates.js\"></script>";
-		$placeinhead .= "<style>.show {display:inline;} \n .hide {display:none;} img {cursor:pointer; float:left; padding:2px}\n .changedates {float:left}\n</style>";
+		$placeinhead .= ;
 	}
 }	
 
@@ -195,7 +195,14 @@ if ($overwriteBody==1) {
 	echo ' to <select id="swapselected"><option value="always">Always/Never</option><option value="dates">Dates</option></select>';
 	echo ' <input type="button" value="Go" onclick="MCDtoggleselected(this.form)" />';
 	
-	echo '<table class=gb><thead><tr><th>Name</th><th>Type</th><th>Start Date</th><th>End Date</th><th>Review Date</th><th>Send Date Chg Down List</th></thead><tbody>';
+	echo '<table class="gb masschgdates"><thead><tr>';
+	echo '<th width="300px">Name</th>';
+	echo '<th width="125px">Type</th>';
+	echo '<th width="150px">Start Date</th>';
+	echo '<th width="150px">End Date</th>';
+	echo '<th width="100px">Review Date</th>';
+	echo '<th width="125px">Send Date Chg Down List</th>';
+	echo '</thead><tbody>';
 	
 	$names = Array();
 	$startdates = Array();
@@ -288,7 +295,7 @@ if ($overwriteBody==1) {
 		$keys = array_keys($names);
 	}
 	foreach ($keys as $i) {
-		echo '<tr class=grid>';
+		echo '<tr class="grid">';
 		echo '<td>';
 		echo "<input type=\"checkbox\" id=\"cb$cnt\" value=\"$cnt\" /> ";
 		
@@ -313,7 +320,7 @@ if ($overwriteBody==1) {
 		echo "</td>";
 		
 		
-		echo "<td><img src=\"$imasroot/img/swap.gif\" onclick=\"MCDtoggle('s',$cnt)\" />";
+		echo "<td><img src=\"$imasroot/img/swap.gif\" onclick=\"MCDtoggle('s',$cnt)\" class=\"toggle\" />";
 		if ($startdates[$i]==0) {
 			echo "<input type=hidden id=\"sdatetype$cnt\" name=\"sdatetype$cnt\" value=\"0\"/>";
 		} else {
@@ -327,7 +334,7 @@ if ($overwriteBody==1) {
 		if ($startdates[$i]==0) {
 			echo "<span id=\"sspan1$cnt\" class=\"hide\">";
 		} else {
-			echo "<span id=\"sspan1$cnt\" class=\"show changedates\">";
+			echo "<span id=\"sspan1$cnt\" class=\"show\">";
 		}
 		if ($startdates[$i]==0) {
 			$startdates[$i] = time();
@@ -343,7 +350,7 @@ if ($overwriteBody==1) {
 		echo "<br />at <input type=text size=8 id=\"stime$cnt\" name=\"stime$cnt\" value=\"$stime\">";
 		echo '</span></td>';
 		
-		echo "<td><img src=\"$imasroot/img/swap.gif\" onclick=\"MCDtoggle('e',$cnt)\"/>";
+		echo "<td><img src=\"$imasroot/img/swap.gif\" onclick=\"MCDtoggle('e',$cnt)\" class=\"toggle\" />";
 		if ($enddates[$i]==2000000000) {
 			echo "<input type=\"hidden\" id=\"edatetype$cnt\" name=\"edatetype$cnt\" value=\"0\"/>";
 		} else {
@@ -357,7 +364,7 @@ if ($overwriteBody==1) {
 		if ($enddates[$i]==2000000000) {
 			echo "<span id=\"espan1$cnt\" class=\"hide\">";
 		} else {
-			echo "<span id=\"espan1$cnt\" class=\"show changedates\">";
+			echo "<span id=\"espan1$cnt\" class=\"show\">";
 		}
 		if ($enddates[$i]==2000000000) {
 			$enddates[$i]  = $startdates[$i] + 7*24*60*60;
@@ -375,7 +382,7 @@ if ($overwriteBody==1) {
 				
 		echo "<td>";
 		if ($types[$i]=='Assessment') {
-			echo "<img src=\"$imasroot/img/swap.gif\"  onclick=\"MCDtoggle('r',$cnt)\"/>";
+			echo "<img src=\"$imasroot/img/swap.gif\"  onclick=\"MCDtoggle('r',$cnt)\" class=\"toggle\" />";
 			if ($reviewdates[$i]==0 || $reviewdates[$i]==2000000000) {
 				echo "<input type=hidden id=\"rdatetype$cnt\" name=\"rdatetype$cnt\" value=\"0\"/>";
 			} else {
@@ -408,7 +415,7 @@ if ($overwriteBody==1) {
 			$rtime = tzdate("g:i a",$reviewdates[$i]);
 		
 			echo "<input type=text size=10 id=\"rdate$cnt\" name=\"rdate$cnt\" value=\"$rdate\" onblur=\"ob(this)\"/>(";
-			echo "<span id=\"rd$cnt\">".getshortday($reviewdates[$i]).'</span>';
+			echo "<span id=\"rd$cnt\" class=\"shortday\">".getshortday($reviewdates[$i]).'</span>';
 			//echo ") <a href=\"#\" onClick=\"cal1.select(document.forms[0].rdate$cnt,'anchor3$cnt','MM/dd/yyyy',document.forms[0].rdate$cnt.value); return false;\" NAME=\"anchor3$cnt\" ID=\"anchor3$cnt\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 			echo ") <a href=\"#\" onClick=\"displayDatePicker('rdate$cnt', this); return false\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 		
@@ -427,5 +434,4 @@ if ($overwriteBody==1) {
 }
 	
 require("../footer.php");
-
 ?>
