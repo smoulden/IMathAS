@@ -471,19 +471,28 @@ div.navbar {
 	color:#333;
 	width:200px;
 	margin-right:10px;
+	padding:0;
 }
 div.navbar a {
 	color: #069;
 }
 div.navbar a:hover {
 	background-color: #069;
+	color:#fff;
 }
 div.navbar h4 {
 	display: block;
-	margin: -10px -10px 10px -10px;
+	margin:0;
 	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll left top;
 	padding: 10px;
 	color: #666;
+}
+ul.qlist {
+	padding:10px;
+}
+ul.qlist li {
+	margin:0;
+	border-bottom:1px solid #999;
 }
 span.current {
 	background-color: #ffa;
