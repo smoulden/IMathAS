@@ -1401,9 +1401,9 @@
 				}
 			} else {
 				if ($qi[$questions[$i]]['withdrawn']==1) {
-					echo "<a href=\"showtest.php?action=skip&amp;to=$i\"><span class=\"withdrawn\">Q ". ($i+1) . "</span></a>";
+					echo "<a href=\"showtest.php?action=skip&amp;to=$i\"><span class=\"withdrawn\">Question ". ($i+1) . "</span></a>";
 				} else {
-					echo "<a href=\"showtest.php?action=skip&amp;to=$i\">Q ". ($i+1) . "</a>";
+					echo "<a href=\"showtest.php?action=skip&amp;to=$i\">Question ". ($i+1) . "</a>";
 				}
 			}
 			if ($showeachscore) {
