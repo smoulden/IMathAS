@@ -418,7 +418,7 @@ if ($overwriteBody==1) {
 			//echo ") <a href=\"#\" onClick=\"cal1.select(document.forms[0].rdate$cnt,'anchor3$cnt','MM/dd/yyyy',document.forms[0].rdate$cnt.value); return false;\" NAME=\"anchor3$cnt\" ID=\"anchor3$cnt\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 			echo ") <a href=\"#\" onClick=\"displayDatePicker('rdate$cnt', this); return false\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 		
-			echo " at <input type=text size=8 id=\"rtime$cnt\" name=\"rtime$cnt\" value=\"$rtime\"></span>";
+			echo "<br />at <input type=text size=8 id=\"rtime$cnt\" name=\"rtime$cnt\" value=\"$rtime\"></span>";
 		}
 		echo '</td>';
 		echo "<td><input type=button value=\"Send Down List\" onclick=\"senddown($cnt)\"/></td>";
