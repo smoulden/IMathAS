@@ -413,6 +413,10 @@ div#headershowtest h2 {
 	margin: 0px;
 	color: #666;
 }
+form.qform {
+	padding:10px;
+	border:1px solid #999;
+}
 div.curquestion {
 
 }
@@ -422,8 +426,16 @@ div.inactive {
 hr.seq {
 
 }
+div.seqqinfocur, div.seqqinfoavail {
+	font-family: Helvetica,Arial,sans-serif;
+	text-transform:uppercase;
+}
+div.seqqinfocur a, div.seqqinfoavail a {
+	color:#069
+}
 div.seqqinfocur {
-
+	border:1px solid #999;
+	border-bottom:none;
 }
 div.seqqinfocur span.current{
 
@@ -442,6 +454,7 @@ div.todoquestion {
 div.question {
 	background-color: #fff;; 
 	border: 1px solid #999;
+	border-top:1px solid #999;
 	width: auto;
 }
 div.inset {
