@@ -177,10 +177,10 @@ tr.highlight {
 	background-color: #EAF2F5;
 }
 tr.grid td {
-	border: 1px solid #000;
+	border: 1px solid #999;
 }
 tr.dbltop td {
-	border-top: 3px double #000;
+	border-top: 3px double #999;
 }
 table.gbl td.locked, table.gbl th.locked {
 	border-right: 2px solid #00f;
