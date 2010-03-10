@@ -426,7 +426,7 @@ div.curquestion div.question {
 	border:none;
 }
 div.inactive {
-
+	color:#999;
 }
 div.seqqinfocur, div.seqqinfoavail, div.seqqinfoinactive {
 	font-family: Helvetica,Arial,sans-serif;
@@ -453,14 +453,14 @@ div.seqqinfoavail {
 	padding-top:10px;
 }
 div.seqqinfoinactive {
-	color:#666;
+	color:#999;
 }
 div.seqqinfoinactive a {
-	color:#666;
+	color:#999;
 	cursor:default;
 }
 div.seqqinfoinactive a:hover {
-	color:#666;
+	color:#999;
 	background:none;
 }
 div.todoquestion {
