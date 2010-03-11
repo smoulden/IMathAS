@@ -400,7 +400,7 @@ function picshow(size) {
 	<?php
 		if ($cansendmsgs) {
 			echo "<ul class=\"buttonlist\">";
-			echo "<li><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Compose new message</a></li><li><a href=\"sentlist.php?cid=$cid\">Sent messages</a></li>\n";
+			echo "<li><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"specialbutton\">Compose new message</a></li><li><a href=\"sentlist.php?cid=$cid\">Sent messages</a></li>\n";
 			echo "</ul>";
 		}
 	?>
@@ -477,7 +477,7 @@ function picshow(size) {
 	</form>
 <?php
 	if ($cansendmsgs) {
-		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"abutton\">Compose new message</a></p>\n";
+		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"abutton specialbutton\">Compose new message</a></p>\n";
 	}
 	
 	if ($isteacher && $cid>0 && $msgmonitor==1) {
