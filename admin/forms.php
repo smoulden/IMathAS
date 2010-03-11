@@ -161,16 +161,16 @@ switch($_GET['action']) {
 		if ($_GET['action']=="modify") { echo "&id={$_GET['id']}"; }
 		echo "\">\n";
 		echo "<span class=form>Course ID:</span><span class=formright>$courseid</span><br class=form>\n";
-		echo "<span class=form>Enter Course name:</span><input class=form type=text size=80 name=\"coursename\" value=\"$name\"><BR class=form>\n";
-		echo "<span class=form>Enter Enrollment key:</span><input class=form type=text size=30 name=\"ekey\" value=\"$ekey\"><BR class=form>\n";
-		echo '<span class=form>Available?</span><span class=formright>';
-		echo '<input type="checkbox" name="stuavail" value="1" ';
+		echo "<span class=form><label for=\"coursename\">Enter course name:</label></span><input class=form type=text size=80 name=\"coursename\" id=\"coursename\" value=\"$name\"><BR class=form>\n";
+		echo "<span class=form><label for=\"ekey\">Enter Enrollment key:</label></span><input class=form type=text size=30 name=\"ekey\" id=\"ekey\" value=\"$ekey\"><BR class=form>\n";
+		echo '<span class=form>Available?</span><span class=formright><fieldset class="invisible"><legend>Available</legend></ul>';
+		echo '<li><input type="checkbox" name="stuavail" id="stuavail" value="1" ';
 		if (($avail&1)==0) { echo 'checked="checked"';}
-		echo '/>Available to students<br/><input type="checkbox" name="teachavail" value="2" ';
+		echo '/><label for="showstu">Available to students</label></li><li><input type="checkbox" name="teachavail" id="teachavail" value="2" ';
 		if (($avail&2)==0) { echo 'checked="checked"';}
-		echo '/>Show on instructors\' home page</span><br class="form" />';
+		echo '/><label for="teachavail">Show on instructors\' home page</label></li></ul></fieldset></span><br class="form" />';
 		if ($_GET['action']=="modify") {
-			echo '<span class=form>Lock for assessment:</span><span class=formright><select name="lockaid">';
+			echo '<span class=form><label for="lockaid">Lock for assessment:</label></span><span class=formright><select name="lockaid" id="lockaid">';
 			echo '<option value="0" ';
 			if ($lockaid==0) { echo 'selected="1"';}
 			echo '>No lock</option>';
@@ -185,8 +185,8 @@ switch($_GET['action']) {
 		}
 		
 		if (!isset($CFG['CPS']['theme']) || $CFG['CPS']['theme'][1]==1) {
-			echo "<span class=form>Theme:</span><span class=formright>";
-			echo " <select name=\"theme\">";
+			echo "<span class=form><label for=\"theme\">Theme:</label></span><span class=formright>";
+			echo " <select name=\"theme\" id=\"theme\">";
 			if (isset($CFG['CPS']['themelist'])) {
 				$themes = explode(',',$CFG['CPS']['themelist']);
 				if (isset($CFG['CPS']['themenames'])) {
@@ -276,31 +276,37 @@ switch($_GET['action']) {
 			echo '/> Yes </span><br class=form />';
 		}
 		if (!isset($CFG['CPS']['copyrights']) || $CFG['CPS']['copyrights'][1]==1) {
-			echo "<span class=form>Allow other instructors to copy course items:</span><span class=formright>";
-			echo '<input type=radio name="copyrights" value="0" ';
+			echo "<span class=form>Allow other instructors to copy course items:</span><span class=formright><fieldset class=invisible><legend>Allow other instructors to copy course items:</legend><ul>";
+			echo '<li><input type=radio name="copyrights" id="reqekey" value="0" ';
 			if ($copyrights==0) { echo "checked=1";}
-			echo '/> Require enrollment key from everyone<br/> <input type=radio name="copyrights" value="1" ';
+			echo '/><label for="reqekey">Require enrollment key from everyone</label></li><li><input type=radio name="copyrights" id="ekeysome" value="1" ';
 			if ($copyrights==1) { echo "checked=1";}
-			echo '/> No key required for group members, require key from others <br/><input type=radio name="copyrights" value="2" ';
+			echo '/><label for="ekeysome">No key required for group members, require key from others</label></li><li><input type=radio name="copyrights" id="noekey" value="2" ';
 			if ($copyrights==2) { echo "checked=1";}
-			echo '/> No key required from anyone</span><br class=form />';
+			echo '/><label for="noekey">No key required from anyone</label></li></ul></fieldset></span><br class=form />';
 		}
 		if (!isset($CFG['CPS']['msgset']) || $CFG['CPS']['msgset'][1]==1) {
-			echo "<span class=form>Message System:</span><span class=formright>";
+			echo "<span class=form>Message System:</span><span class=formright><fieldset=\"invisible\"><legend>Message System</legend><ul>";
 			//0 on, 1 to instr, 2 to stu, 3 nosend, 4 off
-			echo '<input type=radio name="msgset" value="0" ';
+			echo '<li><input type=radio name="msgset" id="sandr" value="0" ';
 			if ($msgset==0) { echo "checked=1";}
-			echo '/> On for send and receive<br/> <input type=radio name="msgset" value="1" ';
+			echo '/> <label for"sandr">On for send and receive</label></li>';
+			echo '<li><input type=radio name="msgset" id="randsinst" value="1" ';
 			if ($msgset==1) { echo "checked=1";}
-			echo '/> On for receive, students can only send to instructor<br/> <input type=radio name="msgset" value="2" ';
+			echo '/> <label for="randsinst">On for receive, students can only send to instructor</label></li>';
+			echo '<li><input type=radio name="msgset" id="randsstu" value="2" ';
 			if ($msgset==2) { echo "checked=1";}
-			echo '/> On for receive, students can only send to students<br/> <input type=radio name="msgset" value="3" ';
+			echo '/> <label for="randsstu">On for receive, students can only send to students</label></li>';
+			echo '<li><input type=radio name="msgset" id="rnos" value="3" ';
 			if ($msgset==3) { echo "checked=1";}
-			echo '/> On for receive, students cannot send<br/> <input type=radio name="msgset" value="4" ';
+			echo '/> <label for="rnos">On for receive, students cannot send</label></li>';
+ 			echo '<li><input type=radio name="msgset" id="msgoff" value="4" ';
 			if ($msgset==4) { echo "checked=1";}
-			echo '/> Off <br/> <input type=checkbox name="msgmonitor" value="1" ';
+			echo '/> <label for="msgoff">Off</label></li>';
+			echo '<li><input type=checkbox name="msgmonitor" id="msgmonitor" value="1" ';
 			if ($msgmonitor==1) { echo "checked=1";}
-			echo '/> Enable monitoring of student-to-student messages</span><br class=form />';
+			echo '/> <label for="msgmonitor">Enable monitoring of student-to-student messages</label></li>';
+			echo '</ul></fieldset></span><br class=form />';
 		}
 		
 		if (!isset($CFG['CPS']['chatset']) || $CFG['CPS']['chatset'][1]==1) {
