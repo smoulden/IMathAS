@@ -163,10 +163,10 @@ switch($_GET['action']) {
 		echo "<span class=form>Course ID:</span><span class=formright>$courseid</span><br class=form>\n";
 		echo "<span class=form><label for=\"coursename\">Enter course name:</label></span><input class=form type=text size=80 name=\"coursename\" id=\"coursename\" value=\"$name\"><BR class=form>\n";
 		echo "<span class=form><label for=\"ekey\">Enter Enrollment key:</label></span><input class=form type=text size=30 name=\"ekey\" id=\"ekey\" value=\"$ekey\"><BR class=form>\n";
-		echo '<span class=form>Available?</span><span class=formright><fieldset class="invisible"><legend>Available</legend></ul>';
+		echo '<span class=form>Available?</span><span class=formright><fieldset class="invisible"><legend>Available</legend><ul>';
 		echo '<li><input type="checkbox" name="stuavail" id="stuavail" value="1" ';
 		if (($avail&1)==0) { echo 'checked="checked"';}
-		echo '/><label for="showstu">Available to students</label></li><li><input type="checkbox" name="teachavail" id="teachavail" value="2" ';
+		echo '/><label for="stuavail">Available to students</label></li><li><input type="checkbox" name="teachavail" id="teachavail" value="2" ';
 		if (($avail&2)==0) { echo 'checked="checked"';}
 		echo '/><label for="teachavail">Show on instructors\' home page</label></li></ul></fieldset></span><br class="form" />';
 		if ($_GET['action']=="modify") {
@@ -286,7 +286,7 @@ switch($_GET['action']) {
 			echo '/><label for="noekey">No key required from anyone</label></li></ul></fieldset></span><br class=form />';
 		}
 		if (!isset($CFG['CPS']['msgset']) || $CFG['CPS']['msgset'][1]==1) {
-			echo "<span class=form>Message System:</span><span class=formright><fieldset=\"invisible\"><legend>Message System</legend><ul>";
+			echo "<span class=form>Message System:</span><span class=formright><fieldset class=\"invisible\"><legend>Message System</legend><ul>";
 			//0 on, 1 to instr, 2 to stu, 3 nosend, 4 off
 			echo '<li><input type=radio name="msgset" id="sandr" value="0" ';
 			if ($msgset==0) { echo "checked=1";}
