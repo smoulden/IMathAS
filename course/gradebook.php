@@ -284,7 +284,7 @@ if (isset($studentid) || $stu!=0) { //show student view
 	require("../header.php");
 	echo "<div class=breadcrumb>$breadcrumbbase <a href=\"course.php?cid={$_GET['cid']}\">$coursename</a> ";
 	echo "&gt; Gradebook</div>";
-	echo "<form id=\"qform\" method=post action=\"gradebook.php?cid=$cid\">";
+	echo "<form id=\"qform formwcp\" method=post action=\"gradebook.php?cid=$cid\">";
 	
 	echo '<div id="headergradebook" class="pagetitle"><h2>Gradebook <span class="red" id="newflag" style="font-size: 70%" >';
 	if (($coursenewflag&1)==1) {
