@@ -72,7 +72,7 @@
 	   } else if ($etime-$now < 1211600) { //due within two weeks
 		   $color = "#". dechex(floor(16*(1-($etime-$now-605800)/605801))) . "f0";
 	   } else {
-		   $color = "#0f0";
+		   $color = "#3f0";
 	   }
 	   return $color;
    }
