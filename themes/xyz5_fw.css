@@ -156,10 +156,9 @@ table thead th {
 	font-weight:bold;
 	cursor:pointer;
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
-	border: 1px solid #999;
 	font-family:Helvetica, Arial, sans-serif;
 }
-table.gb thead {
+table thead {
 	border:1px solid #999;
 }
 table.gb thead th, table.gbl thead th, table.gbl thead th.locked {
