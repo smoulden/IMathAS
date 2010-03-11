@@ -273,7 +273,7 @@ function printCourses($data,$title,$type=null) {
 		//echo '<div class="center"><a class="abutton specialbutton" href="admin/admin.php">Admin Page</a></div>';
 	}
 	echo '</ul>';
-	//echo '</div>';
+	echo '</div>';
 }
 
 function printMessagesGadget() {
