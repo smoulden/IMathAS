@@ -1133,31 +1133,31 @@ function enditem($canedit) {
 		if (isset($CFG['CPS']['miniicons']['assess'])) {
 			$html .= "<img class=\"mida\" src=\"$imasroot/img/{$CFG['CPS']['miniicons']['assess']}\"/> ";
 		}
-		$html .= "Assessment</a> | ";
+		$html .= "Assessment</a>";
 		
 		$html .= "<a href=\"addinlinetext.php?block=$blk&tb=$tb&cid=$cid\">";
 		if (isset($CFG['CPS']['miniicons']['inline'])) {
 			$html .= "<img class=\"mida\" src=\"$imasroot/img/{$CFG['CPS']['miniicons']['inline']}\"/> ";
 		}
-		$html .= "Text</a> | ";
+		$html .= "Text</a>";
 		
 		$html .= "<a href=\"addlinkedtext.php?block=$blk&tb=$tb&cid=$cid\">";
 		if (isset($CFG['CPS']['miniicons']['linked'])) {
 			$html .= "<img class=\"mida\" src=\"$imasroot/img/{$CFG['CPS']['miniicons']['linked']}\"/> ";
 		}
-		$html .= "Link</a> | ";
+		$html .= "Link</a>";
 		
 		$html .= "<a href=\"addforum.php?block=$blk&tb=$tb&cid=$cid\">";
 		if (isset($CFG['CPS']['miniicons']['forum'])) {
 			$html .= "<img class=\"mida\" src=\"$imasroot/img/{$CFG['CPS']['miniicons']['forum']}\"/> ";
 		}
-		$html .= "Forum</a> | ";
+		$html .= "Forum</a>";
 		
 		$html .= "<a href=\"addblock.php?block=$blk&tb=$tb&cid=$cid\">";
 		if (isset($CFG['CPS']['miniicons']['folder'])) {
 			$html .= "<img class=\"mida\" src=\"$imasroot/img/{$CFG['CPS']['miniicons']['folder']}\"/> ";
 		}
-		$html .= "Block</a> | ";
+		$html .= "Block</a>";
 		
 		$html .= "<a href=\"addcalendar.php?block=$blk&tb=$tb&cid=$cid\">";
 		if (isset($CFG['CPS']['miniicons']['calendar'])) {
