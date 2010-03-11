@@ -1295,6 +1295,7 @@
 					if ($i==$curq) {
 						echo '<div class="curquestion">';
 						basicshowq($i,false);
+						echo "<input type=\"submit\" class=\"btn specialbutton\" value=\"Submit Question ".($i+1)."\" />\n";
 						echo '</div>';
 					} else if ($qavail) {
 						echo "<div class=todoquestion>";
@@ -1303,10 +1304,9 @@
 					} else {
 						basicshowq($i,true);
 					}
-					if ($i==$curq) {
-						echo "<div><input type=\"submit\" class=\"btn\" value=\"Submit Question ".($i+1)."\" /></div><p></p>\n";
-					}
-					
+					//if ($i==$curq) {
+						//echo "<div><input type=\"submit\" class=\"btn\" value=\"Submit Question ".($i+1)."\" /></div><p></p>\n";
+					//}
 					//echo '<hr class="seq"/>';
 				}
 			}
