@@ -421,9 +421,13 @@ div.curquestion {
 	border:1px solid #999;
 	border-top:none;
 	padding-left:20px;
+	margin-bottom:10px;
 }
 div.curquestion div.question {
 	border:none;
+}
+div.curquestion input[type="submit"] {
+	margin-bottom:10px;
 }
 div.inactive {
 	color:#999;
@@ -437,7 +441,7 @@ div.seqqinfocur a, div.seqqinfoavail a {
 }
 div.seqqinfocur a:hover, div.seqqinfoavail a:hover {
 	background-color:#069;
-	color:fff;
+	color:#fff;
 }
 div.seqqinfocur {
 	border:1px solid #999;
@@ -486,9 +490,19 @@ div.review { /*info bar*/
 	border: 1px solid #069;
 	color: #fff;
 	width: auto;
+	padding: 10px;
+}
+div.review p:first-child {
+	margin-top:0;
+}
+div.review p:last-child {
+	margin-bottom:0;
 }
 div.review a {
-	color: #eef;
+	color: #fff;
+}
+.scorebarholder {
+	background-color:#fff;
 }
 div.intro {
 	border: 1px solid #999;
@@ -535,6 +549,7 @@ ul.qlist li {
 }
 ul.qlist a {
 	color: #069;
+	text-decoration:none;
 }
 ul.qlist a:hover {
 	background-color: #069;
