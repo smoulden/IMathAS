@@ -201,7 +201,7 @@ for ($i=0; $i<3; $i++) {
 	}
 	if ($twocolumn) {
 		if ($i==1) {
-			echo '<div id="leftcolumn">';
+			echo '<div id="leftcontent">';
 		} else if ($i==2) {
 			echo '<div id="rightcolumn">';
 		}
@@ -239,8 +239,10 @@ function printCourses($data,$title,$type=null) {
 	global $shownewmsgnote, $shownewpostnote;
 	if (count($data)==0 && $type=='tutor') {return;}
 	global $myrights,$showmessagesgadget,$showpostsgadget,$newmsgcnt,$newpostcnt;
-	echo '<div class="block"><h3>'.$title.'</h3></div>';
-	echo '<div class="blockitems"><ul class="nomark courselist">';
+	echo '<div><h3>'.$title.'</h3>';
+	//echo '<div class="block"><h3>'.$title.'</h3></div>';
+	echo '<ul>';
+	//echo '<div class="blockitems"><ul class="nomark courselist">';
 	for ($i=0; $i<count($data); $i++) {
 		echo '<li><a href="course/course.php?folder=0&cid='.$data[$i]['id'].'">';
 		echo $data[$i]['name'].'</a>';
@@ -262,13 +264,16 @@ function printCourses($data,$title,$type=null) {
 	if ($type=='teach' && $myrights>39 && count($data)==0) {
 		echo '<li>To add a course, head to the Admin Page</li>';
 	}
-	echo '</ul>';
+	//echo '</ul>';
 	if ($type=='take') {
-		echo '<div class="center"><a class="abutton specialbutton" href="forms.php?action=enroll">Enroll in a New Class</a></div>';
+		echo '<li><a class="abutton specialbutton" href="forms.php?action=enroll">Enroll in a New Class</a></li>';
+		//echo '<div class="center"><a class="abutton specialbutton" href="forms.php?action=enroll">Enroll in a New Class</a></div>';
 	} else if ($type=='teach' && $myrights>39) {
-		echo '<div class="center"><a class="abutton specialbutton" href="admin/admin.php">Admin Page</a></div>';
+		echo '<li><a class="abutton specialbutton" href="admin/admin.php">Admin Page</a></li>';
+		//echo '<div class="center"><a class="abutton specialbutton" href="admin/admin.php">Admin Page</a></div>';
 	}
-	echo '</div>';
+	echo '</ul>';
+	//echo '</div>';
 }
 
 function printMessagesGadget() {
