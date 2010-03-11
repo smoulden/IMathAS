@@ -130,6 +130,10 @@ div.cpmid, div.cp {
 div.cpmid form, div.cp form {
 	margin-bottom:10px;
 }
+div.cpmid form#qform, div.cp form#qform {
+	padding:0;
+	border:none;
+}
 div.cpmid form:last-child, div.cp form:last-child {
 	margin-bottom:0;
 }
