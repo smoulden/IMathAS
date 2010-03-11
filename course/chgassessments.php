@@ -367,7 +367,7 @@ function copyfromtoggle(frm,mark) {
 				<td><input type="checkbox" name="chgavail"/></td>
 				<td class="r">Show:</td>
 				<td>
-					<fieldset><legend class="invisible">Show:</legend><ul>
+					<fieldset class="invisible"><legend>Show:</legend><ul>
 						<li><input type="radio" name="avail" id="avail_date" value="0" />
 						<label for="avail_date">Hide</label></li>
 						<li><input type="radio" name="avail" id="avail_hide" value="1" checked="checked"/>
@@ -545,7 +545,7 @@ writeHtmlSelect ("gbcat",$page_gbcatSelect['val'],$page_gbcatSelect['label'],nul
 				<td style="border-bottom: 1px solid #000"><input type="checkbox" name="chgcntingb"/></td>
 				<td class="r" style="border-bottom: 1px solid #000">Count:</td>
 				<td style="border-bottom: 1px solid #000">
-					<fieldset><legend class="invisible">Count:</legend><ul>
+					<fieldset class="invisible"><legend>Count:</legend><ul>
 					<li><input name="cntingb" id="cnt" value="1" checked="checked" type="radio">
 						<label for="cnt">Count in Gradebook</label></li>
 					<li><input name="cntingb" id="dcnth" value="0" type="radio">
@@ -561,7 +561,7 @@ writeHtmlSelect ("gbcat",$page_gbcatSelect['val'],$page_gbcatSelect['label'],nul
 				<td><input type="checkbox" name="chgcaltag"/></td>
 				<td class="r">Calendar icon:</td>
 				<td>
-					<fieldset><legend class="invisible">Calendar icon:</legend><ul>
+					<fieldset class="invisible"><legend>Calendar icon:</legend><ul>
 						<li><label for="caltagact">Active:</label> <input name="caltagact" id="caltagact" type="text" size="1" value="?"/>
 				    		<li><label for="caltagrev">Review:</label> <input name="caltagrev" id="caltagrev" type="text" size="1" value="R"/>
 					</ul></fieldset>
@@ -589,7 +589,7 @@ writeHtmlSelect ("gbcat",$page_gbcatSelect['val'],$page_gbcatSelect['label'],nul
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgisgroup"/></td>
 				<td class="r">Group assessment:</td>
-				<td><fieldset><legend class="invisible">Group assessment:</legend><ul>
+				<td><fieldset class="invisible"><legend>Group assessment:</legend><ul>
 				<li><input type="radio" name="isgroup" id="notgroup" value="0" checked="checked" />
 					<label for="notgroup">Not a group assessment</label></li>
 				<li><input type="radio" name="isgroup" id="addwpass" value="1" />
@@ -607,8 +607,8 @@ writeHtmlSelect ("gbcat",$page_gbcatSelect['val'],$page_gbcatSelect['label'],nul
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgshowqcat"/></td>
-				<td class="r" >Show question categories:</td>
-				<td><fieldset><legend class="invisible">Show question categories:</legend><ul>
+				<td class="r">Show question categories:</td>
+				<td><fieldset class="invisible"><legend>Show question categories:</legend><ul>
 					<li><input id="noshowcat" name="showqcat" value="0" checked="checked" type="radio">
 						<label for="noshowcat">No</label></li>
 					<li><input id="ppbar" name="showqcat" value="1" type="radio">
