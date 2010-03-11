@@ -313,6 +313,14 @@ ul.courselist li a:hover {
 	color:#333;
 	background-color:#fff;
 }
+#leftcontent a.abutton {
+	color:#fff;
+	background-color:#fff;
+}
+#leftcontent a.abutton:hover {
+	color:#fff;
+	background-color:#036;
+}
 #centercontent {
 	margin-left:210px;
 	background:#fff;
@@ -325,9 +333,12 @@ ul.courselist li a:hover {
 	border:1px solid #999;
 	padding:10px;
 }
+div#rightcolumn {
+	width:790px;
+}
 #headerhome h2 {
 	border:1px solid #999;
-	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll center top;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	padding:5px 10px;
 }
 #headerlogo {
