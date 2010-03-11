@@ -83,7 +83,7 @@ div.block h3 {
 div.blockitems, div.blockitems div.blockitems div.blockitems {
 	border: 1px solid #999;
 	border-top: 0px;
-	background-color: #fff;
+	background-color: #eee;
 }
 
 /*Second level default block container*/
@@ -610,22 +610,15 @@ div#navlistwrapper {
 	margin:auto;
 	width:1000px;
 }
-div#topadditem {
-	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left top;
-	border: 1px solid #999;
-}
 div.additembox {
-	background-color:#ccc;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left top;
 	margin-bottom:5px;
 	padding:5px 0;
 	font-family:Helvetica, Arial, sans-serif;
 	border:1px solid #999;
 }
-div.additembox span {
-	
-}
-div#topadditem span {
-	background-color: transparent;
+div.blockitems div.additembox {
+	background:#ccc;
 }
 div.additembox a {
 	text-decoration:none;
@@ -636,6 +629,14 @@ div.additembox a {
 div.additembox a {
 	background:none;
 	color:#333;
+}
+div.additembox span {
+	
+}
+div#topadditem {
+}
+div#topadditem span {
+	background-color: transparent;
 }
 a.abutton {
 	border: 0;
