@@ -293,6 +293,9 @@ ul.courselist {
 ul.courselist li {
 	padding:5px 10px;
 }
+ul.courselist li:last-child {
+	margin-bottom:0;
+}
 ul.courselist li a {
 	color:#069;
 	text-decoration:none;
@@ -458,6 +461,10 @@ div#headershowtest h2 {
 form#qform {
 	padding:10px;
 	border:1px solid #999;
+}
+form#formwcp {
+	padding:0;
+	border:none;
 }
 div.curquestion {
 	border:1px solid #999;
