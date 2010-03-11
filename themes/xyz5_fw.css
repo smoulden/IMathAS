@@ -478,6 +478,7 @@ div.question {
 div.inset {
 	margin: 0px;
 	float:left;
+	width:788px;
 }
 div.review { /*info bar*/
 	margin-top: -6px;
@@ -492,6 +493,13 @@ div.review a {
 div.intro {
 	border: 1px solid #999;
 	background-color: #fff;
+	padding:10px;
+}
+div.intro p:first-child {
+	margin-top:0;
+}
+div.intro p:last-child {
+	margin-bottom:0;
 }
 div.navbar {
 	position: relative;
@@ -515,6 +523,9 @@ div.navbar h4 {
 div.navbar p {
 	padding: 0 10px;
 }
+div.navbar a {
+	color:#fff;
+}
 ul.qlist {
 	padding:10px;
 }
@@ -530,7 +541,8 @@ ul.qlist a:hover {
 	color:#fff;
 }
 span.current {
-	background-color: #ffa;
+	background:none;
+	font-weight:bold;
 }
 span.done {
 	text-decoration: line-through;
