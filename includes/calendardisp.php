@@ -160,7 +160,7 @@ while ($row = mysql_fetch_row($result)) {
 		list($moday,$time) = explode('~',date('n-j~g:i a',$row[4]));
 		$row[1] = str_replace('"','\"',$row[1]);
 		$tag = $row[11];
-		if ($now<$row[4]) { $colors[$k] = '#99f';} else {$colors[$k] = '#ccc';}
+		if ($now<$row[4]) { $colors[$k] = '#69c';} else {$colors[$k] = '#ccc';}
 		$assess[$moday][$k] = "{type:\"AR\", time:\"$time\", tag:\"$tag\", ";
 		if ($now<$row[4] || isset($teacherid)) { $assess[$moday][$k] .= "id:\"$row[0]\",";}
 		$assess[$moday][$k] .=  "color:\"".$colors[$k]."\",name:\"$row[1]\"".((isset($teacherid))?", editlink:true":"")."}";
@@ -332,7 +332,7 @@ for ($i=0;$i<count($hdrs);$i++) {
 }
 echo "</tbody></table>";
 
-echo "<div style=\"margin-top: 10px; padding:10px; border:1px solid #000;\">";
+echo "<div style=\"margin-top: 10px; padding:10px; border:1px solid #999;\">";
 echo '<span class=right><a href="#" onclick="showcalcontents('.(1000*($today - $dayofweek*24*60*60)).'); return false;"/>Show all</a></span>';
 echo "<div id=\"caleventslist\"></div><div class=\"clear\"></div></div>";
 if ($pageshift==0) {
