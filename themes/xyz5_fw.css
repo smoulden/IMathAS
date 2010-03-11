@@ -326,10 +326,12 @@ div#leftcolumn {
 	width:200px;
 	font-size:90%;
 }
+#leftcolumn .block {
+	padding:8px 10px;
+}
 #leftcolumn .block h3 {
 	color:#666;
 	font-size:100%;
-	padding:8px 10px;
 }
 #leftcolumn .blockitems {
 	background-color:#fff;
@@ -808,8 +810,8 @@ fieldset.invisible {
 fieldset.invisible legend {
 	display:none;
 }
-a.newnote {
-	color: #f00;
+a.newnote, ul.courselist li a.newnote {
+	color: #EB6F00;
 }
 ul.fileattachlist {
 	list-style-image: url(../img/icon_attach.png);
