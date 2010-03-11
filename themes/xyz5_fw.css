@@ -152,6 +152,9 @@ div.cp ul.buttonlist input[type="button"], ul.buttonlist div.cp input[type="subm
 }
 
 /*Tables */
+table {
+	border-collapse:collapse;
+}
 table thead th {
 	font-weight:bold;
 	cursor:pointer;
