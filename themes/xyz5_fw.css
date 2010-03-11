@@ -326,12 +326,17 @@ div#leftcolumn {
 	width:200px;
 	font-size:90%;
 }
+#leftcolumn .block h3 {
+	color:#666;
+	font-size:100%;
+	padding:8px 10px;
+}
 #leftcolumn .blockitems {
 	background-color:#fff;
 	padding: 0;
 }
 #leftcolumn .center {
-	padding:10px 0;
+	padding:0 0 10px 0;
 }
 ul.courselist li {
 	padding:0;
