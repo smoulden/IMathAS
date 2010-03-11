@@ -626,17 +626,16 @@ div.additembox a {
 	margin-right:10px;
 	color:#069;
 }
-div.additembox a {
+div.additembox a:hover {
 	background:none;
 	color:#333;
 }
 div.additembox span {
-	
+	background:none;
 }
 div#topadditem {
 }
 div#topadditem span {
-	background-color: transparent;
 }
 a.abutton {
 	border: 0;
