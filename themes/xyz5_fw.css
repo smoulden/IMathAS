@@ -428,6 +428,7 @@ div.curquestion div.question {
 }
 div.curquestion input[type="submit"] {
 	margin-bottom:10px;
+	margin-left:5px;
 }
 div.inactive {
 	color:#999;
