@@ -590,9 +590,10 @@ if ($overwriteBody==1) {
 				</select>
 			</span><BR class=form>
 			
-			<span class=form><label for="showansprac">Show Answers:</label> </span>
+			<span id="showanspracspan" class="<?php if ($testtype=="Practice" || $testtype=="Homework") {echo "show";} else {echo "hidden";} ?>">
+			<span class=form><label for="showansprac">Show answers:</label></span>
 			<span class=formright>
-				<span id="showanspracspan" class="<?php if ($testtype=="Practice" || $testtype=="Homework") {echo "show";} else {echo "hidden";} ?>">
+				
 				<select name="showansprac" id="showansprac">
 					<option value="V" <?php if ($showans=="V") {echo "SELECTED";} ?>>Never, but allow students to review their own answers</option>
 					<option value="N" <?php if ($showans=="N") {echo "SELECTED";} ?>>Never, and don't allow students to review their own answers</option>
@@ -605,9 +606,11 @@ if ($overwriteBody==1) {
 					<option value="4" <?php if ($showans=="4") {echo "SELECTED";} ?>>After 4 attempts</option>
 					<option value="5" <?php if ($showans=="5") {echo "SELECTED";} ?>>After 5 attempts</option>
 				</select>
-				</span>
+				</span></span>
 				<span id="showansspan" class="<?php if ($testtype!="Practice" && $testtype!="Homework") {echo "show";} else {echo "hidden";} ?>">
-				<select name="showans" id="showansprac">
+				<span class=form><label for="showans">Show answers:</label></span>
+				<span class=formright>
+				<select name="showans" id="showans">
 					<option value="V" <?php if ($showans=="V") {echo "SELECTED";} ?>>Never, but allow students to review their own answers</option>
 					<option value="N" <?php if ($showans=="N") {echo "SELECTED";} ?>>Never, and don't allow students to review their own answers</option>
 					<option value="I" <?php if ($showans=="I") {echo "SELECTED";} ?>>Immediately (in gradebook) - don't use if allowing multiple attempts per problem</option>
@@ -625,8 +628,8 @@ if ($overwriteBody==1) {
 					<option value="2" <?php writeHtmlSelected($line['eqnhelper'],2) ?>>Yes, advanced form</option>
 				</select>
 			</span><br class="form" />
-			<span class=form><label for=""showhints>Show hints when available?</label></span>
-			<span class=formright>
+			<span class="form"><label for="showhints">Show hints when available?</label></span>
+			<span class="formright">
 				<input type="checkbox" name="showhints" id="showhints" <?php writeHtmlChecked($line['showhints'],1); ?>>
 			</span><br class=form>
 			<span class=form><label for="showtips">Show answer entry tips?</label></span>
@@ -692,10 +695,10 @@ if ($overwriteBody==1) {
 			<fieldset><legend>Advanced Options</legend>
 			<span class=form><label for="minscore">Minimum score to receive credit:</label> </span>
 			<span class=formright>
-				<input type=text size=4 name="minscore" id="minscore" value="<?php echo $line['minscore'];?>">
+				<input type="text" size="4" name="minscore" id="minscore" value="<?php echo $line['minscore'];?>">
 			</span><BR class=form>
 	
-			<span class=form>Show based on another assessment: </span>
+			<span class=form>Show based on another assessment:</span>
 			<span class=formright>Show only after a score of 
 				<input type=text size=4 name=reqscore value="<?php echo $line['reqscore'];?>">
 		   		points is obtained on 
