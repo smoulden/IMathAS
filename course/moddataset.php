@@ -51,6 +51,20 @@
 	
 	if (isset($_POST['qtext'])) {
 		$now = time();
+		if ($_POST['book']!='0' && $_POST['bookchp']!='0' && $_POST['booksec']!='0') {
+			$bookref = $_POST['book'].','.$_POST['bookchp'].','.$_POST['booksec'];
+		} else if (isset($_POST['oldbookref'])) {
+			$bookref = $_POST['oldbookref'];
+		} else {
+			$bookref = '';
+		}
+		if (isset($_POST['example'])) {
+			$videoid = $_POST['example'];
+		} else if (isset($_POST['oldvideoid'])) {
+			$videoid = $_POST['oldvideoid'];
+		} else {
+			$videoid = '';
+		}
 		
 		if (isset($_GET['id'])) { //modifying existing
 			$qsetid = $_GET['id'];
@@ -73,7 +87,7 @@
 			} 
 			$query = "UPDATE imas_questionset SET description='{$_POST['description']}',author='{$_POST['author']}',userights='{$_POST['userights']}',";
 			$query .= "qtype='{$_POST['qtype']}',control='{$_POST['control']}',qcontrol='{$_POST['qcontrol']}',";
-			$query .= "qtext='{$_POST['qtext']}',answer='{$_POST['answer']}',lastmoddate=$now ";
+			$query .= "qtext='{$_POST['qtext']}',answer='{$_POST['answer']}',lastmoddate=$now,bookref='$bookref',videoid='$videoid' ";
 			$query .= "WHERE id='{$_GET['id']}'";
 			if (!$isadmin && !$isgrpadmin) { $query .= " AND (ownerid='$userid' OR userights>2);";}
 			if ($isok) {
@@ -131,9 +145,9 @@
 					$ancestors = $_GET['templateid'];
 				}
 			}
-			$query = "INSERT INTO imas_questionset (uniqueid,adddate,lastmoddate,description,ownerid,author,userights,qtype,control,qcontrol,qtext,answer,hasimg,ancestors) VALUES ";
+			$query = "INSERT INTO imas_questionset (uniqueid,adddate,lastmoddate,description,ownerid,author,userights,qtype,control,qcontrol,qtext,answer,hasimg,ancestors,bookref,videoid) VALUES ";
 			$query .= "($uqid,$now,$now,'{$_POST['description']}','$userid','{$_POST['author']}','{$_POST['userights']}','{$_POST['qtype']}','{$_POST['control']}',";
-			$query .= "'{$_POST['qcontrol']}','{$_POST['qtext']}','{$_POST['answer']}','{$_POST['hasimg']}','$ancestors');";
+			$query .= "'{$_POST['qcontrol']}','{$_POST['qtext']}','{$_POST['answer']}','{$_POST['hasimg']}','$ancestors','$bookref','$videoid');";
 			$result = mysql_query($query) or die("Query failed :$query " . mysql_error());
 			$qsetid = mysql_insert_id();
 			$_GET['id'] = $qsetid;			
@@ -419,6 +433,8 @@
 			$line['qcontrol'] = '';
 			$line['qtext'] = '';
 			$line['answer'] = '';
+			$line['videoid'] = '';
+			$line['bookref'] = '';
 			$line['hasimg'] = 0;
 			if (isset($sessiondata['lastsearchlibs'.$cid])) {
 				//$searchlibs = explode(",",$sessiondata['lastsearchlibs']);
@@ -642,6 +658,13 @@ if (isset($images['vars']) && count($images['vars'])>0) {
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
+if (window.console) {
+	
+} else {
+	console = {
+		log: function() { return false;}
+	}
+}
 function grab_topics(option) {
 	console.log("Alright, we're calling grab_topics()...");
 	
@@ -702,7 +725,54 @@ function update_iframe() {
 }
 //]]>
 </script>
-
+<?php
+if (isset($line['bookref']) && $line['bookref']!='') {
+	echo '<p>Current book ref: '.$line['bookref'].'</p>';
+	echo '<input type="hidden" name="oldbookref" value="'.$line['bookref'].'" />';
+}
+?>
+<div id="book">
+<select name="book">
+ <option value="0">Book...</option>
+ <option value="intromath">Introductory Mathematics</option>
+ <option value="introalg">Introductory Algebra</option>
+ <option value="interalg">Intermediate Algebra</option>
+</select>
+<select name="bookchp">
+ <option value="0">Chapter...</option>
+ <option value="1">1</option>
+ <option value="2">2</option>
+ <option value="3">3</option>
+ <option value="4">4</option>
+ <option value="5">5</option>
+ <option value="6">6</option>
+ <option value="7">7</option>
+ <option value="8">8</option>
+ <option value="9">9</option>
+ <option value="10">10</option>
+ <option value="11">11</option>
+</select>
+<select name="booksec">
+ <option value="0">Section...</option>
+ <option value="1">1</option>
+ <option value="2">2</option>
+ <option value="3">3</option>
+ <option value="4">4</option>
+ <option value="5">5</option>
+ <option value="6">6</option>
+ <option value="7">7</option>
+ <option value="8">8</option>
+ <option value="9">9</option>
+ <option value="10">10</option>
+ <option value="11">11</option>
+</select>
+</div>
+<?php
+if (isset($line['videoid']) && $line['videoid']!='') {
+	echo '<p>Current MathTV.com video: '.$line['videoid'].'</p>';
+	echo '<input type="hidden" name="oldvideoid" value="'.$line['videoid'].'" />';
+}
+?>
 <div id="video">
 	MathTV.com video:
 	<span>

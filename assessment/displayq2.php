@@ -34,7 +34,7 @@ function displayq($qnidx,$qidx,$seed,$doshowans,$showhints,$attemptn,$returnqtxt
 		$seqinactive = false;
 	}*/
 	
-	$query = "SELECT qtype,control,qcontrol,qtext,answer,hasimg FROM imas_questionset WHERE id='$qidx'";
+	$query = "SELECT * FROM imas_questionset WHERE id='$qidx'";
 	$result = mysql_query($query) or die("Query failed : " . mysql_error());
 	$qdata = mysql_fetch_array($result, MYSQL_ASSOC);
 	
@@ -224,9 +224,41 @@ function displayq($qnidx,$qidx,$seed,$doshowans,$showhints,$attemptn,$returnqtxt
 	if ($returnqtxt) {
 		return $returntxt;
 	}
+	
 	if (isset($helptext) &&  $showhints) {
 		echo '<div><p class="tips">'.filter($helptext).'</p></div>';
 	}
+	
+	//XYZ Specific addon for videos and book refs
+	print_r($line);
+	if ($showhints && ($qdata['videoid']!='' || $qdata['bookref']!='')) {
+		echo '<div><p class="tips">';
+		echo 'Get Help: ';
+		if ($qdata['videoid']!='') {
+			$url = "http://www.mathtv.com/topic_content.php?example_id=".$qdata['videoid'];
+			echo formpopup("Watch it",$url,730,500,"button",false,"video").' ';	
+		}
+		if ($qdata['bookref']!='') {
+			$bookpts = explode(',',$qdata['bookref']);
+			if ($bookpts[0]=='intromath') {
+				$filename = 'im';
+			} else if ($bookpts[0]=='introalg') {
+				$filename = 'eacg';
+			} else if ($bookpts[0]=='interalg') {
+				$filename = 'icg5';
+			}
+			$filename .= '_ch';
+			if ($bookpts[1]<10) { $filename .= '0';}
+			$filename .= $bookpts[1];
+			$filename .= '_sec'.$bookpts[2].'.swf';
+			$url = 'http://www.mathtv.com/onlinebooks/flash_papers/ftp/'.$filename;
+			echo formpopup("Read it",$url,600,"fit","button",false,"book");
+		}
+		echo '</p></div>';
+	}
+	
+	
+	
 	echo "<div>";
 	foreach($tips as $iidx=>$tip) {
 		if ((!isset($hidetips) || (is_array($hidetips) && !isset($hidetips[$iidx])))&& !$seqinactive && $showtips>0) {
