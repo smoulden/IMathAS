@@ -99,7 +99,6 @@ if (!(isset($teacherid))) { // loaded by a NON-teacher
 	} else { //DEFAULT DATA MANIPULATION
 		$pagetitle = "Mass Change Dates";
 		$placeinhead = "<script type=\"text/javascript\" src=\"$imasroot/javascript/masschgdates.js\"></script>";
-		$placeinhead .= "<style>.show {display:inline;} \n .hide {display:none;} img {cursor:pointer;}\n</style>";
 	}
 }	
 
@@ -188,14 +187,21 @@ if ($overwriteBody==1) {
 	echo "Always/Never to Dates.  Swaps to/from Always/Never cannot be sent down the list.</p>";
 	echo "<form id=\"qform\" method=post action=\"masschgdates.php?cid=$cid\">";
 	
-	echo 'Check: <a href="#" onclick="return chkAllNone(\'qform\',\'all\',true)">All</a> <a href="#" onclick="return chkAllNone(\'qform\',\'all\',false)">None</a> ';
+	echo 'Check: <a href="#" onclick="return chkAllNone(\'qform\',\'all\',true)">All</a>, <a href="#" onclick="return chkAllNone(\'qform\',\'all\',false)">None</a> ';
 
 	//echo '<p>Check/Uncheck All: <input type="checkbox" name="ca" value="1" onClick="chkAll(this.form, this.checked)"/>. ';
 	echo 'Change selected items <select id="swaptype"><option value="s">Start Date</option><option value="e">End Date</option><option value="r">Review Date</option></select>';
 	echo ' to <select id="swapselected"><option value="always">Always/Never</option><option value="dates">Dates</option></select>';
 	echo ' <input type="button" value="Go" onclick="MCDtoggleselected(this.form)" />';
 	
-	echo '<table class=gb><thead><tr><th>Name</th><th>Type</th><th>Start Date</th><th>End Date</th><th>Review Date</th><th>Send Date Chg Down List</th></thead><tbody>';
+	echo '<table class="gb masschgdates"><thead><tr>';
+	echo '<th width="250px">Name</th>';
+	echo '<th width="125px">Type</th>';
+	echo '<th width="175px">Start Date</th>';
+	echo '<th width="175px">End Date</th>';
+	echo '<th width="175px">Review Date</th>';
+	echo '<th width="125px">Send Date Chg Down List</th>';
+	echo '</tr></thead><tbody>';
 	
 	$names = Array();
 	$startdates = Array();
@@ -288,11 +294,11 @@ if ($overwriteBody==1) {
 		$keys = array_keys($names);
 	}
 	foreach ($keys as $i) {
-		echo '<tr class=grid>';
+		echo '<tr class="grid">';
 		echo '<td>';
 		echo "<input type=\"checkbox\" id=\"cb$cnt\" value=\"$cnt\" /> ";
 		
-		echo "{$names[$i]}<input type=hidden name=\"id$cnt\" value=\"{$ids[$i]}\"/>";
+		echo "<label for=\"cb$cnt\">{$names[$i]}</label><input type=hidden name=\"id$cnt\" value=\"{$ids[$i]}\"/>";
 		echo "<script> basesdates[$cnt] = ";
 		if ($startdates[$i]==0) { echo '"NA"';} else {echo $startdates[$i];}
 		echo "; baseedates[$cnt] = ";
@@ -303,17 +309,17 @@ if ($overwriteBody==1) {
 		echo "</td><td>";
 		echo "{$types[$i]}<input type=hidden name=\"type$cnt\" value=\"{$types[$i]}\"/>";
 		if ($types[$i]=='Assessment') {
-			if ($now>$startdates[$i] && $now<$enddates[$i]) {
-				echo " <i><a href=\"addquestions.php?aid={$ids[$i]}&cid=$cid\">Q</a></i>";	
+			if ($now > $startdates[$i] && $now < $enddates[$i]) {
+				echo " <br /><i><a href=\"addquestions.php?aid={$ids[$i]}&cid=$cid\">Edit questions</a></i>";	
 			} else {
-				echo " <a href=\"addquestions.php?aid={$ids[$i]}&cid=$cid\">Q</a>";
+				echo " <br /><a href=\"addquestions.php?aid={$ids[$i]}&cid=$cid\">Edit questions</a>";
 			}
-			echo " <a href=\"addassessment.php?id={$ids[$i]}&cid=$cid&from=mcd\">S</a>\n";
+			echo " <br /><a href=\"addassessment.php?id={$ids[$i]}&cid=$cid&from=mcd\">Modify assessment</a>\n";
 		}
 		echo "</td>";
 		
 		
-		echo "<td><img src=\"$imasroot/img/swap.gif\" onclick=\"MCDtoggle('s',$cnt)\"/>";
+		echo "<td><img src=\"$imasroot/img/swap.gif\" onclick=\"MCDtoggle('s',$cnt)\" class=\"toggle\" />";
 		if ($startdates[$i]==0) {
 			echo "<input type=hidden id=\"sdatetype$cnt\" name=\"sdatetype$cnt\" value=\"0\"/>";
 		} else {
@@ -335,19 +341,19 @@ if ($overwriteBody==1) {
 		$sdate = tzdate("m/d/Y",$startdates[$i]);
 		$stime = tzdate("g:i a",$startdates[$i]);
 		
-		echo "<input type=text size=10 id=\"sdate$cnt\" name=\"sdate$cnt\" value=\"$sdate\" onblur=\"ob(this)\"/>(";
-		echo "<span id=\"sd$cnt\">".getshortday($startdates[$i]).'</span>';
+		echo "<input type=\"text\" size=\"10\" id=\"sdate$cnt\" name=\"sdate$cnt\" value=\"$sdate\" onblur=\"ob(this)\"/>(";
+		echo "<span id=\"sd$cnt\" class=\"shortday\">".getshortday($startdates[$i]).'</span>';
 		//echo ") <a href=\"#\" onClick=\"cal1.select(document.forms[0].sdate$cnt,'anchor$cnt','MM/dd/yyyy',document.forms[0].sdate$cnt.value); return false;\" NAME=\"anchor$cnt\" ID=\"anchor$cnt\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 		echo ") <a href=\"#\" onClick=\"displayDatePicker('sdate$cnt', this); return false\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 		
-		echo " at <input type=text size=8 id=\"stime$cnt\" name=\"stime$cnt\" value=\"$stime\">";
+		echo "<br />at <input type=text size=8 id=\"stime$cnt\" name=\"stime$cnt\" value=\"$stime\">";
 		echo '</span></td>';
 		
-		echo "<td><img src=\"$imasroot/img/swap.gif\"  onclick=\"MCDtoggle('e',$cnt)\"/>";
+		echo "<td><img src=\"$imasroot/img/swap.gif\" onclick=\"MCDtoggle('e',$cnt)\" class=\"toggle\" />";
 		if ($enddates[$i]==2000000000) {
-			echo "<input type=hidden id=\"edatetype$cnt\" name=\"edatetype$cnt\" value=\"0\"/>";
+			echo "<input type=\"hidden\" id=\"edatetype$cnt\" name=\"edatetype$cnt\" value=\"0\"/>";
 		} else {
-			echo "<input type=hidden id=\"edatetype$cnt\" name=\"edatetype$cnt\" value=\"1\"/>";
+			echo "<input type=\"hidden\" id=\"edatetype$cnt\" name=\"edatetype$cnt\" value=\"1\"/>";
 		}
 		if ($enddates[$i]==2000000000) {
 			echo "<span id=\"espan0$cnt\" class=\"show\">Always</span>";
@@ -366,16 +372,16 @@ if ($overwriteBody==1) {
 		$etime = tzdate("g:i a",$enddates[$i]);
 		
 		echo "<input type=text size=10 id=\"edate$cnt\" name=\"edate$cnt\" value=\"$edate\" onblur=\"ob(this)\"/>(";
-		echo "<span id=\"ed$cnt\">".getshortday($enddates[$i]).'</span>';
+		echo "<span id=\"ed$cnt\" class=\"shortday\">".getshortday($enddates[$i]).'</span>';
 		//echo ") <a href=\"#\" onClick=\"cal1.select(document.forms[0].edate$cnt,'anchor2$cnt','MM/dd/yyyy',document.forms[0].edate$cnt.value); return false;\" NAME=\"anchor2$cnt\" ID=\"anchor2$cnt\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 		echo ") <a href=\"#\" onClick=\"displayDatePicker('edate$cnt', this); return false\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 		
-		echo " at <input type=text size=8 id=\"etime$cnt\" name=\"etime$cnt\" value=\"$etime\">";
+		echo "<br />at <input type=text size=8 id=\"etime$cnt\" name=\"etime$cnt\" value=\"$etime\">";
 		echo '</span></td>';
 				
 		echo "<td>";
 		if ($types[$i]=='Assessment') {
-			echo "<img src=\"$imasroot/img/swap.gif\"  onclick=\"MCDtoggle('r',$cnt)\"/>";
+			echo "<img src=\"$imasroot/img/swap.gif\"  onclick=\"MCDtoggle('r',$cnt)\" class=\"toggle\" />";
 			if ($reviewdates[$i]==0 || $reviewdates[$i]==2000000000) {
 				echo "<input type=hidden id=\"rdatetype$cnt\" name=\"rdatetype$cnt\" value=\"0\"/>";
 			} else {
@@ -386,15 +392,15 @@ if ($overwriteBody==1) {
 			} else {
 				echo "<span id=\"rspan0$cnt\" class=\"hide\">";
 			}
-			echo "<input type=radio name=\"rdatean$cnt\" value=\"0\" ";
+			echo "<input type=\"radio\" name=\"rdatean$cnt\" value=\"0\" id=\"nvrrdatean$cnt\" ";
 			if ($reviewdates[$i]!=2000000000) {
 				echo 'checked=1';
 			} 
-			echo " />Never <input type=radio name=\"rdatean$cnt\" value=\"2000000000\" ";
+			echo " /><label for=\"nvrrdatean$cnt\">Never</label><br /><input type=\"radio\" name=\"rdatean$cnt\" value=\"2000000000\" id=\"alwaysrdatean$cnt\" ";
 			if ($reviewdates[$i]==2000000000) {
 				echo 'checked=1';
 			} 
-			echo " />Always</span>";
+			echo " /><label for=\"alwaysrdatean$cnt\">Always</label></span>";
 			
 			if ($reviewdates[$i]==0 || $reviewdates[$i]==2000000000) {
 				echo "<span id=\"rspan1$cnt\" class=\"hide\">";
@@ -408,11 +414,11 @@ if ($overwriteBody==1) {
 			$rtime = tzdate("g:i a",$reviewdates[$i]);
 		
 			echo "<input type=text size=10 id=\"rdate$cnt\" name=\"rdate$cnt\" value=\"$rdate\" onblur=\"ob(this)\"/>(";
-			echo "<span id=\"rd$cnt\">".getshortday($reviewdates[$i]).'</span>';
+			echo "<span id=\"rd$cnt\" class=\"shortday\">".getshortday($reviewdates[$i]).'</span>';
 			//echo ") <a href=\"#\" onClick=\"cal1.select(document.forms[0].rdate$cnt,'anchor3$cnt','MM/dd/yyyy',document.forms[0].rdate$cnt.value); return false;\" NAME=\"anchor3$cnt\" ID=\"anchor3$cnt\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 			echo ") <a href=\"#\" onClick=\"displayDatePicker('rdate$cnt', this); return false\"><img src=\"../img/cal.gif\" alt=\"Calendar\"/></a>";
 		
-			echo " at <input type=text size=8 id=\"rtime$cnt\" name=\"rtime$cnt\" value=\"$rtime\"></span>";
+			echo "<br />at <input type=text size=8 id=\"rtime$cnt\" name=\"rtime$cnt\" value=\"$rtime\"></span>";
 		}
 		echo '</td>';
 		echo "<td><input type=button value=\"Send Down List\" onclick=\"senddown($cnt)\"/></td>";
@@ -427,5 +433,4 @@ if ($overwriteBody==1) {
 }
 	
 require("../footer.php");
-
 ?>

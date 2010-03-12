@@ -983,7 +983,7 @@
 					echo "<a name=\"beginquestions\"></a>\n";
 					basicshowq($next);
 					showqinfobar($next,true,true);
-					echo '<input type="submit" class="btn" value="Submit" />';
+					echo '<input type="submit" class="btn specialbutton" value="Submit" />';
 					if (($testsettings['showans']=='J' && $qi[$questions[$next]]['showans']=='0') || $qi[$questions[$next]]['showans']=='J') {
 						echo ' <input type="button" class="btn" value="Jump to Answer" onclick="if (confirm(\'If you jump to the answer, you must generate a new version to earn credit\')) {window.location = \'showtest.php?action=skip&amp;jumptoans='.$next.'&amp;to='.$next.'\'}"/>';
 					}
@@ -1102,7 +1102,7 @@
 				if (!$done) {
 					echo "<p>Question scored. <a href=\"#curq\">Continue with assessment</a>, or click <a href=\"showtest.php?action=seq&amp;done=true\">here</a> to finalize and summarize score.</p>\n";
 					echo "</div>\n";
-					echo "<hr/>";
+					//echo "<hr/>";
 				} else {
 					echo "</div>\n";
 					//echo "<a href=\"showtest.php?action=skip&done=true\">Click here to finalize and score test</a>\n";
@@ -1133,6 +1133,7 @@
 					if ($i==$toshow) {
 						echo '<div class="curquestion">';
 						basicshowq($i,false);
+						echo "<input type=\"submit\" class=\"btn specialbutton\" value=\"Submit Question ".($i+1)."\" />\n";
 						echo '</div>';
 					} else if ($qavail) {
 						echo "<div class=todoquestion>";
@@ -1142,10 +1143,10 @@
 						basicshowq($i,true);
 					}
 					
-					if ($i==$toshow) {
-						echo "<div><input type=\"submit\" class=\"btn\" value=\"Submit Question ".($i+1)."\" /></div><p></p>\n";
-					}
-					echo '<hr class="seq"/>';
+					//if ($i==$toshow) {
+						//echo "<div><input type=\"submit\" class=\"btn\" value=\"Submit Question ".($i+1)."\" /></div><p></p>\n";
+					//}
+					//echo '<hr class="seq"/>';
 				}
 				
 			}
@@ -1262,7 +1263,7 @@
 				echo "<a name=\"beginquestions\"></a>\n";
 				basicshowq($i);
 				showqinfobar($i,true,true);
-				echo '<input type="submit" class="btn" value="Submit" />';
+				echo '<input type="submit" class="btn specialbutton" value="Submit" />';
 				if (($testsettings['showans']=='J' && $qi[$questions[$i]]['showans']=='0') || $qi[$questions[$i]]['showans']=='J') {
 						echo ' <input type="button" class="btn" value="Jump to Answer" onclick="if (confirm(\'If you jump to the answer, you must generate a new version to earn credit\')) {window.location = \'showtest.php?action=skip&amp;jumptoans='.$i.'&amp;to='.$i.'\'}"/>';
 					}
@@ -1294,6 +1295,7 @@
 					if ($i==$curq) {
 						echo '<div class="curquestion">';
 						basicshowq($i,false);
+						echo "<input type=\"submit\" class=\"btn specialbutton\" value=\"Submit Question ".($i+1)."\" />\n";
 						echo '</div>';
 					} else if ($qavail) {
 						echo "<div class=todoquestion>";
@@ -1302,11 +1304,10 @@
 					} else {
 						basicshowq($i,true);
 					}
-					if ($i==$curq) {
-						echo "<div><input type=\"submit\" class=\"btn\" value=\"Submit Question ".($i+1)."\" /></div><p></p>\n";
-					}
-					
-					echo '<hr class="seq"/>';
+					//if ($i==$curq) {
+						//echo "<div><input type=\"submit\" class=\"btn\" value=\"Submit Question ".($i+1)."\" /></div><p></p>\n";
+					//}
+					//echo '<hr class="seq"/>';
 				}
 			}
 		}
@@ -1401,9 +1402,9 @@
 				}
 			} else {
 				if ($qi[$questions[$i]]['withdrawn']==1) {
-					echo "<a href=\"showtest.php?action=skip&amp;to=$i\"><span class=\"withdrawn\">Q ". ($i+1) . "</span></a>";
+					echo "<a href=\"showtest.php?action=skip&amp;to=$i\"><span class=\"withdrawn\">Question ". ($i+1) . "</span></a>";
 				} else {
-					echo "<a href=\"showtest.php?action=skip&amp;to=$i\">Q ". ($i+1) . "</a>";
+					echo "<a href=\"showtest.php?action=skip&amp;to=$i\">Question ". ($i+1) . "</a>";
 				}
 			}
 			if ($showeachscore) {
@@ -1446,7 +1447,7 @@
 			echo "$earned/$poss</p>";
 		}
 		if (!$isdiag && $testsettings['noprint']==0) {
-			echo "<p><a href=\"#\" onclick=\"window.open('$imasroot/assessment/printtest.php','printver','width=400,height=300,toolbar=1,menubar=1,scrollbars=1,resizable=1,status=1,top=20,left='+(screen.width-420));return false;\">Print Version</a></p> ";
+			echo "<p><a href=\"#\" class=\"abutton\" onclick=\"window.open('$imasroot/assessment/printtest.php','printver','width=400,height=300,toolbar=1,menubar=1,scrollbars=1,resizable=1,status=1,top=20,left='+(screen.width-420));return false;\">Print Version</a></p> ";
 		}
 
 		echo "</div>\n";

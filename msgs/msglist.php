@@ -131,7 +131,7 @@ isread:
 				$msgset = $msgset%5;
 			}
 				
-			echo "<form method=post action=\"msglist.php?page=$page&cid=$cid&add={$_GET['add']}&replyto=$replyto\">\n";
+			echo "<form method=\"post\" action=\"msglist.php?page=$page&cid=$cid&add={$_GET['add']}&replyto=$replyto\">\n";
 			echo "<span class=form>To:</span><span class=formright>\n";
 			if (isset($_GET['to'])) {
 				$query = "SELECT LastName,FirstName FROM imas_users WHERE id='{$_GET['to']}'";
@@ -186,18 +186,18 @@ isread:
 				$message = '';
 				$courseid=$cid;
 			}
-			echo "</span><br class=form />";
+			echo "</span><br class=\"form\" />";
 			echo "<input type=hidden name=courseid value=\"$courseid\"/>\n";
 			echo "<span class=form><label for=\"subject\">Subject:</label></span>";
 			echo "<span class=formright><input type=text size=50 name=subject id=subject value=\"$title\"></span><br class=form>\n";
-			echo "<span class=form><label for=\"message\">Message:</label></span>";
+			echo "<span class=\"form\"><label for=\"message\">Message:</label></span>";
 			echo "<span class=left><div class=editor><textarea id=message name=message style=\"width: 100%;\" rows=20 cols=70>";
 			echo htmlentities($message);
 			echo "</textarea></div></span><br class=form>\n";
 			
-			echo "<div class=submit><input type=submit value='Submit'></div>\n";
+			echo "<div class=\"submit\"><input type=\"submit\" value='Submit'></div>\n";
 			if ($msgmonitor==1) {
-				echo "<p><span class=red>Note</span>: Student-to-student messages may be monitored by your instructor</p>";
+				echo "<p><span class=\"#EB6F00\">Note</span>: Student-to-student messages may be monitored by your instructor</p>";
 			}
 			require("../footer.php");
 			exit;
@@ -237,7 +237,7 @@ isread:
 	require("../header.php");
 	$curdir = rtrim(dirname(__FILE__), '/\\');
 	
-	echo "<div class=breadcrumb><a href=\"../index.php\">Home</a> ";
+	echo "<div class=\"breadcrumb\"><a href=\"../index.php\">Home</a> ";
 	if ($cid>0) {
 		echo "&gt; <a href=\"../course/course.php?cid=$cid\">$coursename</a> ";
 	}
@@ -289,7 +289,7 @@ isread:
 		}
 		if ($max!=$numpages-1) { echo " ... ";}
 		if ($page == $numpages) {
-			echo "<b>$numpages</b> ";
+			echo "<strong>$numpages</strong> ";
 		} else {
 			echo "<a href=\"msglist.php?page=$numpages&cid=$cid&filtercid=$filtercid&filteruid=$filteruid\">$numpages</a> ";
 		}
@@ -318,9 +318,6 @@ isread:
 			$cansendmsgs = true;
 		}
 	}	
-	if ($cansendmsgs) {
-		echo "<a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Send New Message</a>\n";
-	}
 ?>
 <script type="text/javascript">
 function chgfilter() {
@@ -354,17 +351,18 @@ function picshow(size) {
 	}
 }
 </script>	
-	<form id="qform" method=post action="msglist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
-	<p>Filter by course: <select id="filtercid" onchange="chgfilter()">
-<?php
-	echo "<option value=\"0\" ";
-	if ($filtercid==0) {
-		echo "selected=1 ";
-	}
-	echo ">All courses</option>";
-	$query = "SELECT DISTINCT imas_courses.id,imas_courses.name FROM imas_courses,imas_msgs WHERE imas_courses.id=imas_msgs.courseid AND imas_msgs.msgto='$userid'";
-	$query .= " ORDER BY imas_courses.name";
-	$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
+	<form id="qform formwcp" method="post" action="msglist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
+	<div class="cpmid">
+	Filter <label for="filtercid">by course:</label> <select id="filtercid" onchange="chgfilter()">
+	<?php
+		echo "<option value=\"0\" ";
+		if ($filtercid==0) {
+			echo "selected=1 ";
+		}
+		echo ">All courses</option>";
+		$query = "SELECT DISTINCT imas_courses.id,imas_courses.name FROM imas_courses,imas_msgs WHERE imas_courses.id=imas_msgs.courseid AND imas_msgs.msgto='$userid'";
+		$query .= " ORDER BY imas_courses.name";
+		$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
 	while ($row = mysql_fetch_row($result)) {
 		echo "<option value=\"{$row[0]}\" ";
 		if ($filtercid==$row[0]) {
@@ -373,7 +371,7 @@ function picshow(size) {
 		echo " >{$row[1]}</option>";
 	}
 	echo "</select> ";
-	echo 'By sender: <select id="filteruid" onchange="chgfilter()"><option value="0" ';
+	echo '<label for="filteruid">By sender:</label> <select id="filteruid" onchange="chgfilter()"><option value="0" ';
 	if ($filteruid==0) {
 		echo 'selected="selected" ';
 	}
@@ -392,16 +390,25 @@ function picshow(size) {
 		}
 		echo " >{$row[1]}, {$row[2]}</option>";
 	}
-	echo "</select></p>";
-	
+	echo "</select>";
+	echo "<br />";		
 ?>
-	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
-	With Selected: <input type=submit name="unread" value="Mark as Unread">
-	<input type=submit name="markread" value="Mark as Read">
-	<input type=submit name="remove" value="Delete">
-	<input type="button" value="Pictures" onclick="rotatepics()" />
-			
-	<table class=gb id="myTable">
+	<span class="invisible">With Selected: </span><ul class="buttonlist">
+			<li><input type="submit" name="unread" value="Mark as Unread"></li><li><input type="submit" name="markread" value="Mark as Read"></li><li><input type="submit" name="remove" value="Delete"></li><li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
+		</ul>
+
+	<?php
+		if ($cansendmsgs) {
+			echo "<ul class=\"buttonlist\">";
+			echo "<li><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"specialbutton\">Compose new message</a></li><li><a href=\"sentlist.php?cid=$cid\">Sent messages</a></li>\n";
+			echo "</ul>";
+		}
+	?>
+	<br />
+	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
+		
+	</div> <!--cpmid-->		
+	<table class="gb" id="myTable" cellpadding="0">
 	<thead>
 	<tr><th></th><th>Message</th><th>Replied</th><th></th><th>From</th><th>Course</th><th>Sent</th></tr>
 	</thead>
@@ -470,9 +477,8 @@ function picshow(size) {
 	</form>
 <?php
 	if ($cansendmsgs) {
-		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\">Send New Message</a></p>\n";
+		echo "<p><a href=\"msglist.php?page=$page&cid=$cid&filtercid=$filtercid&filteruid=$filteruid&add=new\" class=\"abutton specialbutton\">Compose new message</a></p>\n";
 	}
-	echo "<p><a href=\"sentlist.php?cid=$cid\">Sent Messages</a></p>";
 	
 	if ($isteacher && $cid>0 && $msgmonitor==1) {
 		echo "<p><a href=\"allstumsglist.php?cid=$cid\">Student Messages</a></p>";
@@ -480,5 +486,3 @@ function picshow(size) {
 	
 	require("../footer.php");
 ?>
-		
-	

@@ -15,14 +15,14 @@
 <link rel="shortcut icon" href="/favicon.ico" />
 <!--[if lte IE 6]> 
 <style> 
-div { height: 0px; } 
+div { zoom: 1; } 
 .clear { line-height: 0;}
 #GB_overlay, #GB_window { 
  position: absolute; 
  top: expression(0+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+'px'); 
  left: expression(0+((e=document.documentElement.scrollLeft)?e:document.body.scrollLeft)+'px');} 
 }
-</style> 
+</style>
 <![endif]--> 
 <style type="text/css" media="print">
 div.breadcrumb { display:none;}

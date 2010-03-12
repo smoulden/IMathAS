@@ -330,14 +330,14 @@ if ($overwriteBody==1) {
 	}
 } else {	
 ?>
-	<div class=breadcrumb><?php echo $curBreadcrumb ?></div>
+	<div class="breadcrumb"><?php echo $curBreadcrumb ?></div>
 	<div id="headerlistusers" class="pagetitle"><h2><?php echo $pagetitle ?></h2></div>
 <?php
 
 	if (isset($_GET['assigncode'])) {
 ?>
-	<form method=post action="listusers.php?cid=<?php echo $cid ?>&assigncode=1">
-		<table class=gb>
+	<form method="post" action="listusers.php?cid=<?php echo $cid ?>&assigncode=1">
+		<table class="gb">
 			<thead>
 			<tr>
 				<th>Name</th><th>Section</th><th>Code</th>
@@ -357,7 +357,7 @@ if ($overwriteBody==1) {
 ?>
 			</tbody>
 		</table>
-		<input type=submit name=submit value="Submit"/>
+		<input type="submit" name="submit" value="Submit"/>
 	</form>
 <?php			
 	} elseif (isset($_GET['enroll'])) {
@@ -431,13 +431,13 @@ if ($overwriteBody==1) {
 <?php		
 	} elseif (isset($_GET['action']) && $_GET['action']=="resetpw") {
 ?>
-		<form method=post action="listusers.php?cid=<?php echo $cid ?>&action=<?php echo $_GET['action'] ?>&uid=<?php echo $_GET['uid'] ?>&confirmed=true">
+		<form method="post" action="listusers.php?cid=<?php echo $cid ?>&action=<?php echo $_GET['action'] ?>&uid=<?php echo $_GET['uid'] ?>&confirmed=true">
 
 		Are you sure you want to reset this student's password	
 		
 		<p>
-			<input type=submit value="Yes, I'm Sure">
-			<input type=button value="Nevermind" onclick="window.location='listusers.php?cid=<?php echo $cid ?>'">
+			<input type="submit" value="Yes, I'm Sure">
+			<input type="button" value="Nevermind" onclick="window.location='listusers.php?cid=<?php echo $cid ?>'">
 		</p>
 	</form>
 
@@ -473,16 +473,15 @@ if ($overwriteBody==1) {
 	}
 	</script>
 	<script type="text/javascript" src="<?php echo $imasroot ?>/javascript/tablesorter.js"></script>
-	<form id="qform" method=post action="listusers.php?cid=<?php echo $cid ?>">
-		Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
-		With Selected:  
-		<input type=submit name=submit value="E-mail">
-		<input type=submit name=submit value="Message"> 
-		<input type=submit name=submit value="Unenroll"> 
-		<input type=submit name=submit value="Make Exception">
-		<input type="button" value="Pictures" onclick="rotatepics()" />
-		
-	<table class=gb id=myTable>
+	<form id="qform formwcp" method="post" action="listusers.php?cid=<?php echo $cid ?>">
+	<div class="cpmid">
+		<span class="invisible">With Selected: </span>
+		<ul class="buttonlist">
+			<li><input type="submit" name="submit" value="E-mail"></li><li><input type="submit" name="submit" value="Message"></li><li><input type="submit" name="submit" value="Unenroll"></li><li><input type="submit" name="submit" value="Make Exception"></li><li><input type="button" value="Pictures" onclick="rotatepics()" /></li>
+		</ul><br />
+		Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
+	</div>	
+	<table class="gb" id="myTable">
 		<thead>
 		<tr>
 			<th></th>

@@ -139,6 +139,7 @@ if ($canviewall) {
 	$address = "http://" . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/\\') . "/gradebook.php?stu=$stu&cid=$cid";
 	
 	$placeinhead .= "       var toopen = '$address&catfilter=' + cat;\n";
+
 	$placeinhead .= "  	window.location = toopen; \n";
 	$placeinhead .= "}\n";
 	if ($isteacher) { 
@@ -203,11 +204,11 @@ if (isset($studentid) || $stu!=0) { //show student view
 		echo '<div id="headergradebook" class="pagetitle"><h2>Grade Book Student Detail</h2></div>';
 	}
 	if ($canviewall) {
-		echo "<div class=cpmid>";
-		echo 'Category: <select id="filtersel" onchange="chgfilter()">';
+		echo "<div class=\"cpmid\">";
+		echo 'Filter <label for="filtersel">by category:</label> <select id="filtersel" onchange="chgfilter()">';
 		echo '<option value="-1" ';
 		if ($catfilter==-1) {echo "selected=1";}
-		echo '>All</option>';
+		echo '>All categories</option>';
 		echo '<option value="0" ';
 		if ($catfilter==0) { echo "selected=1";}
 		echo '>Default</option>';
@@ -221,18 +222,18 @@ if (isset($studentid) || $stu!=0) { //show student view
 		echo '<option value="-2" ';
 		if ($catfilter==-2) {echo "selected=1";}
 		echo '>Category Totals</option>';
-		echo '</select> | ';
-		echo "Not Counted: <select id=\"toggle2\" onchange=\"chgtoggle()\">";
+		echo '</select>';
+		echo "<label for=\"toggle2\">By not counted:</label> <select id=\"toggle2\" onchange=\"chgtoggle()\">";
 		echo "<option value=0 "; writeHtmlSelected($hidenc,0); echo ">Show all</option>";
 		echo "<option value=1 "; writeHtmlSelected($hidenc,1); echo ">Show stu view</option>";
 		echo "<option value=2 "; writeHtmlSelected($hidenc,2); echo ">Hide all</option>";
 		echo "</select>";
-		echo " | Show: <select id=\"toggle3\" onchange=\"chgtoggle()\">";
+		echo "<label for=\"toggle3\">By date:</label> <select id=\"toggle3\" onchange=\"chgtoggle()\">";
 		echo "<option value=0 "; writeHtmlSelected($availshow,0); echo ">Past due</option>";
 		echo "<option value=3 "; writeHtmlSelected($availshow,3); echo ">Current</option>";
 		echo "<option value=1 "; writeHtmlSelected($availshow,1); echo ">Past & Current</option>";
 		echo "<option value=2 "; writeHtmlSelected($availshow,2); echo ">All</option></select>";
-		echo " | Links: <select id=\"toggle1\" onchange=\"chgtoggle()\">";
+		echo "<label for=\"toggle1\">Link type:</label> <select id=\"toggle1\" onchange=\"chgtoggle()\">";
 		echo "<option value=0 "; writeHtmlSelected($links,0); echo ">View/Edit</option>";
 		echo "<option value=1 "; writeHtmlSelected($links,1); echo ">Scores</option></select>";
 		echo '<input type="hidden" id="toggle4" value="'.$showpics.'" />';
@@ -283,7 +284,7 @@ if (isset($studentid) || $stu!=0) { //show student view
 	require("../header.php");
 	echo "<div class=breadcrumb>$breadcrumbbase <a href=\"course.php?cid={$_GET['cid']}\">$coursename</a> ";
 	echo "&gt; Gradebook</div>";
-	echo "<form id=\"qform\" method=post action=\"gradebook.php?cid=$cid\">";
+	echo "<form id=\"qform formwcp\" method=post action=\"gradebook.php?cid=$cid\">";
 	
 	echo '<div id="headergradebook" class="pagetitle"><h2>Gradebook <span class="red" id="newflag" style="font-size: 70%" >';
 	if (($coursenewflag&1)==1) {
@@ -293,83 +294,86 @@ if (isset($studentid) || $stu!=0) { //show student view
 	if ($isdiag) {
 		echo "<a href=\"gb-testing.php?cid=$cid\">View diagnostic gradebook</a>";
 	}
-	echo "<div class=cpmid>";
-	if ($isteacher) {
-		echo "Offline Grades: <a href=\"addgrades.php?cid=$cid&gbitem=new&grades=all\">Add</a>, ";
-		echo "<a href=\"chgoffline.php?cid=$cid\">Manage</a> | ";
-		echo '<select id="exportsel" onchange="chgexport()">';
-		echo '<option value="0">Export to...</option>';
-		echo '<option value="1">... file</option>';
-		echo '<option value="2">... my email</option>';
-		echo '<option value="3">... other email</option></select> | ';
-		//echo "Export to <a href=\"gb-export.php?stu=$stu&cid=$cid&export=true\">File</a>, ";
-		//echo "<a href=\"gb-export.php?stu=$stu&cid=$cid&emailgb=me\">My Email</a>, or <a href=\"gb-export.php?stu=$stu&cid=$cid&emailgb=ask\">Other Email</a> | ";
-		echo "<a href=\"gbsettings.php?cid=$cid\">GB Settings</a> | ";
-		echo "<a href=\"gradebook.php?cid=$cid&stu=-1\">Averages</a> | ";
-		echo "<a href=\"gbcomments.php?cid=$cid&stu=0\">Comments</a> | ";
-		echo "<input type=\"button\" id=\"lockbtn\" onclick=\"lockcol()\" value=\"";
-		if ($headerslocked) {
-			echo "Unlock headers";
-		} else {
-			echo "Lock headers";
+	echo "<div class=\"cpmid\">";
+		echo 'Filter <label for="filtersel">by category:</label> <select id="filtersel" onchange="chgfilter()">';
+		echo '<option value="-1" ';
+		if ($catfilter==-1) {echo "selected=1";}
+		echo '>All categories</option>';
+		echo '<option value="0" ';
+		if ($catfilter==0) { echo "selected=1";}
+		echo '>Default</option>';
+		$query = "SELECT id,name FROM imas_gbcats WHERE courseid='$cid'";
+		$result = mysql_query($query) or die("Query failed : " . mysql_error());
+		while ($row = mysql_fetch_row($result)) {
+			echo '<option value="'.$row[0].'"';
+			if ($catfilter==$row[0]) {echo "selected=1";}
+			echo '>'.$row[1].'</option>';
 		}
-		echo "\"/>";
-		echo ' | <a href="#" onclick="chgnewflag(); return false;">NewFlag</a>';
-		//echo '<input type="button" value="Pics" onclick="rotatepics()" />';
-		echo "<br/>\n";
-	}
-	echo 'Category: <select id="filtersel" onchange="chgfilter()">';
-	echo '<option value="-1" ';
-	if ($catfilter==-1) {echo "selected=1";}
-	echo '>All</option>';
-	echo '<option value="0" ';
-	if ($catfilter==0) { echo "selected=1";}
-	echo '>Default</option>';
-	$query = "SELECT id,name FROM imas_gbcats WHERE courseid='$cid'";
-	$result = mysql_query($query) or die("Query failed : " . mysql_error());
-	while ($row = mysql_fetch_row($result)) {
-		echo '<option value="'.$row[0].'"';
-		if ($catfilter==$row[0]) {echo "selected=1";}
-		echo '>'.$row[1].'</option>';
-	}
-	echo '<option value="-2" ';
-	if ($catfilter==-2) {echo "selected=1";}
-	echo '>Category Totals</option>';
-	echo '</select> | ';
-	echo "Not Counted: <select id=\"toggle2\" onchange=\"chgtoggle()\">";
-	echo "<option value=0 "; writeHtmlSelected($hidenc,0); echo ">Show all</option>";
-	echo "<option value=1 "; writeHtmlSelected($hidenc,1); echo ">Show stu view</option>";
-	echo "<option value=2 "; writeHtmlSelected($hidenc,2); echo ">Hide all</option>";
-	echo "</select>";
-	echo " | Show: <select id=\"toggle3\" onchange=\"chgtoggle()\">";
-	echo "<option value=0 "; writeHtmlSelected($availshow,0); echo ">Past due</option>";
-	echo "<option value=3 "; writeHtmlSelected($availshow,3); echo ">Current</option>";
-	echo "<option value=1 "; writeHtmlSelected($availshow,1); echo ">Past & Current</option>";
-	echo "<option value=2 "; writeHtmlSelected($availshow,2); echo ">All</option></select>";
-	echo " | Links: <select id=\"toggle1\" onchange=\"chgtoggle()\">";
-	echo "<option value=0 "; writeHtmlSelected($links,0); echo ">View/Edit</option>";
-	echo "<option value=1 "; writeHtmlSelected($links,1); echo ">Scores</option></select>";
-	echo " | Pics: <select id=\"toggle4\" onchange=\"chgtoggle()\">";
-	echo "<option value=0 "; writeHtmlSelected($showpics,0); echo ">None</option>";
-	echo "<option value=1 "; writeHtmlSelected($showpics,1); echo ">Small</option>";
-	echo "<option value=2 "; writeHtmlSelected($showpics,2); echo ">Big</option></select>";
-	if (!$isteacher) {
-	
-		echo " | <input type=\"button\" id=\"lockbtn\" onclick=\"lockcol()\" value=\"";
-		if ($headerslocked) {
-			echo "Unlock headers";
-		} else {
-			echo "Lock headers";
+		echo '<option value="-2" ';
+		if ($catfilter==-2) {echo "selected=1";}
+		echo '>Category Totals</option>';
+		echo '</select>';
+		echo "<label for=\"toggle3\">by date:</label> <select id=\"toggle3\" onchange=\"chgtoggle()\">";
+			echo "<option value=0 "; writeHtmlSelected($availshow,0); echo ">Past due</option>";
+			echo "<option value=3 "; writeHtmlSelected($availshow,3); echo ">Current</option>";
+			echo "<option value=1 "; writeHtmlSelected($availshow,1); echo ">Past & Current</option>";
+			echo "<option value=2 "; writeHtmlSelected($availshow,2); echo ">All</option></select>";
+		echo "<label for=\"toggle2\">Non-graded scores:</label> <select id=\"toggle2\" onchange=\"chgtoggle()\">";
+			echo "<option value=0 "; writeHtmlSelected($hidenc,0); echo ">Show all</option>";
+			echo "<option value=1 "; writeHtmlSelected($hidenc,1); echo ">Show stu view</option>";
+			echo "<option value=2 "; writeHtmlSelected($hidenc,2); echo ">Hide all</option>";
+		echo "</select>";
+		echo "<label for=\"toggle1\">Link type:</label> <select id=\"toggle1\" onchange=\"chgtoggle()\">";
+			echo "<option value=0 "; writeHtmlSelected($links,0); echo ">View/Edit</option>";
+			echo "<option value=1 "; writeHtmlSelected($links,1); echo ">Scores</option></select>";
+		echo "<label for=\"toggle4\">Pictures:</label> <select id=\"toggle4\" onchange=\"chgtoggle()\">";
+			echo "<option value=0 "; writeHtmlSelected($showpics,0); echo ">None</option>";
+			echo "<option value=1 "; writeHtmlSelected($showpics,1); echo ">Small</option>";
+			echo "<option value=2 "; writeHtmlSelected($showpics,2); echo ">Big</option></select>";
+		if ($isteacher) {
+			echo "<br />";
+			echo "Offline Grades: <ul class=\"buttonlist\">";
+				echo "<li><a href=\"addgrades.php?cid=$cid&gbitem=new&grades=all\">Add</a></li><li><a href=\"chgoffline.php?cid=$cid\">Manage</a></li>";
+			echo "</ul>";
+			echo '<label for="exportsel">Export to</label> <select id="exportsel" onchange="chgexport()">';
+				echo '<option value="0">Select</option>';
+				echo '<option value="1">...file</option>';
+				echo '<option value="2">...my email</option>';
+				echo '<option value="3">...other email</option></select>';
+			//echo "Export to <a href=\"gb-export.php?stu=$stu&cid=$cid&export=true\">File</a>, ";
+			//echo "<a href=\"gb-export.php?stu=$stu&cid=$cid&emailgb=me\">My Email</a>, or <a href=\"gb-export.php?stu=$stu&cid=$cid&emailgb=ask\">Other Email</a>";
+			echo "<a class=\"abutton\" href=\"gbsettings.php?cid=$cid\">GB Settings</a>";
+			echo "<ul class=\"buttonlist\">";
+			echo "<li><a href=\"gradebook.php?cid=$cid&stu=-1\">Averages</a></li><li><a href=\"gbcomments.php?cid=$cid&stu=0\">Comments</a></li>\n";
+			echo "</ul>";
+			echo "<input type=\"button\" id=\"lockbtn\" onclick=\"lockcol()\" value=\"";
+			if ($headerslocked) {
+				echo "Unlock headers";
+			} else {
+				echo "Lock headers";
+			}
+			echo "\"/>";
+			echo "<a class=\"abutton\" href=\"#\" onclick=\"chgnewflag(); return false;\">New flag</a>";
+			//echo '<input type="button" value="Pics" onclick="rotatepics()" />';
+		}	
+		if (!$isteacher) {
+			echo "<input type=\"button\" id=\"lockbtn\" onclick=\"lockcol()\" value=\"";
+			if ($headerslocked) {
+				echo "Unlock headers";
+			} else {
+				echo "Lock headers";
+			}
+			echo "\"/>\n";	
 		}
-		echo "\"/>\n";	
-	}
-	
-	echo "</div>";
-	
-	if ($isteacher) {
-		echo 'Check: <a href="#" onclick="return chkAllNone(\'qform\',\'checked[]\',true)">All</a> <a href="#" onclick="return chkAllNone(\'qform\',\'checked[]\',false)">None</a> ';
-		echo "With Selected:  <input type=submit name=submit value=\"E-mail\"> <input type=submit name=submit value=\"Message\"> <input type=submit name=submit value=\"Unenroll\"> <input type=submit name=submit value=\"Make Exception\"> ";
-	}
+		if ($isteacher) {
+			echo "<br />";
+			echo 'Check: <a href="#" onclick="return chkAllNone(\'qform\',\'checked[]\',true)">All</a>, <a href="#" onclick="return chkAllNone(\'qform\',\'checked[]\',false)">None</a> ';
+			echo "<span class=\"invisible\">With Selected:</span>";
+			echo "<ul class=\"buttonlist\">";
+			echo "<li><input type=submit name=submit value=\"E-mail\"></li><li><input type=submit name=submit value=\"Message\"></li><li><input type=submit name=submit value=\"Unenroll\"></li><li><input type=submit name=submit value=\"Make Exception\"></li>\n";
+			echo "</ul>";
+		}
+	echo "</div> <!--cpmid-->";
 	
 	$gbt = gbinstrdisp();
 	echo "</form>";
@@ -961,6 +965,7 @@ function gbinstrdisp() {
 						echo '-';
 					}
 					if ($isteacher || ($istutor && $gbt[0][1][$j][8]==1)) {
+
 						echo '</a>';
 					}
 					if ($gbt[$i][1][$j][1]==1) {

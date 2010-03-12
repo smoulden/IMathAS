@@ -20,6 +20,7 @@ $today = $today + $pageshift*28*24*60*60;
 $dayofweek = date('w',$today);
 $dayofmo = date('j',$today);
 $curmo = date('M',$today);
+$longcurmo = date('F',$today);
 $curyr = date('Y',$today);
 $curmonum = date('n',$today);
 $daysinmo = date('t',$today);
@@ -66,7 +67,11 @@ for ($i=$dayofweek;$i<28;$i++) {
 		}
 		$ids[$row][$col] = $nextmonum.'-'.($curday - $daysinmo);
 	} else {
-		$hdrs[$row][$col] = $curday;
+		if ($curday==1) {
+			$hdrs[0][$i] = $curmo . " " . $curday;
+		} else {
+			$hdrs[$row][$col] = $curday;
+		}
 		$ids[$row][$col] = $curmonum.'-'.$curday;
 	}
 	$dates[$ids[$row][$col]] = date('l F j, Y',$today + ($i-$dayofweek)*24*60*60);
@@ -76,11 +81,14 @@ for ($i=$dayofweek;$i<28;$i++) {
 
 
 <?php
+//echo '<div class="floatleft">Jump to <a href="'.$refpage.'.php?calpageshift=0&cid='.$cid.'">Now</a></div>';
 echo '<div class=center><a href="'.$refpage.'.php?calpageshift='.($pageshift-1).'&cid='.$cid.'">&lt; &lt;</a> ';
+//echo $longcurmo.' ';
+
 if ($pageshift==0) {
 	echo "Now ";
 } else {
-	echo '<a href="course.php?calpageshift=0&cid='.$cid.'">Now</a> ';
+	echo '<a href="'.$refpage.'.php?calpageshift=0&cid='.$cid.'">Now</a> ';
 }
 echo '<a href="'.$refpage.'.php?calpageshift='.($pageshift+1).'&cid='.$cid.'">&gt; &gt;</a> ';
 echo '</div> ';
@@ -152,7 +160,7 @@ while ($row = mysql_fetch_row($result)) {
 		list($moday,$time) = explode('~',date('n-j~g:i a',$row[4]));
 		$row[1] = str_replace('"','\"',$row[1]);
 		$tag = $row[11];
-		if ($now<$row[4]) { $colors[$k] = '#99f';} else {$colors[$k] = '#ccc';}
+		if ($now<$row[4]) { $colors[$k] = '#69c';} else {$colors[$k] = '#ccc';}
 		$assess[$moday][$k] = "{type:\"AR\", time:\"$time\", tag:\"$tag\", ";
 		if ($now<$row[4] || isset($teacherid)) { $assess[$moday][$k] .= "id:\"$row[0]\",";}
 		$assess[$moday][$k] .=  "color:\"".$colors[$k]."\",name:\"$row[1]\"".((isset($teacherid))?", editlink:true":"")."}";
@@ -324,7 +332,7 @@ for ($i=0;$i<count($hdrs);$i++) {
 }
 echo "</tbody></table>";
 
-echo "<div style=\"margin-top: 10px; padding:10px; border:1px solid #000;\">";
+echo "<div style=\"margin-top: 10px; padding:10px; border:1px solid #999;\">";
 echo '<span class=right><a href="#" onclick="showcalcontents('.(1000*($today - $dayofweek*24*60*60)).'); return false;"/>Show all</a></span>';
 echo "<div id=\"caleventslist\"></div><div class=\"clear\"></div></div>";
 if ($pageshift==0) {

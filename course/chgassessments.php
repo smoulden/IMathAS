@@ -313,19 +313,19 @@ function copyfromtoggle(frm,mark) {
 
 </script>
 
-	<div class=breadcrumb><?php echo $curBreadcrumb ?></div>
+	<div class="breadcrumb"><?php echo $curBreadcrumb ?></div>
 	<div id="headerchgassessments" class="pagetitle"><h2>Mass Change Assessment Settings 
 		<img src="<?php echo $imasroot ?>/img/help.gif" alt="Help" onClick="window.open('<?php echo $imasroot ?>/help.php?section=assessments','help','top=0,width=400,height=500,scrollbars=1,left='+(screen.width-420))"/>
 	</h2></div>
 
 	<p>This form will allow you to change the assessment settings for several or all assessments at once.
-	 <b>Beware</b> that changing default points or penalty after an assessment has been 
+	 <strong>Beware</strong> that changing default points or penalty after an assessment has been 
 	 taken will not change the scores of students who have already completed the assessment.</p>
 
 	<form id="qform" method=post action="chgassessments.php?cid=<?php echo $cid; ?>">
 		<h3>Assessments to Change</h3>
 
-		Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
+		Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
 		<ul class=nomark>
 <?php
 	echo $page_assessListMsg;
@@ -346,8 +346,8 @@ function copyfromtoggle(frm,mark) {
 			<tbody>
 			<tr>
 				<td><input type="checkbox" name="chgintro"/></td>
-				<td class="r">Instructions:</td>
-				<td>Copy from: 
+				<td class="r"><label for="intro">Copy instructions from:</label></td>
+				<td>
 <?php
 	writeHtmlSelect("intro",$page_assessSelect['val'],$page_assessSelect['label']);
 ?>
@@ -356,8 +356,8 @@ function copyfromtoggle(frm,mark) {
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="chgdates"/></td>
-				<td class="r">Dates:</td>
-				<td>Copy from:
+				<td class="r"><label for="dates">Copy dates from:</label></td>
+				<td>
 <?php
 	writeHtmlSelect("dates",$page_assessSelect['val'],$page_assessSelect['label']);
 ?>
@@ -367,24 +367,29 @@ function copyfromtoggle(frm,mark) {
 				<td><input type="checkbox" name="chgavail"/></td>
 				<td class="r">Show:</td>
 				<td>
-				<input type=radio name="avail" value="0" />Hide<br/>
-				<input type=radio name="avail" value="1" checked="checked"/>Show by Dates
+					<fieldset class="invisible"><legend>Show:</legend><ul>
+						<li><input type="radio" name="avail" id="avail_date" value="0" />
+						<label for="avail_date">Hide</label></li>
+						<li><input type="radio" name="avail" id="avail_hide" value="1" checked="checked"/>
+						<label for="avail_hide">Show by Dates</label></li>
+					</ul></fieldset>
 				</td>
 			</tr>
 			<tr>
 				<td style="border-bottom: 1px solid #000"><input type="checkbox" name="chgcopyendmsg"/></td>
-				<td class="r" style="border-bottom: 1px solid #000">End of Assessment Messages:</td>
-				<td style="border-bottom: 1px solid #000">Copy from:
+				<td class="r" style="border-bottom: 1px solid #000">
+					<label for="copyendmsg">Copy end of assessment messages from:</label></td>
+				<td style="border-bottom: 1px solid #000">
 <?php
 	writeHtmlSelect("copyendmsg",$page_assessSelect['val'],$page_assessSelect['label']);
 ?>
-				<br/><i style="font-size: 75%">Use option near the bottom to define new messages</i>
+				<br/><em>Use option near the bottom to define new messages</em>
 				</td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="docopyopt" onClick="copyfromtoggle(this.form,this.checked)"/></td>
-				<td class="r">Copy remaining options</td>
-				<td>Copy from:
+				<td class="r"><label for="copyopt">Copy remaining options from:</label></td>
+				<td>
 <?php
 	writeHtmlSelect("copyopt",$page_assessSelect['val'],$page_assessSelect['label']);
 ?>
@@ -392,22 +397,22 @@ function copyfromtoggle(frm,mark) {
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgpassword"/></td>
-				<td class="r">Require Password (blank for none):</td>
-				<td><input type=text name=password value=""></td>
+				<td class="r"><label for="password">Require Password (blank for none):</label></td>
+				<td><input type="text" name="password" id="password" value=""></td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgtimelimit"/></td>
-				<td class="r">Time Limit (minutes, 0 for no time limit): </td>
-				<td><input type=text size=4 name="timelimit" value="0" />
-				   <input type="checkbox" name="timelimitkickout" /> Kick student out at timelimit
-				   </td>
+				<td class="r"><label for="timelimit">Time Limit (minutes, 0 for no time limit):</label></td>
+				<td><input type="text" size="4" name="timelimit" id="timelimit" value="0" />
+				<label for="timelimitkickout">Kick student out at time limit</label>
+				<input type="checkbox" name="timelimitkickout" id="timelimitkickout" />
+				</td>
 			</tr>
-
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgdisplaymethod"/></td>
-				<td class="r">Display method: </td>
+				<td class="r"><label for="displaymethod">Display method:</label></td>
 				<td>
-				<select name="displaymethod">
+				<select name="displaymethod" id="displaymethod">
 					<option value="AllAtOnce">Full test at once</option>
 					<option value="OneByOne">One question at a time</option>
 					<option value="Seq">Full test, submit one at time</option>
@@ -415,25 +420,24 @@ function copyfromtoggle(frm,mark) {
 				</select>
 				</td>
 			</tr>
-
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgdefpoints"/></td>
-				<td class="r">Default points per problem: </td>
-				<td><input type=text size=4 name=defpoints value="<?php echo $line['defpoints'];?>" ></td>
+				<td class="r"><label for="defpoints">Default points per problem:</label></td>
+				<td><input type="text" size="4" name="defpoints" id="defpoints" value="<?php echo $line['defpoints'];?>" ></td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgdefattempts"/></td>
-				<td class="r">Default attempts per problem (0 for unlimited): </td>
+				<td class="r"><label for="defattempts">Default attempts per problem (0 for unlimited):</label></td>
 				<td>
-					<input type=text size=4 name=defattempts value="<?php echo $line['defattempts'];?>" >
- 					<input type=checkbox name="reattemptsdiffver" />
-						Reattempts different versions
+					<input type="text" size="4" name="defattempts" id="defattempts" value="<?php echo $line['defattempts'];?>" >
+ 					<label for="reattemptsdiffver">Reattempts different versions</label>
+					<input type="checkbox" name="reattemptsdiffver" id="reattemptsdiffver" />
 				</td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgdefpenalty"/></td>
-				<td class="r">Default penalty:</td>
-				<td><input type=text size=4 name=defpenalty value="<?php echo $line['defpenalty'];?>" <?php if ($taken) {echo 'disabled=disabled';}?>>% 
+				<td class="r"><label for="defpenalty">Default penalty:</label></td>
+				<td><input type="text" size=4 name="defpenalty" id="defpenalty" value="<?php echo $line['defpenalty'];?>" <?php if ($taken) {echo 'disabled=disabled';}?>>% 
    					<select name="skippenalty" <?php if ($taken) {echo 'disabled=disabled';}?>>
 						<option value="0">per missed attempt</option>
 						<option value="1">per missed attempt, after 1</option>
@@ -448,7 +452,7 @@ function copyfromtoggle(frm,mark) {
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgfeedback"/></td>
-				<td class="r">Feedback method:<br/>and Show Answers: </td>
+				<td class="r"><label for="deffeedback">Feedback method:</label></td>
 				<td>
 					<select id="deffeedback" name="deffeedback" onChange="chgfb()" >
 						<option value="NoScores">No scores shown (use with 1 attempt per problem)</option>
@@ -458,9 +462,16 @@ function copyfromtoggle(frm,mark) {
 						<option value="Practice">Practice test: Show score on each question as it's submitted & can restart test; scores not saved</option>
 						<option value="Homework">Homework: Show score on each question as it's submitted & allow similar question to replace missed question</option>
 					</select>
-					<br/>
-					<span id="showanspracspan" class="<?php echo ($testtype=="Practice" || $testtype=="Homework") ? "show" : "hidden"; ?>">
-					<select name="showansprac">
+				</td>
+			</tr>
+			<tr class="coptr">
+				<td><input type="checkbox" name="chgfeedback"/></td>
+				<td class="r">
+					<span id="showanspracspan" class="<?php echo ($testtype=="Practice" || $testtype=="Homework") ? "show" : "hidden"; ?>"><label for="showansprac">Show Answers:</label></span>
+					<span id="showansspan" class="<?php echo ($testtype!="Practice" && $testtype!="Homework") ? "show" : "hidden"; ?>"><label for="showans">Show Answers:</label></span>
+				</td>
+				<td><span id="showanspracspan" class="<?php echo ($testtype=="Practice" || $testtype=="Homework") ? "show" : "hidden"; ?>">
+					<select name="showansprac" id="showansprac">
 						<option value="V">Never, but allow students to review their own answers</option>
 						<option value="N" >Never, and don't allow students to review their own answers</option>
 						<option value="F">After last attempt (Skip Around only)</option>
@@ -474,7 +485,7 @@ function copyfromtoggle(frm,mark) {
 					</select>
 					</span>
 					<span id="showansspan" class="<?php echo ($testtype!="Practice" && $testtype!="Homework") ? "show" : "hidden"; ?>">
-					<select name="showans">
+					<select name="showans" id="showans">
 						<option value="V" >Never, but allow students to review their own answers</option>
 						<option value="N" >Never, and don't allow students to review their own answers</option>
 						<option value="I">Immediately (in gradebook) - don't use if allowing multiple attempts per problem</option>
@@ -482,14 +493,12 @@ function copyfromtoggle(frm,mark) {
 						<option value="J">After last attempt or Jump to Ans button (Skip Around only)</option>
 						<option value="A" SELECTED>After due date (in gradebook)</option>
 					</select>
-					</span>
-				</td>
+					</span></td>
 			</tr>
-			
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgeqnhelper"/></td>
-				<td class="r">Use equation helper?</td>
-				<td><select name="eqnhelper">
+				<td class="r"><label for="eqnhelper">Use equation helper?</label></td>
+				<td><select name="eqnhelper" id="eqnhelper">
 					<option value="0" selected="selected">No</option>
 					<option value="1" >Yes, simple form (no logs or trig)</option>
 					<option value="2" >Yes, advanced form</option>
@@ -497,116 +506,131 @@ function copyfromtoggle(frm,mark) {
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chghints"/></td>
-				<td class="r">Show hints when available? </td>
-				<td><input type="checkbox" name="showhints" checked="checked"></td>
+				<td class="r"><label for="showhints">Show hints when available?</label></td>
+				<td><input type="checkbox" name="showhints" id="showhints" checked="checked"></td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgshowtips"/></td>
-				<td class="r">Show answer entry tips?</td>
-				<td><select name="showtips">
+				<td class="r"><label for="showtips">Show answer entry tips?</label></td>
+				<td><select name="showtips" id="showtips">
 					<option value="0" >No</option>
 					<option value="1" selected="selected">Yes</option>
 				     </select></td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgallowlate"/></td>
-				<td class="r">Allow use of LatePasses?: </td>
-				<td><input type="checkbox" name="allowlate" checked="1"></td>
+				<td class="r"><label for="allowlate">Allow use of LatePasses?:</label></td>
+				<td><input type="checkbox" name="allowlate" id="allowlate" checked="1"></td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgnoprint"/></td>
-				<td class="r">Make hard to print?: </td>
-				<td><input type="checkbox" name="noprint"></td>
+				<td class="r"><label for="noprint">Make hard to print?:</label></td>
+				<td><input type="checkbox" name="noprint" id="noprint"></td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgshuffle"/></td>
-				<td class="r">Shuffle item order: </td>
-				<td><input type="checkbox" name="shuffle"></td>
+				<td class="r"><label for="shuffle">Shuffle item order:</label></td>
+				<td><input type="checkbox" name="shuffle" id="shuffle"></td>
 			</tr>
-			
-			
 			<tr class="coptr">
 				<td><input type="checkbox" name="chggbcat"/></td>
-				<td class="r">Gradebook category: </td>
+				<td class="r"><label for="gbcat">Gradebook category:</label></td>
 				<td>
 <?php 
 writeHtmlSelect ("gbcat",$page_gbcatSelect['val'],$page_gbcatSelect['label'],null,"Default",0," id=gbcat");
 ?>
-
 				</td>
 			</tr>
 			<tr class="coptr">
 				<td style="border-bottom: 1px solid #000"><input type="checkbox" name="chgcntingb"/></td>
-				<td class="r" style="border-bottom: 1px solid #000">Count: </td>
-				<td style="border-bottom: 1px solid #000"><input name="cntingb" value="1" checked="checked" type="radio"> Count in Gradebook<br>
-				<input name="cntingb" value="0" type="radio"> Don't count in grade total and hide from students<br>
-				<input name="cntingb" value="3" type="radio"> Don't count in grade total<br>
-				<input name="cntingb" value="2" type="radio"> Count as Extra Credit
+				<td class="r" style="border-bottom: 1px solid #000">Count:</td>
+				<td style="border-bottom: 1px solid #000">
+					<fieldset class="invisible"><legend>Count:</legend><ul>
+					<li><input name="cntingb" id="cnt" value="1" checked="checked" type="radio">
+						<label for="cnt">Count in Gradebook</label></li>
+					<li><input name="cntingb" id="dcnth" value="0" type="radio">
+						<label for="dcnth">Don't count in grade total and hide from students</label></li>
+					<li><input name="cntingb" id="dcnt" value="3" type="radio">
+						<label for="dcnt">Don't count in grade total</label></li>
+					<li><input name="cntingb" id="cntec" value="2" type="radio">
+						<label for="cntec">Count as Extra Credit</label></li>
+					</ul></fieldset>
 				</td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgcaltag"/></td>
 				<td class="r">Calendar icon:</td>
-				<td>Active: <input name="caltagact" type=text size=1 value="?"/>, 
-				    Review: <input name="caltagrev" type=text size=1 value="R"/></td>
+				<td>
+					<fieldset class="invisible"><legend>Calendar icon:</legend><ul>
+						<li><label for="caltagact">Active:</label> <input name="caltagact" id="caltagact" type="text" size="1" value="?"/>
+				    		<li><label for="caltagrev">Review:</label> <input name="caltagrev" id="caltagrev" type="text" size="1" value="R"/>
+					</ul></fieldset>
+				</td>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgminscore"/></td>
-				<td class="r">Minimum score to receive credit: </td>
-				<td><input type="text" name="minscore" size=4 value="0"> % </td>
+				<td class="r"><label for="minscore">Minimum score to receive credit:</label></td>
+				<td><input type="text" name="minscore" id="minscore" size="4" value="0"> % </td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgsameseed"/></td>
-				<td class="r">All items same random seed: </td>
-				<td><input type="checkbox" name="sameseed"></td>
+				<td class="r"><label for="sameseed">All items same random seed:</label></td>
+				<td><input type="checkbox" name="sameseed" id="sameseed"></td>
 			</tr>
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgsamever"/></td>
-				<td class="r">All students same version of questions: </td>
-				<td><input type="checkbox" name="samever"></td>
+				<td class="r"><label for="samever">All students same version of questions:</label></td>
+				<td><input type="checkbox" name="samever" id="samever"></td>
 			</tr>
-			
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgexcpen"/></td>
-				<td class="r">Penalty for questions done while in exception/LatePass: </td>
-				<td><input type="text" name="exceptionpenalty" size=4 value="0"> % </td>
+				<td class="r"><label for="exceptionpenalty">Penalty for questions done while in exception/LatePass:</label></td>
+				<td><input type="text" name="exceptionpenalty" id="exceptionpenalty" size="4" value="0"> % </td>
 			</tr>
-			
 			<tr class="coptr">
 				<td><input type="checkbox" name="chgisgroup"/></td>
-				<td class="r">Group assessment: </td>
-				<td><input type="radio" name="isgroup" value="0" checked="checked" />Not a group assessment<br/>
-				<input type="radio" name="isgroup" value="1"  />Students can add members with login passwords<br/>
-				<input type="radio" name="isgroup" value="2"  />Students can add members without passwords<br/>
-				<input type="radio" name="isgroup" value="3"  />Students cannot add members</td>
+				<td class="r">Group assessment:</td>
+				<td><fieldset class="invisible"><legend>Group assessment:</legend><ul>
+				<li><input type="radio" name="isgroup" id="notgroup" value="0" checked="checked" />
+					<label for="notgroup">Not a group assessment</label></li>
+				<li><input type="radio" name="isgroup" id="addwpass" value="1" />
+					<label for="addwpass">Students can add members with login passwords</label></li>
+				<li><input type="radio" name="isgroup" id="addnopass" value="2" />
+					<label for="addnopass">Students can add members without passwords</label></li>
+				<li><input type="radio" name="isgroup" id="noadd" value="3" />
+					<label for="noadd">Students cannot add members</label></li>
+				</ul></fieldset></td>
 			</tr>
-			
 			<tr class="coptr">
 				<td><input type="checkbox" name="chggroupmax"/></td>
-				<td class="r">Max group members (if group assessment):</td>
-				<td><input type=text name=groupmax value="6"></td>
+				<td class="r"><label for="groupmax">Max group members (if group assessment):</label></td>
+				<td><input type="text" name="groupmax" id="groupmax" value="6"></td>
 			</tr>
 			<tr class="coptr">
-				<td ><input type="checkbox" name="chgshowqcat"/></td>
-				<td class="r" >Show question categories: </td>
-				<td ><input name="showqcat" value="0" checked="checked" type="radio">No <br/>
-				<input name="showqcat" value="1" type="radio">In Points Possible bar <br/>
-				<input name="showqcat" value="2" type="radio">In navigation bar (Skip-Around only)
-				</td>
+				<td><input type="checkbox" name="chgshowqcat"/></td>
+				<td class="r">Show question categories:</td>
+				<td><fieldset class="invisible"><legend>Show question categories:</legend><ul>
+					<li><input id="noshowcat" name="showqcat" value="0" checked="checked" type="radio">
+						<label for="noshowcat">No</label></li>
+					<li><input id="ppbar" name="showqcat" value="1" type="radio">
+						<label for="ppbar">In Points Possible bar</label></li>
+					<li><input id="nbar" name="showqcat" value="2" type="radio">
+						<label for="nbar">In navigation bar (Skip-Around only)</label></li>
+				</ul></fieldset></td>
 			</tr>
 			<tr>	
 				<td style="border-top: 1px solid #000"></td>
-				<td class="r" style="border-top: 1px solid #000">Define end of assessment messages?</td>
-				<td style="border-top: 1px solid #000"><input type="checkbox" name="chgendmsg" /> You will be taken to a page to change these after you hit submit</td>
+				<td class="r" style="border-top: 1px solid #000"><label for="chgendmsg">Define end of assessment messages?</label></td>
+				<td style="border-top: 1px solid #000"><input type="checkbox" name="chgendmsg" id="chgendmsg" /> <em>You will be taken to a page to change these after you hit submit</em></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td class="r">Remove per-question settings (points, attempts, etc.) for all questions in these assessments?</td>
-				<td><input type="checkbox" name="removeperq" /></td>
+				<td class="r"><label for="removeperq">Remove per-question settings (points, attempts, etc.) for all questions in these assessments?</label></td>
+				<td><input type="checkbox" name="removeperq" id="removeperq" /></td>
 			</tr>
 		</tbody>
 		</table>
 	</fieldset>
-	<div class=submit><input type=submit value=Submit></div>
+	<div class="submit"><input type="submit" value="Submit"></div>
 
 <?php
 }

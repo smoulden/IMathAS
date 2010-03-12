@@ -490,9 +490,9 @@ function setlibnames(libn) {
 		this site or another site running this software.</p>
 		
 		<input type="hidden" name="MAX_FILE_SIZE" value="300000" />
-		<span class=form>Import file: </span>
-		<span class=formright><input name="userfile" type="file" /></span><br class=form>
-		<div class=submit><input type=submit value="Submit"></div>
+		<span class="form"><label for="userfile">Import file:</label> </span>
+		<span class="formright"><input name="userfile" id="userfile" type="file" /></span><br class=form>
+		<div class="submit"><input type="submit" value="Submit"></div>
 
 <?php
 	} else {

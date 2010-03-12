@@ -354,7 +354,7 @@ if ($overwriteBody==1) {
 		exit;
 	}
 ?>
-	<div class=breadcrumb>
+	<div class="breadcrumb">
 		<span class="padright">
 		<?php if (isset($guestid)) {
 			echo '<span class="red">Instructor Preview</span> ';
@@ -362,7 +362,7 @@ if ($overwriteBody==1) {
 		<?php echo $userfullname ?>
 		</span>
 		<?php echo $curBreadcrumb ?>
-		<div class=clear></div>
+		<div class="clear"></div>
 	</div>
 	
 <?php  
@@ -465,27 +465,27 @@ if ($overwriteBody==1) {
 	} else if ($useleftstubar && !isset($teacherid)) {
 ?>
 		<div id="leftcontent">
-			<p>
-			<a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
-			Messages</a> <?php echo $newmsgs ?> <br/>
-			<a href="<?php echo $imasroot ?>/forums/forums.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
-			Forums</a> <?php echo $newpostscnt ?><br/>
-			<a href="showcalendar.php?cid=<?php echo $cid ?>">Calendar</a>
-	<?php if (isset($mathchaturl) && $chatset==1) {
-			echo "<br/><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\"  target=\"chat\">Chat</a>  ($activechatters)";
-		}
-	?>
-			</p>
-			<p>
-			<a href="gradebook.php?cid=<?php echo $cid ?>">Gradebook</a> <?php if (($coursenewflag&1)==1) {echo '<span class="red">New</span>';}?>
-			</p>
-			<p>
-			<a href="../actions.php?action=logout">Log Out</a><br/>   
-			<a href="<?php echo $imasroot ?>/help.php?section=usingimas">Help Using <?php echo $installname;?></a>
-			</p>
+			<div><ul>
+			<li><a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
+			Messages</a> <?php echo $newmsgs ?> </li>
+			<li><a href="<?php echo $imasroot ?>/forums/forums.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
+			Forums</a> <?php echo $newpostscnt ?></li>
+			<li><a href="showcalendar.php?cid=<?php echo $cid ?>">Calendar</a></li>
+			<?php if (isset($mathchaturl) && $chatset==1) {
+				echo "<li><a href=\"$mathchaturl?uname=".urlencode($userfullname)."&amp;room=$cid&amp;roomname=".urlencode($coursename)."\"  target=\"chat\">Chat</a>  ($activechatters)</li>";
+				}
+			?>
+			</ul></div>
+			<div><ul>
+			<li><a href="gradebook.php?cid=<?php echo $cid ?>">Gradebook</a> <?php if (($coursenewflag&1)==1) {echo '<span class="red">New</span>';}?></li>
+			</ul></div>
+			<div><ul>
+			<li><a href="../actions.php?action=logout">Log Out</a></li>   
+			<li><a href="<?php echo $imasroot ?>/help.php?section=usingimas">Help Using <?php echo $installname;?></a></li>
+			</ul></div>
 			<?php		  
 			if ($myrights > 5 && $allowunenroll==1) {
-				echo "<p><a href=\"../forms.php?action=unenroll&cid=$cid\">Unenroll From Course</a></p>\n";
+				echo "<div><ul><li><a href=\"../forms.php?action=unenroll&cid=$cid\">Unenroll From Course</a></li></ul></div>\n";
 			}
 			?>
 		</div>
@@ -538,7 +538,7 @@ if ($overwriteBody==1) {
 	  
 ?>	   
 	<div class="cp">
-		<span class=column>
+		<span class="column">
 <?php		 if ($msgset<4) {  ?>
 			<a href="<?php echo $imasroot ?>/msgs/msglist.php?cid=<?php echo $cid ?>&folder=<?php echo $_GET['folder'] ?>">
 			Messages</a><?php echo $newmsgs ?> <br/>
@@ -691,11 +691,11 @@ function makeTopMenu() {
 		if ($useviewbuttons) {
 			echo '<br class="clear"/>';
 		}
-		echo "<div class=breadcrumb>";
+		echo "<div class=\"quickview_options\">";
 		if (!$useviewbuttons) {
 			echo "Quick View. <a href=\"course.php?cid=$cid&quickview=off\">Back to regular view</a>. ";
 		} 
-		 echo 'Use colored boxes to drag-and-drop order.  <input type="button" id="recchg" disabled="disabled" value="Record Changes" onclick="submitChanges()"/>';
+		 echo 'Use icons to drag-and-drop order.  <input type="button" id="recchg" disabled="disabled" value="Record Changes" onclick="submitChanges()"/>';
 		 echo '<span id="submitnotice" style="color:red;"></span>';
 		 echo '</div>';
 		
@@ -706,7 +706,7 @@ function makeTopMenu() {
 		$gbnewflag = '';
 	}
 	if (isset($teacherid) && count($topbar[1])>0 && $topbar[2]==0) {
-		echo '<div class=breadcrumb>';
+		echo '<div class=\"breadcrumb\">';
 		if (in_array(0,$topbar[1]) && $msgset<4) { //messages
 			echo "<a href=\"$imasroot/msgs/msglist.php?cid=$cid\">Messages</a>$newmsgs &nbsp; ";
 		}
@@ -776,12 +776,7 @@ function makeTopMenu() {
 			echo '</select>';
 			echo " <a href=\"course.php?cid=$cid&teachview=1\">Back to instructor view</a>";
 		}
-		echo '<div class=clear></div></div>';
+		echo '<div class=\"clear\"></div></div>';
 	}
 }
-
-
-
-
 ?>
-
