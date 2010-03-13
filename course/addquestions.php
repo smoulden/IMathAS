@@ -311,7 +311,11 @@ if (!(isset($teacherid))) { // loaded by a NON-teacher
 	}
 	
 	$jsarr = '[';
-	$items = explode(",",$itemorder);
+	if ($itemorder != '') {
+		$items = explode(",",$itemorder);
+	} else {
+		$items = array();
+	}
 	$existingq = array();
 	$apointstot = 0;
 	for ($i = 0; $i < count($items); $i++) {
