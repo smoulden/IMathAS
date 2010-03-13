@@ -658,27 +658,31 @@ if (isset($images['vars']) && count($images['vars'])>0) {
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
-if (window.console) {
-	
-} else {
-	console = {
-		log: function() { return false;}
+function load_video_topics(num) {
+	var qs = '';
+	if (num == null) {
+		$('#video_topic1').html('<option value="0">Select...</option>');
+	} else if (num == 1) {
+		qs = 'id='+$('#video_topic1').val();
+		$('#video_topic2').html('<option value="0">Select...</option>');
+		$('#video_topic3').html('<option value="0">-----</option>');
+		$('#examples div').html('');
+	} else if (num == 2) {
+		qs = 'id='+$('#video_topic2').val();
+		$('#video_topic3').html('<option value="0">Select...</option>');
+		$('#examples div').html('');
+	} else if (num == 3) {
+		qs = 'id='+$('#video_topic3').val();
 	}
-}
-function grab_topics(option) {
-	console.log("Alright, we're calling grab_topics()...");
-	
-	// we might not have a parent id to fetch children from
-	var parent_id = $(option).attr('value');
-	parent_id = parent_id != '' ? 'id='+parent_id : '';
-	
-	var url = 'http://mathtv.com/api/topics.php?'+parent_id;
+	var url = 'http://mathtv.com/api/topics.php?'+qs;
 	
 	$.getJSON(url+"&callback=?", function(data) {
-		console.log("data: "+data);
-		
-		// did we receive a response that includes an image filename?
+			//console.log(data);
+			// did we receive a response that includes an image filename?
 		if(data[0][2]) {
+			if (num==2) {
+				$('#video_topic3').hide();
+			}
 			var new_html = '';
 			$.each(data, function(){
 				new_html += '<input type="radio" name="example" value="'+this[0]+'" style="margin-bottom: 1em;">'
@@ -689,40 +693,23 @@ function grab_topics(option) {
 			$('#examples div').html(new_html);
 		}
 		else {
-			var new_html = '<select>';
-			new_html += '<option>-----</option>';
-			
+			$('#video_topic3').show();
+			if (num==null) {
+				num = 1;
+			} else {
+				num++;
+			}
 			$.each(data, function(){
-				console.log(this);
-				new_html += '<option value="'+this[0]+'">'+this[1]+'</option>';
+				$('#video_topic'+num).append('<option value="'+this[0]+'">'+this[1]+'</option>');
 			});
-			new_html += '</select>';
-			
-			// no parent_id means that we're updating this <select> set,
-			// rather than the next one
-			if (parent_id == '') {
-				$(option).parent().parent().html(new_html);
-			}
-			else {
-				$(option).parent().parent().next().html(new_html);
-			}
 		}
-		update_onClicks();
 	});
 };
-
-function update_onClicks() {
-	$('#video option').unbind('click').click(function(){
-		grab_topics(this);
-	});
-	console.log("onClicks updated");
-};
-
-function update_iframe() {
+function preview_video() {
 	var example = $('input[name=example]:checked').val();
-	console.log('example: ' + example);
-	$('iframe').attr('src', 'http://www.mathtv.com/topic_content.php?example_id='+example);
-}
+	GB_show('Video Preview','http://www.mathtv.com/topic_content.php?example_id='+example,750,400);	
+	
+};
 //]]>
 </script>
 <?php
@@ -776,31 +763,27 @@ if (isset($line['videoid']) && $line['videoid']!='') {
 <div id="video">
 	MathTV.com video:
 	<span>
-		<select>
+		<select id="video_topic1" onchange="load_video_topics(1)">
 			<option value="">loading...</option>
 		</select>
 	</span>
 	<span>
-		<select>
+		<select id="video_topic2" onchange="load_video_topics(2)">
 		</select>
 	</span>
 	<span>
-		<select>
+		<select id="video_topic3" onchange="load_video_topics(3)">
 		</select>
 	</span>
 </div>
-<iframe width="800px" height="575px">
-	Your browser doesn't seem to support iframes.
-</iframe>
 <div id="examples" style="display: inline-block; vertical-align: top;">
 	<div>
 	</div>
 
-	<input type="button" value="preview" onclick="update_iframe();" />
+	<input type="button" value="preview" onclick="preview_video();" />
 </div>
 <script type="text/javascript">
-update_onClicks();
-grab_topics($('#video option'));
+load_video_topics();
 </script>
 <p>
 <input type=submit value="Save">
