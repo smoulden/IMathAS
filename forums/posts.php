@@ -182,7 +182,7 @@
 	} else {
 		echo "Next";
 	}
-	echo "<ul class=\"buttonlist\">;
+	echo "<ul class=\"buttonlist\">";
 	echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markunread=true\">Mark Unread</a></li>";
 	if ($tagged) {
 		echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markuntagged=true\">Unflag</a></li>";
