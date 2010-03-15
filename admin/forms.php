@@ -290,7 +290,7 @@ switch($_GET['action']) {
 			//0 on, 1 to instr, 2 to stu, 3 nosend, 4 off
 			echo '<li><input type=radio name="msgset" id="sandr" value="0" ';
 			if ($msgset==0) { echo "checked=1";}
-			echo '/> <label for"sandr">On for send and receive</label></li>';
+			echo '/> <label for="sandr">On for send and receive</label></li>';
 			echo '<li><input type=radio name="msgset" id="randsinst" value="1" ';
 			if ($msgset==1) { echo "checked=1";}
 			echo '/> <label for="randsinst">On for receive, students can only send to instructor</label></li>';
