@@ -321,23 +321,23 @@ function movefile(from) {
 ?>
 
 		<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-		New file<sup>*</sup>: <input type="file" name="userfile"/><br/>
-		Description: <input type="text" name="newfiledescr"/><br/>
+		<label for="userfile">New file<sup>*</sup>:</label> <input type="file" name="userfile" id="userfile" /><br/>
+		<label for="newfiledescr">Description:</label> <input type="text" name="newfiledescr" id="newfiledescr" /><br/>
 		<input type=submit name="submitbtn" value="Add / Update Files"/>
 	</span><br class=form>
 	
 	<div>
 		<span class=form>Show:</span>
-		<fieldset class=formright><legend class="invisible">Show:</legend><ul>
-			<li><input type=radio name="avail" value="0" <?php writeHtmlChecked($line['avail'],0);?>/>Hide</li>
-			<li><input type=radio name="avail" value="1" <?php writeHtmlChecked($line['avail'],1);?>/>Show by Dates</li>
-			<li><input type=radio name="avail" value="2" <?php writeHtmlChecked($line['avail'],2);?>/>Show Always</li></ul>
-		</fieldset><br class="form"/>
+		<span class=formright><fieldset class="invisible"><legend>Show:</legend><ul>
+			<li><input type=radio name="avail" id="availhide" value="0" <?php writeHtmlChecked($line['avail'],0);?>/><label for="availhide">Hide</label></li>
+			<li><input type=radio name="avail" id="availdates" value="1" <?php writeHtmlChecked($line['avail'],1);?>/><label for="availdates">Show by Dates</label></li>
+			<li><input type=radio name="avail" id="availalways" value="2" <?php writeHtmlChecked($line['avail'],2);?>/><label for="availalways">Show Always</label></li>
+		</ul></fieldset></span><br class="form"/>
 		<span class=form>Available after:</span>
-		<fieldset class=formright><legend class="invisible">Available after:</legend><ul>
-			<li><input type=radio name="sdatetype" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/>
-			 Always until end date</li>
-			<li><input type=radio name="sdatetype" value="sdate" <?php writeHtmlChecked($startdate,'0',1) ?>/>
+		<span class=formright><fieldset class="invisible"><legend>Available after:</legend><ul>
+			<li><input type="radio" name="sdatetype" id="suntile" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/>
+			<label for="suntile">Always until end date</label></li>
+			<li><input type="radio" name="sdatetype" value="sdate" <?php writeHtmlChecked($startdate,'0',1) ?>/>
 			<input type=text size=10 name=sdate value="<?php echo $sdate;?>"> 
 			<a href="#" onClick="displayDatePicker('sdate', this); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></a>
