@@ -167,7 +167,7 @@
 	
 	echo "<div class=\"cpmid\">";
 
-	echo "<ul class=\"buttonlist\">";
+	echo "<ul class=\"buttonlist right\">";
 	$query = "SELECT id FROM imas_forum_posts WHERE forumid='$forumid' AND threadid<'$threadid' AND parent=0 ORDER BY threadid DESC LIMIT 1";
 	$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
 	if (mysql_num_rows($result)>0) {
