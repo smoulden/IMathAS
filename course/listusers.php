@@ -473,7 +473,7 @@ if ($overwriteBody==1) {
 	}
 	</script>
 	<script type="text/javascript" src="<?php echo $imasroot ?>/javascript/tablesorter.js"></script>
-	<form id="qform formwcp" method="post" action="listusers.php?cid=<?php echo $cid ?>">
+	<form id="qform class="formwcp" method="post" action="listusers.php?cid=<?php echo $cid ?>">
 	<div class="cpmid">
 		<span class="invisible">With Selected: </span>
 		<ul class="buttonlist">
