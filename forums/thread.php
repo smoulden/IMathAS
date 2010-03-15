@@ -472,7 +472,7 @@ echo "<div class=\"cpmid\">";
 			} else {
 				echo "<li><a class=\"buttonactive\">Next</a></li>";
 			}
-			echo "</ul><br />\n";
+			echo "</ul><br />";
 		}
 	}
 	if ($isteacher && $grpaid>0) {
