@@ -182,7 +182,7 @@
 	} else {
 		echo "Next";
 	}
-	echo "<ul class=\"buttonlist\">
+	echo "<ul class=\"buttonlist\">;
 	echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markunread=true\">Mark Unread</a></li>";
 	if ($tagged) {
 		echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markuntagged=true\">Unflag</a></li>";
@@ -193,7 +193,7 @@
 	//echo "<br/><b style=\"font-size: 120%\">Post: {$subject[$threadid]}</b><br/>\n";
 	//echo "<b style=\"font-size: 100%\">Forum: $forumname</b></p>";
 	echo "<ul class=\"buttonlist\">";
-	echo "<li><input type\"=button\" value=\"Expand All\" onclick=\"expandall()\" /></li><li><input type=\"button\" value=\"Collapse All\" onclick=\"collapseall()\" /></li>";
+	echo "<li><input type=\"button\" value=\"Expand All\" onclick=\"expandall()\" /></li><li><input type=\"button\" value=\"Collapse All\" onclick=\"collapseall()\" /></li>";
 	echo "</ul> <ul class=\"buttonlist\">";
 	echo "</li><input type=button value=\"Show All\" onclick=\"showall()\" /></li><li><input type=button value=\"Hide All\" onclick=\"hideall()\" /></li>";
 	echo "</ul>";
