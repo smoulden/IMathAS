@@ -194,7 +194,7 @@
 	//echo "<b style=\"font-size: 100%\">Forum: $forumname</b></p>";
 	echo "<ul class=\"buttonlist\">";
 	echo "<li><input type=\"button\" value=\"Expand All\" onclick=\"expandall()\" /></li><li><input type=\"button\" value=\"Collapse All\" onclick=\"collapseall()\" /></li>";
-	echo "</ul> <ul class=\"buttonlist\">";
+	echo "</ul><ul class=\"buttonlist\">";
 	echo "<li><input type=\"button\" value=\"Show All\" onclick=\"showall()\" /></li><li><input type=button value=\"Hide All\" onclick=\"hideall()\" /></li>";
 	echo "</ul>";
 	/*if ($view==2) {
@@ -373,7 +373,7 @@
 				/*if (isset($children[$child])) {
 					echo "<input type=button id=\"butb$bcnt\" value=\"Collapse\" onClick=\"toggleshow($bcnt)\">\n";
 				}*/
-				echo "<ul=\"buttonlist\">";
+				echo "<ul class=\"buttonlist\">";
 				if ($view == 2) {
 					echo "<li><input type=button id=\"buti$icnt\" value=\"Show\" onClick=\"toggleitem($icnt)\"></li>\n";
 				} else {
