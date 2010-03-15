@@ -150,8 +150,9 @@ function chgfilter() {
 	window.location = "<?php echo $address;?>"+filtercid+"&filteruid="+filteruid;
 }
 </script>	
-	<form id="qform" method="post" action="sentlist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
-	<p>Filter by course: <select id="filtercid" onchange="chgfilter()">
+	<form id="qform" class="formwcp" method="post" action="sentlist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
+	<div class="cpmid">
+	Filter <label for="filtercid">by course:</label> <select id="filtercid" onchange="chgfilter()">
 <?php
 	echo "<option value=\"0\" ";
 	if ($filtercid==0) {
@@ -169,7 +170,7 @@ function chgfilter() {
 		echo " >{$row[1]}</option>";
 	}
 	echo "</select> ";
-	echo 'By recipient: <select id="filteruid" onchange="chgfilter()"><option value="0" ';
+	echo '<label for="filteruid">by recipient:</label> <select id="filteruid" onchange="chgfilter()"><option value="0" ';
 	if ($filteruid==0) {
 		echo 'selected="selected" ';
 	}
@@ -188,12 +189,13 @@ function chgfilter() {
 		}
 		echo " >{$row[1]}, {$row[2]}</option>";
 	}
-	echo "</select></p>";
+	echo "</select><br />";
 ?>
-	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
-	With Selected: 	<input type=submit name="remove" value="Remove from Sent Message List">
+	Check: <a href="#" onclick="return chkAllNone('qform','checked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('qform','checked[]',false)">None</a>
+	<span class="invisible">With Selected: </span><input type=submit name="remove" value="Remove from Sent Message List">
+	</div> <!--cpmid-->
 			
-	<table class=gb>
+	<table class="gb">
 	<thead>
 	<tr><th></th><th>Message</th><th>To</th><th>Read</th><th>Sent</th></tr>
 	</thead>
