@@ -724,7 +724,7 @@ div#viewbuttoncont a, ul.buttonlist li a, ul.buttonlist li input {
 div#viewbuttoncont a:last-child {
 	border-right:none;
 }
-a.buttonactive, div#viewbuttoncont a.buttonactive {
+div#viewbuttoncont a.buttonactive, ul.buttonlist li a.buttonactive {
 	background-color: #333;
 	cursor: default;
 }
