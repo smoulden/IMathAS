@@ -78,6 +78,11 @@ div.block h3 {
 	color: #666;
 	margin:0;
 }
+div.block h4 {
+	color: #333;
+	margin:0;
+}
+
 /*Default block item container*/
 div.blockitems, div.blockitems div.blockitems div.blockitems {
 	border: 1px solid #999;
