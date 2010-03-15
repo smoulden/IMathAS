@@ -859,6 +859,9 @@ div.quickview_options {
 .invisible {
 	display:none;
 }
+ul.right {
+	float:right;
+}
 
 /*--------------------- MASS CHANGE DATES -----------------------*/
 table.masschgdates img.toggle {
