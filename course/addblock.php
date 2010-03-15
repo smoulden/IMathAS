@@ -337,15 +337,15 @@ if ($overwriteBody==1) {
 
 	<span class=form>When available:</span>
 	<span class=formright><fieldset class="invisible"><legend>When available:</legend><ul>
-		<li><input type=radio name=availbeh id="showex" value="O" <?php writeHtmlChecked($availbeh,'O')?> /><label for="shoex">Show Expanded</label></li>
-		<li><input type=radio name=availbeh id="showcol" value="C" <?php writeHtmlChecked($availbeh,'C')?> /><label for="shocol">Show Collapsed</label></li>
-		<li><input type=radio name=availbeh id="showfol" value="F" <?php writeHtmlChecked($availbeh,'F')?> /><label for="shofol">Show as Folder</label></li>
+		<li><input type=radio name="availbeh" id="showex" value="O" <?php writeHtmlChecked($availbeh,'O')?> /><label for="showex">Show Expanded</label></li>
+		<li><input type=radio name="availbeh" id="showcol" value="C" <?php writeHtmlChecked($availbeh,'C')?> /><label for="showcol">Show Collapsed</label></li>
+		<li><input type=radio name="availbeh" id="showfol" value="F" <?php writeHtmlChecked($availbeh,'F')?> /><label for="showfol">Show as Folder</label></li>
 	</ul></fieldset></span><br class="form" />
 
 	<span class=form>When not available:</span>
 	<span class=formright><fieldset class="invisible"><legend>When not available:</legend><ul>
-		<input type=radio name=showhide id="hidefromstu" value="H" <?php writeHtmlChecked($showhide,'H') ?> /><label for="hidefromstu">Hide from Students</label></li>
-		<input type=radio name=showhide id="showcolfol" value="S" <?php writeHtmlChecked($showhide,'S') ?> /><label for="showcolfol">Show Collapsed/as folder</label></li>
+		<li><input type=radio name=showhide id="hidefromstu" value="H" <?php writeHtmlChecked($showhide,'H') ?> /><label for="hidefromstu">Hide from Students</label></li>
+		<li><input type=radio name=showhide id="showcolfol" value="S" <?php writeHtmlChecked($showhide,'S') ?> /><label for="showcolfol">Show Collapsed/as folder</label></li>
 	</ul></fieldset></span><br class="form" />
 	
 	<span class="form"><label for="fixedheight">If expanded, limit height to:</label></span>
