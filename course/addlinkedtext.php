@@ -233,8 +233,8 @@ if ($overwriteBody==1) {
 
 
 	<form enctype="multipart/form-data" method=post action="<?php echo $page_formActionTag ?>">
-		<span class=form>Title: </span>
-		<span class=formright><input type=text size=60 name=title value="<?php echo str_replace('"','&quot;',$line['title']);?>">
+		<span class=form><label for="title">Title:</label></span>
+		<span class=formright><input type=text size=60 name=title id=title value="<?php echo str_replace('"','&quot;',$line['title']);?>">
 		</span><BR class=form>
 		
 		Summary<BR>
@@ -248,47 +248,48 @@ if ($overwriteBody==1) {
 		</div>
 		<BR>
 		<input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
-		<span class=form>Or attach file (Max 2MB)<sup>*</sup>: </span>
-		<span class=formright><input name="userfile" type="file" /></span><br class=form>
+		<span class=form><label for="userfile">Or attach file (Max 2MB)<sup>*</sup>:</label></span>
+		<span class=formright><input name="userfile" id="userfile" type="file" /></span><br class=form>
 		
 		<span class="form">Open page in:</span>
-		<span class="formright">
-			<input type=radio name="target" value="0" <?php writeHtmlChecked($line['target'],0);?>/>Current window/tab<br/>
-			<input type=radio name="target" value="1" <?php writeHtmlChecked($line['target'],1);?>/>New window/tab<br/>
-		</span><br class="form"/>
+		<span class="formright"><fieldset class="invisible"><legend>Open page in:</legend><ul>
+			<li><input type=radio name="target" id="targetcurrent" value="0" <?php writeHtmlChecked($line['target'],0);?>/><label for="targetcurrent">Current window/tab</label></li>
+			<li><input type=radio name="target" id="targetblank" value="1" <?php writeHtmlChecked($line['target'],1);?>/><label for="targetblank">New window/tab</label></li>
+		</ul></fieldset></span><br class="form"/>
 		
 		<span class=form>Show:</span>
-		<span class=formright>
-			<input type=radio name="avail" value="0" <?php writeHtmlChecked($line['avail'],0);?>/>Hide<br/>
-			<input type=radio name="avail" value="1" <?php writeHtmlChecked($line['avail'],1);?>/>Show by Dates<br/>
-			<input type=radio name="avail" value="2" <?php writeHtmlChecked($line['avail'],2);?>/>Show Always<br/>
-		</span><br class="form"/>
-		<span class=form>Available After:</span>
-		<span class=formright>
-			<input type=radio name="sdatetype" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/> 
-			Always until end date<br/>
-			<input type=radio name="sdatetype" value="sdate" <?php writeHtmlChecked($startdate,'0',1) ?>/>
+		<span class=formright><fieldset class="invisible"><legend>Show:</legend><ul>
+			<li><input type=radio name="avail" id="availhide" value="0" <?php writeHtmlChecked($line['avail'],0);?>/><label for="availhide">Hide</label></li>
+			<li><input type=radio name="avail" id="availdates" value="1" <?php writeHtmlChecked($line['avail'],1);?>/><label for="availdates">Show by Dates</label></li>
+			<li><input type=radio name="avail" id="availalways" value="2" <?php writeHtmlChecked($line['avail'],2);?>/><label for="availalways">Show Always</label></li>
+		</ul></fieldset></span><br class="form"/>
+		<span class=form>Available after:</span>
+		<span class=formright><fieldset class="invisible"><legend>Available after:</legend><ul>
+			<li><input type=radio name="sdatetype" id="suntile" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/> 
+			<label for="suntile">Always until end date</label></li>
+			<li><input type=radio name="sdatetype" value="sdate" <?php writeHtmlChecked($startdate,'0',1) ?>/>
 			<input type=text size=10 name=sdate value="<?php echo $sdate;?>"> 
 			<a href="#" onClick="displayDatePicker('sdate', this); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></a>
-			at <input type=text size=10 name=stime value="<?php echo $stime;?>">
-		</span><BR class=form>
+			at <input type=text size=10 name=stime value="<?php echo $stime;?>"></li>
+		</ul></fieldset></span><BR class=form>
 		
-		<span class=form>Available Until:</span><span class=formright>
-			<input type=radio name="edatetype" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000',0) ?>/> Always after start date<br/>
-			<input type=radio name="edatetype" value="edate"  <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
+		<span class=form>Available until:</span>
+		<span class=formright><fieldset class="invisible"><legend>Available until:</legend><ul>
+			<li><input type=radio name="edatetype" id="eafters" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000',0) ?>/><label for="eafters">Always after start date</label></li>
+			<li><input type=radio name="edatetype" value="edate"  <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
 			<input type=text size=10 name=edate value="<?php echo $edate;?>"> 
 			<a href="#" onClick="displayDatePicker('edate', this, 'sdate', 'start date'); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></a>
-			at <input type=text size=10 name=etime value="<?php echo $etime;?>">
-		</span><BR class=form>
-		<span class=form>Place on Calendar?</span>
-		<span class=formright>
-			<input type=radio name="oncal" value=0 <?php writeHtmlChecked($line['oncal'],0); ?> /> No<br/>
-			<input type=radio name="oncal" value=1 <?php writeHtmlChecked($line['oncal'],1); ?> /> Yes, on Available after date (will only show after that date)<br/>
-			<input type=radio name="oncal" value=2 <?php writeHtmlChecked($line['oncal'],2); ?> /> Yes, on Available until date<br/>
-			With tag: <input name="caltag" type=text size=1 value="<?php echo $line['caltag'];?>"/>
-		</span><br class="form" />
+			at <input type=text size=10 name=etime value="<?php echo $etime;?>"></li>
+		</ul></fieldset></span><BR class=form>
+		<span class=form>Place on calendar?</span>
+		<span class=formright><fieldset class="invisible"><legend>Place on calendar?</legend><ul>
+			<li><input type=radio name="oncal" id="calno" value=0 <?php writeHtmlChecked($line['oncal'],0); ?> /><label for="calno">No</label></li>
+			<li><input type=radio name="oncal" id="calyesafterd" value=1 <?php writeHtmlChecked($line['oncal'],1); ?> /><label for="calyesafterd">Yes, on Available after date (will only show after that date)</label></li>
+			<li><input type=radio name="oncal" id="calyesuntild" value=2 <?php writeHtmlChecked($line['oncal'],2); ?> /><label for="calyesuntild">Yes, on Available until date</label></li></ul>
+			<label for="caltag">With tag:</label> <input name="caltag" id="caltag" type=text size=1 value="<?php echo $line['caltag'];?>"/>
+		</fieldset></span><br class="form" />
 		
 		<div class=submit><input type=submit value=Submit></div>	
 	</form>
