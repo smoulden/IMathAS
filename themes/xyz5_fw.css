@@ -460,7 +460,7 @@ form#qform {
 	padding:10px;
 	border:1px solid #999;
 }
-form#formwcp {
+form.formwcp {
 	padding:0;
 	border:none;
 }
