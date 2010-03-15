@@ -373,7 +373,7 @@ if ($overwriteBody==1) {
 	?>
 
 	<br />&nbsp;<br/>
-	<input type=radio name=colors id="custcolor" value="custom" <?php if ($usedef==0) {echo "CHECKED";}?> /><label for="custcolor">Use custom:</label>
+	<li><input type=radio name=colors id="custcolor" value="custom" <?php if ($usedef==0) {echo "CHECKED";}?> /><label for="custcolor">Use custom:</label>
 	<table style="display: inline; border-collapse: collapse; margin-left: 15px;">
 		<tr>
 			<td id="ex1" style="border: 1px solid #000;background-color:
@@ -402,9 +402,8 @@ if ($overwriteBody==1) {
 			<td><input type="text" id="bi" name="bi" value="<?php echo $bi;?>" />
 			</td>
 		</tr> 
-	</table>
-	</span>
-	<br class="form"/>
+	</table></li>
+	</ul></fieldset></span><br class="form"/>
 	
 	<div class=submit><input type=submit value=Submit></div>
 </form>
