@@ -376,6 +376,15 @@
 	echo '<div id="headerthread" class="pagetitle"><h2>Forum: '.$forumname.'</h2></div>';
 
 echo "<div class=\"cpmid\">";
+	echo "<form method=get action=\"thread.php\">";
+	echo "<input type=hidden name=page value=\"$page\"/>";
+	echo "<input type=hidden name=cid value=\"$cid\"/>";
+	echo "<input type=hidden name=forum value=\"$forumid\"/>";
+	
+?>
+	<label for="search">Search:</label> <input type="text" name="search" id="search" /> <input type="checkbox" name="allforums" id="allforums" /><label for="allforums">All forums in course?</label> <input type="submit" value="Search"/>
+	</form>
+<?php
 	$query = "SELECT threadid,COUNT(id) AS postcount,MAX(postdate) AS maxdate FROM imas_forum_posts ";
 	$query .= "WHERE forumid='$forumid' ";
 	if ($dofilter) {
@@ -425,7 +434,7 @@ echo "<div class=\"cpmid\">";
 		$numpages = ceil(mysql_result($result,0,0)/$threadsperpage);
 		
 		if ($numpages > 1) {
-			echo "<div >Page: ";
+			echo "Page: ";
 			if ($page < $numpages/2) {
 				$min = max(2,$page-4);
 				$max = min($numpages-1,$page+8+$min-$page);
@@ -438,7 +447,7 @@ echo "<div class=\"cpmid\">";
 			} else {
 				echo "<a href=\"thread.php?page=1&cid=$cid&forum=$forumid\">1</a> ";
 			}
-			if ($min!=2) { echo " ... ";}
+			if ($min! = 2) { echo " ... ";}
 			for ($i = $min; $i<=$max; $i++) {
 				if ($page == $i) {
 					echo "<b>$i</b> ";
@@ -452,29 +461,20 @@ echo "<div class=\"cpmid\">";
 			} else {
 				echo "<a href=\"thread.php?page=$numpages&cid=$cid&forum=$forumid\">$numpages</a> ";
 			}
-			echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+			echo "<ul class=\"buttonlist\">";
 			if ($page>1) {
-				echo "<a href=\"thread.php?page=".($page-1)."&cid=$cid&forum=$forumid\">Previous</a> ";
+				echo "<li><a href=\"thread.php?page=".($page-1)."&cid=$cid&forum=$forumid\">Previous</a></li>";
 			} else {
-				echo "Previous ";
+				echo "<li><a class=\"buttonactive\">Previous</a></li>";
 			}
 			if ($page < $numpages) {
-				echo "| <a href=\"thread.php?page=".($page+1)."&cid=$cid&forum=$forumid\">Next</a> ";
+				echo "<li><a href=\"thread.php?page=".($page+1)."&cid=$cid&forum=$forumid\">Next</a></li>";
 			} else {
-				echo "| Next ";
+				echo "<li><a class=\"buttonactive\">Next</a></li>";
 			}
-			echo "</div>\n";
+			echo "</ul><br />\n";
 		}
 	}
-	echo "<form method=get action=\"thread.php\">";
-	echo "<input type=hidden name=page value=\"$page\"/>";
-	echo "<input type=hidden name=cid value=\"$cid\"/>";
-	echo "<input type=hidden name=forum value=\"$forumid\"/>";
-	
-?>
-	<label for="search">Search:</label> <input type="text" name="search" id="search" /> <input type="checkbox" name="allforums" id="allforums" /><label for="allforums">All forums in course?</label> <input type="submit" value="Search"/>
-	</form>
-<?php
 	if ($isteacher && $grpaid>0) {
 		$curfilter = $sessiondata['ffilter'.$forumid];
 		$query = "SELECT agroupid,userid FROM imas_assessment_sessions WHERE assessmentid='$grpaid' ORDER BY agroupid";
