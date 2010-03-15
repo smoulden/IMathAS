@@ -165,6 +165,7 @@
 	echo '<div id="headerposts" class="pagetitle"><h2>Forum: '.$forumname.'</h2></div>';
 	echo "<h3>Post: {$subject[$threadid]}</h3>\n";
 	
+	echo "<div class=\"cpmid\">";
 	$query = "SELECT id FROM imas_forum_posts WHERE forumid='$forumid' AND threadid<'$threadid' AND parent=0 ORDER BY threadid DESC LIMIT 1";
 	$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
 	if (mysql_num_rows($result)>0) {
@@ -202,7 +203,7 @@
 	} else {
 		echo "<a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&page=$page&thread=$threadid&view=2\">View Condensed</a>";
 	}*/
-	
+	echo "</div>";
 ?>
 	<script type="text/javascript">
 	function toggleshow(bnum) {
