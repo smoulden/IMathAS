@@ -863,6 +863,44 @@ ul.right {
 	float:right;
 }
 
+/*--------------------- CUSTOMIZABLE BLOCK STYLES ------------------------*/
+.pinkblock {
+	background: #c9c url(../xyz/images/pink_gradient.gif) repeat-x center top;
+	border:1px solid #c69;
+}
+.redblock {
+	background: #f99 url(../xyz/images/red_gradient.gif) repeat-x center top;
+	border:1px solid #c66;
+}
+.orangeblock {
+	background: #f96 url(../xyz/images/orange_gradient.gif) repeat-x center top;
+	border:1px solid #c63;
+}
+.yellowblock {
+	background: #ff3 url(../xyz/images/yellow_gradient.gif) repeat-x center top;
+	border:1px solid #fc0;
+}
+.greenblock {
+	background: #6c6 url(../xyz/images/green_gradient.gif) repeat-x center top;
+	border:1px solid #6c3;
+}
+.tealblock {
+	background: #9cc url(../xyz/images/teal_gradient.gif) repeat-x center top;
+	border:1px solid #39c;
+}
+.blueblock {
+	background: #69c url(../xyz/images/blue_gradient.gif) repeat-x center top;
+	border:1px solid #069;
+}
+.purpleblock {
+	background: #99c url(../xyz/images/purple_gradient.gif) repeat-x center top;
+	border:1px solid #669;
+}
+.brownblock {
+	background: #996 url(../xyz/images/brown_gradient.gif) repeat-x center top;
+	border:1px solid #663;
+}
+
 /*--------------------- MASS CHANGE DATES -----------------------*/
 table.masschgdates img.toggle {
 	cursor:pointer;
