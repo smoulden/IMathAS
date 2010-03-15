@@ -345,22 +345,23 @@ function movefile(from) {
 		</ul></fieldset><BR class=form>
 	
 		<span class=form>Available until:</span>
-		<fieldset class=formright><legend class="invisible">Available until:</legend><ul>
-			<li><input type=radio name="edatetype" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000',0) ?>/> 
-			Always after start date</li>
+		<span class=formright><fieldset class="invisible"><legend>Available until:</legend><ul>
+			<li><input type="radio" name="edatetype" id="eafters" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000',0) ?>/> 
+			<label for="eafters">Always after start date</label></li>
 			<li><input type=radio name="edatetype" value="edate" <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
 			<input type=text size=10 name=edate value="<?php echo $edate;?>"> 
 			<a href="#" onClick="displayDatePicker('edate', this, 'sdate', 'start date'); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></a>
 			at <input type=text size=10 name=etime value="<?php echo $etime;?>"></li>
-		</ul></fieldset><BR class=form>
-		<span class=form>Place on calendar?</span>
-		<fieldset class=formright><legend class="invisible">Place on calendar?</legend><ul>
-			<li><input type=radio name="oncal" value=0 <?php writeHtmlChecked($line['oncal'],0); ?> /> No</li>
-			<li><input type=radio name="oncal" value=1 <?php writeHtmlChecked($line['oncal'],1); ?> /> Yes, on Available after date (will only show after that date)</li>
-			<li><input type=radio name="oncal" value=2 <?php writeHtmlChecked($line['oncal'],2); ?> /> Yes, on Available until date</li></ul>
+		</ul></fieldset></span><BR class=form>
+
+		<span class="form">Place on calendar?</span>
+		<span class="formright"><fieldset class="invisible"><legend>Place on calendar?</legend><ul>
+			<li><input type=radio name="oncal" id="calno" value=0 <?php writeHtmlChecked($line['oncal'],0); ?> /><label for="calno">No</label></li>
+			<li><input type=radio name="oncal" id="calyesafterd" value=1 <?php writeHtmlChecked($line['oncal'],1); ?> /><label for="calyesafterd">Yes, on Available after date (will only show after that date)</label></li>
+			<li><input type=radio name="oncal" id="calyesuntild" value=2 <?php writeHtmlChecked($line['oncal'],2); ?> /><label for="calyesuntild">Yes, on Available until date</label></li></ul>
 			<label for="caltag">With tag:</label> <input name="caltag" id="caltag" type=text size=1 value="<?php echo $line['caltag'];?>"/>
-		</fieldset><br class="form" />
+		</fieldset></span><br class="form" />
 		
 	</div>
 	<div class=submit><input type=submit name="submitbtn" value="Submit"></div>
