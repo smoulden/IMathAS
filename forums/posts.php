@@ -358,7 +358,7 @@
 				}
 			} else {
 			*/
-				echo "<span class=right>";
+				echo "<span class=\"right\">";
 				if ($haspoints) {
 					if ($isteacher) {
 						echo "<input type=text size=2 name=\"score[$child]\" value=\"";
@@ -374,7 +374,7 @@
 					echo "<input type=button id=\"butb$bcnt\" value=\"Collapse\" onClick=\"toggleshow($bcnt)\">\n";
 				}*/
 				echo "<ul=\"buttonlist\">";
-				if ($view==2) {
+				if ($view == 2) {
 					echo "<li><input type=button id=\"buti$icnt\" value=\"Show\" onClick=\"toggleitem($icnt)\"></li>\n";
 				} else {
 					echo "<li><input type=button id=\"buti$icnt\" value=\"Hide\" onClick=\"toggleitem($icnt)\"></li>\n";
@@ -390,7 +390,7 @@
 					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&remove=$child\">Remove</a></li>\n";
 				}
 				if ($posttype[$child]!=2 && $myrights > 5 && $allowreply) {
-					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=reply&replyto=$child\" class="specialbutton">Reply</a></li>";
+					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=reply&replyto=$child\" class=\"specialbutton\">Reply</a></li>";
 				}
 				echo "</ul>";
 				echo "</span>\n";
