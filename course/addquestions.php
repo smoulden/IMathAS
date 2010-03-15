@@ -797,9 +797,7 @@ if ($overwriteBody==1) {
 		<br/>Check: <a href="#" onclick="return chkAllNone('curqform','checked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('curqform','checked[]',false)">None</a>
 		
 		<span class="invisible">With Selected: </span><ul class="buttonlist">
-				<li><input type="button" value="Remove" onclick="removeSelected()" /></li>
-				<li><input type="button" value="Group" onclick="groupSelected()" /></li>
-			  	<li><input type="submit" value="Change Settings" /></li>
+				<li><input type="button" value="Remove" onclick="removeSelected()" /></li><li><input type="button" value="Group" onclick="groupSelected()" /></li><li><input type="submit" value="Change Settings" /></li>
 			  	</ul>
 	</div> <!--cpmid-->
 <?php			
@@ -818,15 +816,11 @@ if ($overwriteBody==1) {
 <?php
 	}
 ?>	
-	<p>
+
 		<input type=button class="specialbutton" value="Done" onClick="window.location='course.php?cid=<?php echo $cid ?>'">
 		<ul class="buttonlist">
-			<li><input type=button value="Categorize Questions" onClick="window.location='categorize.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"></li>
-			<li><input type=button value="Create Print Version" onClick="window.location='printtest.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"></li>
-			<li><input type=button value="Define End Messages" onClick="window.location='assessendmsg.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'">
-			<li><input type=button value="Preview" onClick="window.open('<?php echo $imasroot;?>/assessment/showtest.php?cid=<?php echo $cid ?>&id=<?php echo $aid ?>','Testing','width='+(.4*screen.width)+',height='+(.8*screen.height)+',scrollbars=1,resizable=1,status=1,top=20,left='+(.6*screen.width-20))"></li>
+			<li><input type=button value="Categorize Questions" onClick="window.location='categorize.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"></li><li><input type=button value="Create Print Version" onClick="window.location='printtest.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"></li><li><input type=button value="Define End Messages" onClick="window.location='assessendmsg.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"><li><input type=button value="Preview" onClick="window.open('<?php echo $imasroot;?>/assessment/showtest.php?cid=<?php echo $cid ?>&id=<?php echo $aid ?>','Testing','width='+(.4*screen.width)+',height='+(.8*screen.height)+',scrollbars=1,resizable=1,status=1,top=20,left='+(.6*screen.width-20))"></li>
 		</ul>
-	</p>
 		
 <?php	//<input type=button value="Select Libraries" onClick="libselect()">
 		
@@ -869,12 +863,10 @@ if ($overwriteBody==1) {
 ?>				
 		<form id="selq" method=post action="addquestions.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>&addset=true">
 		
-		<ul class="buttonlist">
-			<li><input name="add" type=submit value="Add" /></li>
-			<li><input name="addquick" type=submit value="Add (using defaults)"></li>
-			<li><input type=button value="Preview Selected" onclick="previewsel('selq')" /></li>
-		</ul><br />
 		Check: <a href="#" onclick="return chkAllNone('selq','nchecked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('selq','nchecked[]',false)">None</a>
+		<ul class="buttonlist">
+			<li><input name="add" type=submit value="Add" /></li><li><input name="addquick" type=submit value="Add (using defaults)"></li><li><input type=button value="Preview Selected" onclick="previewsel('selq')" /></li>
+		</ul>
 	</div> <!--cpmid-->
 		<table cellpadding=5 id=myTable class=gb>
 			<thead>
