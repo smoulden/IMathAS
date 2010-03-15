@@ -376,15 +376,15 @@
 	echo '<div id="headerthread" class="pagetitle"><h2>Forum: '.$forumname.'</h2></div>';
 
 echo "<div class=\"cpmid\">";
-	echo "<form method=get action=\"thread.php\">";
-	echo "<input type=hidden name=page value=\"$page\"/>";
-	echo "<input type=hidden name=cid value=\"$cid\"/>";
-	echo "<input type=hidden name=forum value=\"$forumid\"/>";
-	
-?>
-	<label for="search">Search:</label> <input type="text" name="search" id="search" /> <input type="checkbox" name="allforums" id="allforums" /><label for="allforums">All forums in course?</label> <input type="submit" value="Search"/>
-	</form>
-<?php
+	echo "<form method=\"get\" action=\"thread.php\">";
+		echo "<input type=hidden name=page value=\"$page\"/>";
+		echo "<input type=hidden name=cid value=\"$cid\"/>";
+		echo "<input type=hidden name=forum value=\"$forumid\"/>";
+		echo "<label for=\"search\">Search:</label> <input type=\"text\" name=\"search\" id=\"search\" /> ";
+		echo "<input type=\"checkbox\" name=\"allforums\" id=\"allforums\" /><label for=\"allforums\">All forums in course?</label> ";
+		echo "<input type=\"submit\" value=\"Search\" />";
+	echo "</form>";
+
 	$query = "SELECT threadid,COUNT(id) AS postcount,MAX(postdate) AS maxdate FROM imas_forum_posts ";
 	$query .= "WHERE forumid='$forumid' ";
 	if ($dofilter) {
