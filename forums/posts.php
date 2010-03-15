@@ -163,7 +163,7 @@
 	echo "&gt; Posts</div>\n";
 	
 	echo '<div id="headerposts" class="pagetitle"><h2>Forum: '.$forumname.'</h2></div>';
-	echo "<b style=\"font-size: 120%\">Post: {$subject[$threadid]}</b><br/>\n";
+	echo "<h3>Post: {$subject[$threadid]}</h3>\n";
 	
 	$query = "SELECT id FROM imas_forum_posts WHERE forumid='$forumid' AND threadid<'$threadid' AND parent=0 ORDER BY threadid DESC LIMIT 1";
 	$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
@@ -182,18 +182,21 @@
 	} else {
 		echo "Next";
 	}
-	echo " | <a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markunread=true\">Mark Unread</a>";
+	echo "<ul class=\"buttonlist\">
+	echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markunread=true\">Mark Unread</a></li>";
 	if ($tagged) {
-		echo " | <a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markuntagged=true\">Unflag</a>";
+		echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markuntagged=true\">Unflag</a></li>";
 	} else {
-		echo " | <a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&marktagged=true\">Flag</a>";
+		echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&marktagged=true\">Flag</a></li>";
 	}
+	echo "</ul>";
 	//echo "<br/><b style=\"font-size: 120%\">Post: {$subject[$threadid]}</b><br/>\n";
 	//echo "<b style=\"font-size: 100%\">Forum: $forumname</b></p>";
-	echo " | <input type=button value=\"Expand All\" onclick=\"expandall()\"/>";
-	echo "<input type=button value=\"Collapse All\" onclick=\"collapseall()\"/> | ";
-	echo " <input type=button value=\"Show All\" onclick=\"showall()\"/>";
-	echo "<input type=button value=\"Hide All\" onclick=\"hideall()\"/> ";
+	echo "<ul class=\"buttonlist\">";
+	echo "<li><input type\"=button\" value=\"Expand All\" onclick=\"expandall()\" /></li><li><input type=\"button\" value=\"Collapse All\" onclick=\"collapseall()\" /></li>";
+	echo "</ul> <ul class=\"buttonlist\">";
+	echo "</li><input type=button value=\"Show All\" onclick=\"showall()\" /></li><li><input type=button value=\"Hide All\" onclick=\"hideall()\" /></li>";
+	echo "</ul>";
 	/*if ($view==2) {
 		echo "<a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&page=$page&thread=$threadid&view=0\">View Expanded</a>";
 	} else {
@@ -370,26 +373,29 @@
 				/*if (isset($children[$child])) {
 					echo "<input type=button id=\"butb$bcnt\" value=\"Collapse\" onClick=\"toggleshow($bcnt)\">\n";
 				}*/
+				echo "<ul=\"buttonlist\">";
 				if ($view==2) {
-					echo "<input type=button id=\"buti$icnt\" value=\"Show\" onClick=\"toggleitem($icnt)\">\n";
+					echo "<li><input type=button id=\"buti$icnt\" value=\"Show\" onClick=\"toggleitem($icnt)\"></li>\n";
 				} else {
-					echo "<input type=button id=\"buti$icnt\" value=\"Hide\" onClick=\"toggleitem($icnt)\">\n";
+					echo "<li><input type=button id=\"buti$icnt\" value=\"Hide\" onClick=\"toggleitem($icnt)\"></li>\n";
 				}
 				
 				if ($isteacher) {
-					echo "<a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&move=$child\">Move</a> \n";
+					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&move=$child\">Move</a></li>\n";
 				} 
 				if ($isteacher || ($ownerid[$child]==$userid && $allowmod)) {
-					echo "<a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=$child\">Modify</a> \n";
+					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=$child\">Modify</a></li>\n";
 				}
 				if ($isteacher || ($allowdel && $ownerid[$child]==$userid && !isset($children[$child]))) {
-					echo "<a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&remove=$child\">Remove</a> \n";
+					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&remove=$child\">Remove</a></li>\n";
 				}
 				if ($posttype[$child]!=2 && $myrights > 5 && $allowreply) {
-					echo "<a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=reply&replyto=$child\">Reply</a>";
+					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=reply&replyto=$child\" class="specialbutton">Reply</a></li>";
 				}
+				echo "</ul>";
 				echo "</span>\n";
-				echo "<b>{$subject[$child]}</b><br/>Posted by: ";
+				echo "<h4>{$subject[$child]}</h4>";
+				echo "Posted by: ";
 				//if ($isteacher && $ownerid[$child]!=0) {
 				//	echo "<a href=\"mailto:{$email[$child]}\">";
 				//} else if ($allowmsg && $ownerid[$child]!=0) {
