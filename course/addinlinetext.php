@@ -286,16 +286,15 @@ function movefile(from) {
 }
 </script>
 
-
 	<div class=breadcrumb><?php echo $curBreadcrumb  ?></div>
 	<div id="headeraddinlinetext" class="pagetitle"><h2><?php echo $pagetitle ?><img src="<?php echo $imasroot ?>/img/help.gif" alt="Help" onClick="window.open('<?php echo $imasroot ?>/help.php?section=inlinetextitems','help','top=0,width=400,height=500,scrollbars=1,left='+(screen.width-420))"/></h2></div>
 
 	<form enctype="multipart/form-data" method=post action="<?php echo $page_formActionTag ?>">
-	<span class=form>Title: </span>
+	<span class=form><label for="title">Title:</label></span>
 	<span class=formright>
-		<input type=text size=60 name=title value="<?php echo str_replace('"','&quot;',$line['title']);?>"><br/>
-		<input type="checkbox" name="hidetitle" value="1" <?php writeHtmlChecked($hidetitle,true) ?>/>
-		Hide title and icon
+		<input type=text size=60 name=title id=title value="<?php echo str_replace('"','&quot;',$line['title']);?>"><br/>
+		<input type="checkbox" name="hidetitle" id="hidetitle" value="1" <?php writeHtmlChecked($hidetitle,true) ?>/>
+		<label for="hidetitle">Hide title and icon</label>
 	</span><BR class=form>
 	
 	Text:<BR>
@@ -329,39 +328,39 @@ function movefile(from) {
 	
 	<div>
 		<span class=form>Show:</span>
-		<span class=formright>
-			<input type=radio name="avail" value="0" <?php writeHtmlChecked($line['avail'],0);?>/>Hide<br/>
-			<input type=radio name="avail" value="1" <?php writeHtmlChecked($line['avail'],1);?>/>Show by Dates<br/>
-			<input type=radio name="avail" value="2" <?php writeHtmlChecked($line['avail'],2);?>/>Show Always<br/>
-		</span><br class="form"/>
-		<span class=form>Available After:</span>
-		<span class=formright>
-			<input type=radio name="sdatetype" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/>
-			 Always until end date<br/>
-			<input type=radio name="sdatetype" value="sdate" <?php writeHtmlChecked($startdate,'0',1) ?>/>
+		<fieldset class=formright><legend class="invisible">Show:</legend><ul>
+			<li><input type=radio name="avail" value="0" <?php writeHtmlChecked($line['avail'],0);?>/>Hide</li>
+			<li><input type=radio name="avail" value="1" <?php writeHtmlChecked($line['avail'],1);?>/>Show by Dates</li>
+			<li><input type=radio name="avail" value="2" <?php writeHtmlChecked($line['avail'],2);?>/>Show Always</li></ul>
+		</fieldset><br class="form"/>
+		<span class=form>Available after:</span>
+		<fieldset class=formright><legend class="invisible">Available after:</legend><ul>
+			<li><input type=radio name="sdatetype" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/>
+			 Always until end date</li>
+			<li><input type=radio name="sdatetype" value="sdate" <?php writeHtmlChecked($startdate,'0',1) ?>/>
 			<input type=text size=10 name=sdate value="<?php echo $sdate;?>"> 
 			<a href="#" onClick="displayDatePicker('sdate', this); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></a>
-			at <input type=text size=10 name=stime value="<?php echo $stime;?>">
-		</span><BR class=form>
+			at <input type=text size=10 name=stime value="<?php echo $stime;?>"></li>
+		</ul></fieldset><BR class=form>
 	
-		<span class=form>Available Until:</span>
-		<span class=formright>
-			<input type=radio name="edatetype" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000',0) ?>/> 
-			Always after start date<br/>
-			<input type=radio name="edatetype" value="edate" <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
+		<span class=form>Available until:</span>
+		<fieldset class=formright><legend class="invisible">Available until:</legend><ul>
+			<li><input type=radio name="edatetype" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000',0) ?>/> 
+			Always after start date</li>
+			<li><input type=radio name="edatetype" value="edate" <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
 			<input type=text size=10 name=edate value="<?php echo $edate;?>"> 
 			<a href="#" onClick="displayDatePicker('edate', this, 'sdate', 'start date'); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></a>
-			at <input type=text size=10 name=etime value="<?php echo $etime;?>">
-		</span><BR class=form>
-		<span class=form>Place on Calendar?</span>
-		<span class=formright>
-			<input type=radio name="oncal" value=0 <?php writeHtmlChecked($line['oncal'],0); ?> /> No<br/>
-			<input type=radio name="oncal" value=1 <?php writeHtmlChecked($line['oncal'],1); ?> /> Yes, on Available after date (will only show after that date)<br/>
-			<input type=radio name="oncal" value=2 <?php writeHtmlChecked($line['oncal'],2); ?> /> Yes, on Available until date<br/>
-			With tag: <input name="caltag" type=text size=1 value="<?php echo $line['caltag'];?>"/>
-		</span><br class="form" />
+			at <input type=text size=10 name=etime value="<?php echo $etime;?>"></li>
+		</ul></fieldset><BR class=form>
+		<span class=form>Place on calendar?</span>
+		<fieldset class=formright><legend class="invisible">Place on calendar?</legend><ul>
+			<li><input type=radio name="oncal" value=0 <?php writeHtmlChecked($line['oncal'],0); ?> /> No</li>
+			<li><input type=radio name="oncal" value=1 <?php writeHtmlChecked($line['oncal'],1); ?> /> Yes, on Available after date (will only show after that date)</li>
+			<li><input type=radio name="oncal" value=2 <?php writeHtmlChecked($line['oncal'],2); ?> /> Yes, on Available until date</li></ul>
+			<label for="caltag">With tag:</label> <input name="caltag" id="caltag" type=text size=1 value="<?php echo $line['caltag'];?>"/>
+		</fieldset><br class="form" />
 		
 	</div>
 	<div class=submit><input type=submit name="submitbtn" value="Submit"></div>
