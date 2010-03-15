@@ -302,75 +302,78 @@ if ($overwriteBody==1) {
 <?php echo $formTitle; ?>	
 
 <form method=post action="addblock.php?cid=<?php echo $cid; if (isset($_GET['id'])) {echo "&id={$_GET['id']}";} if (isset($_GET['block'])) {echo "&block={$_GET['block']}";}?>&folder=<?php echo $_GET['folder'];?>&tb=<?php echo $totb;?>">
-	<span class=form>Title: </span>
-	<span class=formright><input type=text size=60 name=title value="<?php echo str_replace('"','&quot;',$title);?>"></span>
-	<BR class=form>
-	<span class=form>Show:</span>
-	<span class=formright>
-		<input type=radio name="avail" value="0" <?php writeHtmlChecked($avail,0);?>/>Hide<br/>
-		<input type=radio name="avail" value="1" <?php writeHtmlChecked($avail,1);?>/>Show by Dates<br/>
-		<input type=radio name="avail" value="2" <?php writeHtmlChecked($avail,2);?>/>Show Always<br/>
-	</span><br class="form"/>
-	
-	<span class=form>Available After:</span>
-	<span class=formright>
-	<input type=radio name="sdatetype" value="0" <?php  writeHtmlChecked($startdate,0) ?>/>
-	 Always until end date<br/>
-	<input type=radio name="sdatetype" value="now"/> Now<br/>
-	<input type=radio name="sdatetype" value="sdate" <?php  writeHtmlChecked($startdate,0,1) ?>/>
-	<input type=text size=10 name="sdate" value="<?php echo $sdate;?>"> 
-	<a href="#" onClick="displayDatePicker('sdate', this); return false">
-	<img src="../img/cal.gif" alt="Calendar"/></a>
-	at <input type=text size=10 name=stime value="<?php echo $stime;?>"></span>
+	<span class=form><label for="title">Title:</label></span>
+	<span class=formright><input type=text size=60 name=title id="title" value="<?php echo str_replace('"','&quot;',$title);?>"></span>
 	<BR class=form>
 
-	<span class=form>Available Until:</span><span class=formright>
-	<input type=radio name="edatetype" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000') ?>/>
-	 Always after start date<br/>
-	<input type=radio name="edatetype" value="edate"  <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
-	<input type=text size=10 name=edate value="<?php echo $edate;?>"> 
-	<a href="#" onClick="displayDatePicker('edate', this, 'sdate', 'start date'); return false">
-	<img src="../img/cal.gif" alt="Calendar"/></a>
-	at <input type=text size=10 name=etime value="<?php echo $etime;?>"></span>
-	<BR class=form>
+	<span class=form>Show:</span>
+	<span class=formright><fieldset class="invisible"><legend>Show:</legend><ul>
+		<li><input type=radio name="avail" id="availhide" value="0" <?php writeHtmlChecked($avail,0);?>/><label for="availhide">Hide</label></li>
+		<li><input type=radio name="avail" id="availdates" value="1" <?php writeHtmlChecked($avail,1);?>/><label for="availdates">Show by Dates</label></li>
+		<li><input type=radio name="avail" id="availalways" value="2" <?php writeHtmlChecked($avail,2);?>/><label for="availalways">Show Always</label></li>
+	</ul></fieldset></span><br class="form"/>
+	
+	<span class=form>Available after:</span>
+	<span class=formright><fieldset class="invisible"><legend>Available after:</legend><ul>
+		<li><input type=radio name="sdatetype" id="suntile" value="0" <?php  writeHtmlChecked($startdate,0) ?>/>
+		<label for="suntile">Always until end date</label></li>
+		<li><input type=radio name="sdatetype" id="snow" value="now"/><label for="snow">Now</label></li>
+		<li><input type=radio name="sdatetype" value="sdate" <?php  writeHtmlChecked($startdate,0,1) ?>/>
+		<input type=text size=10 name="sdate" value="<?php echo $sdate;?>"> 
+		<a href="#" onClick="displayDatePicker('sdate', this); return false">
+		<img src="../img/cal.gif" alt="Calendar"/></a>
+		at <input type=text size=10 name=stime value="<?php echo $stime;?>"></li>
+	</ul></fieldset></span><br class="form" />
+
+	<span class=form>Available until:</span>
+	<span class=formright><fieldset class="invisible"><legend>Available until:</legend><ul>
+		<li><input type=radio name="edatetype" id="eafters" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000') ?>/><label for="eafters">Always after start date</label></li>
+		<li><input type=radio name="edatetype" value="edate"  <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
+		<input type=text size=10 name=edate value="<?php echo $edate;?>"> 
+		<a href="#" onClick="displayDatePicker('edate', this, 'sdate', 'start date'); return false">
+		<img src="../img/cal.gif" alt="Calendar"/></a>
+		at <input type=text size=10 name=etime value="<?php echo $etime;?>"></li>
+	</ul></fieldset></span><br class="form" />
 
 	<span class=form>When available:</span>
-	<span class=formright>
-	<input type=radio name=availbeh value="O" <?php writeHtmlChecked($availbeh,'O')?> />Show Expanded<br/>
-	<input type=radio name=availbeh value="C" <?php writeHtmlChecked($availbeh,'C')?> />Show Collapsed<br/>
-	<input type=radio name=availbeh value="F" <?php writeHtmlChecked($availbeh,'F')?> />Show as Folder
-	</span><br class=form />
+	<span class=formright><fieldset class="invisible"><legend>When available:</legend><ul>
+		<li><input type=radio name=availbeh id="showex" value="O" <?php writeHtmlChecked($availbeh,'O')?> /><label for="shoex">Show Expanded</label></li>
+		<li><input type=radio name=availbeh id="showcol" value="C" <?php writeHtmlChecked($availbeh,'C')?> /><label for="shocol">Show Collapsed</label></li>
+		<li><input type=radio name=availbeh id="showfol" value="F" <?php writeHtmlChecked($availbeh,'F')?> /><label for="shofol">Show as Folder</label></li>
+	</ul></fieldset></span><br class="form" />
+
 	<span class=form>When not available:</span>
-	<span class=formright>
-	<input type=radio name=showhide value="H" <?php writeHtmlChecked($showhide,'H') ?> />Hide from Students<br/>
-	<input type=radio name=showhide value="S" <?php writeHtmlChecked($showhide,'S') ?> />Show Collapsed/as folder
-	</span><br class=form />
+	<span class=formright><fieldset class="invisible"><legend>When not available:</legend><ul>
+		<input type=radio name=showhide id="hidefromstu" value="H" <?php writeHtmlChecked($showhide,'H') ?> /><label for="hidefromstu">Hide from Students</label></li>
+		<input type=radio name=showhide id="showcolfol" value="S" <?php writeHtmlChecked($showhide,'S') ?> /><label for="showcolfol">Show Collapsed/as folder</label></li>
+	</ul></fieldset></span><br class="form" />
 	
-	<span class="form">If expanded, limit height to:</span>
+	<span class="form"><label for="fixedheight">If expanded, limit height to:</label></span>
 	<span class="formright">
-	<input type="text" name="fixedheight" size="4" value="<?php if ($fixedheight>0) {echo $fixedheight;};?>" />pixels (blank for no limit)
+	<input type="text" name="fixedheight" id="fixedheight" size="4" value="<?php if ($fixedheight>0) {echo $fixedheight;};?>" /> pixels (blank for no limit)
 	</span><br class="form" />
 	
-	<span class="form">Restrict access to students in section:</span>
+	<span class="form"><label for="grouplimit">Restrict access to students in section:</label></span>
 	<span class="formright">
 	<?php writeHtmlSelect('grouplimit',$page_sectionlistval,$page_sectionlistlabel,$grouplimit[0]); ?>
 	</span><br class="form" />
 	
-	<span class=form>Make items publicly accessible<sup>*</sup>:</span>
+	<span class=form><label for="public">Make items publicly accessible<sup>*</sup>:</label></span>
 	<span class=formright>
-	<input type=checkbox name=public value="1" <?php writeHtmlChecked($public,'1') ?> />
-	</span><br class=form />
+	<input type="checkbox" name="public" id="public" value="1" <?php writeHtmlChecked($public,'1') ?> />
+	</span><br class="form" />
+
 	<span class=form>Block colors:</span>
-	<span class=formright>
-	<input type=radio name=colors value="def" <?php  writeHtmlChecked($usedef,1) ?> />Use defaults<br/>
-	<input type=radio name=colors value="copy" <?php writeHtmlChecked($usedef,2) ?> />Copy colors from block: 
+	<span class=formright><fieldset class="invisible"><legend>Block colors:</legend><ul>
+		<li><input type="radio" name="colors" id="colordef" value="def" <?php  writeHtmlChecked($usedef,1) ?> /><label for="colordef">Use defaults</label></li>
+		<li><input type=radio name="colors" id="blokcolor" value="copy" <?php writeHtmlChecked($usedef,2) ?> /><label for="blokcolor">Copy colors from block:</label> 
 	
 	<?php
 	writeHtmlSelect("copycolors",$existBlocksVals,$existBlocksLabels);
 	?>
 
 	<br />&nbsp;<br/>
-	<input type=radio name=colors value="custom" <?php if ($usedef==0) {echo "CHECKED";}?> />Use custom:
+	<input type=radio name=colors id="custcolor" value="custom" <?php if ($usedef==0) {echo "CHECKED";}?> /><label for="custcolor">Use custom:</label>
 	<table style="display: inline; border-collapse: collapse; margin-left: 15px;">
 		<tr>
 			<td id="ex1" style="border: 1px solid #000;background-color:
@@ -385,18 +388,18 @@ if ($overwriteBody==1) {
 	<br/>
 	<table style=" margin-left: 30px;">
 		<tr>
-			<td>Title Background: </td>
-			<td><input type=text id="titlebg" name="titlebg" value="<?php echo $titlebg;?>" />
+			<td><label for="titlebg">Title Background:</label></td>
+			<td><input type="text" id="titlebg" name="titlebg" value="<?php echo $titlebg;?>" />
 			</td>
 		</tr>
 		<tr>
-			<td>Title Text: </td>
-			<td><input type=text id="titletxt" name="titletxt" value="<?php echo $titletxt;?>" />
+			<td><label for="titletxt">Title Text:</label></td>
+			<td><input type="text" id="titletxt" name="titletxt" value="<?php echo $titletxt;?>" />
 			</td>
 		</tr>
 		<tr>
-			<td>Items Background: </td>
-			<td><input type=text id="bi" name="bi" value="<?php echo $bi;?>" />
+			<td><label for="bi">Items Background:</label></td>
+			<td><input type="text" id="bi" name="bi" value="<?php echo $bi;?>" />
 			</td>
 		</tr> 
 	</table>
@@ -407,8 +410,6 @@ if ($overwriteBody==1) {
 </form>
 <p><sup>*</sup>If a parent block is set to be publicly accessible, this block will automatically be publicly accessible, regardless of your selection here.<br/>
 Items from publicly accessible blocks can viewed without logging in at http://<?php echo $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/\\') ?>/public.php?cid=<?php echo $_GET['cid'];?>. </p>
-
-<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 
 <?php
 }
