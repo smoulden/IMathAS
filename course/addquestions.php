@@ -788,17 +788,20 @@ if ($overwriteBody==1) {
 <?php
 		if (!$beentaken) {
 ?>		
+	<div class="cpmid">
 		Use select boxes to 
 		<select name=group id=group>
 			<option value="0"<?php echo $grp0Selected ?>>Rearrange questions</option>
 			<option value="1"<?php echo $grp1Selected ?>>Group questions</option>
 		</select>
-		<br/>Check: <a href="#" onclick="return chkAllNone('curqform','checked[]',true)">All</a> <a href="#" onclick="return chkAllNone('curqform','checked[]',false)">None</a>
+		<br/>Check: <a href="#" onclick="return chkAllNone('curqform','checked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('curqform','checked[]',false)">None</a>
 		
-		With Selected: <input type=button value="Remove" onclick="removeSelected()" />
-				<input type=button value="Group" onclick="groupSelected()" />
-			  	<input type="submit" value="Change Settings" />
-		
+		<span class="invisible">With Selected: </span><ul class="buttonlist">
+				<li><input type="button" value="Remove" onclick="removeSelected()" /></li>
+				<li><input type="button" value="Group" onclick="groupSelected()" /></li>
+			  	<li><input type="submit" value="Change Settings" /></li>
+			  	</ul>
+	</div> <!--cpmid-->
 <?php			
 		}
 ?>
@@ -816,11 +819,13 @@ if ($overwriteBody==1) {
 	}
 ?>	
 	<p>
-		<input type=button value="Done" onClick="window.location='course.php?cid=<?php echo $cid ?>'"> 
-		<input type=button value="Categorize Questions" onClick="window.location='categorize.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"> 
-		<input type=button value="Create Print Version" onClick="window.location='printtest.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"> 
-		<input type=button value="Define End Messages" onClick="window.location='assessendmsg.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'">
-		<input type=button value="Preview" onClick="window.open('<?php echo $imasroot;?>/assessment/showtest.php?cid=<?php echo $cid ?>&id=<?php echo $aid ?>','Testing','width='+(.4*screen.width)+',height='+(.8*screen.height)+',scrollbars=1,resizable=1,status=1,top=20,left='+(.6*screen.width-20))"> 
+		<input type=button class="specialbutton" value="Done" onClick="window.location='course.php?cid=<?php echo $cid ?>'">
+		<ul class="buttonlist">
+			<li><input type=button value="Categorize Questions" onClick="window.location='categorize.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"></li>
+			<li><input type=button value="Create Print Version" onClick="window.location='printtest.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'"></li>
+			<li><input type=button value="Define End Messages" onClick="window.location='assessendmsg.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>'">
+			<li><input type=button value="Preview" onClick="window.open('<?php echo $imasroot;?>/assessment/showtest.php?cid=<?php echo $cid ?>&id=<?php echo $aid ?>','Testing','width='+(.4*screen.width)+',height='+(.8*screen.height)+',scrollbars=1,resizable=1,status=1,top=20,left='+(.6*screen.width-20))"></li>
+		</ul>
 	</p>
 		
 <?php	//<input type=button value="Select Libraries" onClick="libselect()">
@@ -831,14 +836,15 @@ if ($overwriteBody==1) {
 ?>	
 	
 	<h3>Potential Questions</h3>
-	<form method=post action="addquestions.php?aid=<?php echo $aid ?>&cid=<?php echo $cid ?>">
+	<div class="cpmid">
+	<form method="post" action="addquestions.php?aid=<?php echo $aid ?>&cid=<?php echo $cid ?>">
 
 		In Libraries: 
 		<span id="libnames"><?php echo $lnames ?></span>
 		<input type=hidden name="libs" id="libs"  value="<?php echo $searchlibs ?>">
-		<input type="button" value="Select Libraries" onClick="GB_show('Library Select','libtree2.php?libtree=popup&libs='+curlibs,500,500)" />
+		<input type="button" class="specialbutton" value="Select Libraries" onClick="GB_show('Library Select','libtree2.php?libtree=popup&libs='+curlibs,500,500)" />
 		or <input type=button value="Select From Assessments" onClick="window.location='addquestions.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>&selfrom=assm'">
-		<br> 
+		<br /> 
 		Search: 
 		<input type=text size=15 name=search value="<?php echo $search ?>"> 
 		<span onmouseover="tipshow(this,'Search all libraries, not just selected ones')" onmouseout="tipout()">
@@ -850,7 +856,7 @@ if ($overwriteBody==1) {
 		<span onmouseover="tipshow(this,'Exclude questions already in assessment')" onmouseout="tipout()">
 		<input type=checkbox name="newonly" value="1" <?php writeHtmlChecked($newonly,1,0) ?> />
 		Exclude added</span> 
-		<input type=submit value=Search>
+		<input type="submit" value="Search" class="specialbutton">
 		<input type=button value="Add New Question" onclick="window.location='moddataset.php?aid=<?php echo $aid ?>&cid=<?php echo $cid ?>'">
 	</form>
 <?php			
@@ -863,10 +869,13 @@ if ($overwriteBody==1) {
 ?>				
 		<form id="selq" method=post action="addquestions.php?cid=<?php echo $cid ?>&aid=<?php echo $aid ?>&addset=true">
 		
-		Check: <a href="#" onclick="return chkAllNone('selq','nchecked[]',true)">All</a> <a href="#" onclick="return chkAllNone('selq','nchecked[]',false)">None</a>
-		<input name="add" type=submit value="Add" />
-		<input name="addquick" type=submit value="Add (using defaults)">
-		<input type=button value="Preview Selected" onclick="previewsel('selq')" />
+		<ul class="buttonlist">
+			<li><input name="add" type=submit value="Add" /></li>
+			<li><input name="addquick" type=submit value="Add (using defaults)"></li>
+			<li><input type=button value="Preview Selected" onclick="previewsel('selq')" /></li>
+		</ul><br />
+		Check: <a href="#" onclick="return chkAllNone('selq','nchecked[]',true)">All</a>, <a href="#" onclick="return chkAllNone('selq','nchecked[]',false)">None</a>
+	</div> <!--cpmid-->
 		<table cellpadding=5 id=myTable class=gb>
 			<thead>
 				<tr><th></th><th>Description</th><th>Preview</th><th>Type</th>
