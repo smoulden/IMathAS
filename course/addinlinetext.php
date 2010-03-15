@@ -333,6 +333,7 @@ function movefile(from) {
 			<li><input type=radio name="avail" id="availdates" value="1" <?php writeHtmlChecked($line['avail'],1);?>/><label for="availdates">Show by Dates</label></li>
 			<li><input type=radio name="avail" id="availalways" value="2" <?php writeHtmlChecked($line['avail'],2);?>/><label for="availalways">Show Always</label></li>
 		</ul></fieldset></span><br class="form"/>
+
 		<span class=form>Available after:</span>
 		<span class=formright><fieldset class="invisible"><legend>Available after:</legend><ul>
 			<li><input type="radio" name="sdatetype" id="suntile" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/>
@@ -342,7 +343,7 @@ function movefile(from) {
 			<a href="#" onClick="displayDatePicker('sdate', this); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></a>
 			at <input type=text size=10 name=stime value="<?php echo $stime;?>"></li>
-		</ul></fieldset><BR class=form>
+		</ul></fieldset></span><BR class=form>
 	
 		<span class=form>Available until:</span>
 		<span class=formright><fieldset class="invisible"><legend>Available until:</legend><ul>
