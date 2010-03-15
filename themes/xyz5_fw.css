@@ -682,12 +682,12 @@ div#topadditem {
 }
 div#topadditem span {
 }
-a.abutton, span.spanbutton {
+a.abutton, span.spanbutton, span.spanbutton:active {
 	border: 0;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
 }
-a.abutton, span.spanbutton, div#viewbuttoncont a, ul.buttonlist li a {
+a.abutton, span.spanbutton, span.spanbutton:active, div#viewbuttoncont a, ul.buttonlist li a {
 	font:normal 12px/15px Helvetica, Arial, sans-serif;
 	color: #fff;
 	display:inline-block;	
@@ -704,7 +704,7 @@ a.abutton:hover, div#viewbuttoncont a.buttoninactive:hover, ul.buttonlist li a:h
 span.spanbutton {
 	background-color: #f93;
 }
-span.spanbutton:hover {
+span.spanbutton:hover, span.spanbutton:active {
 	background-color: #c60;
 }
 div#viewbuttoncont {
