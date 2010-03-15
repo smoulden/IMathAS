@@ -166,24 +166,26 @@
 	echo "<h3>Post: {$subject[$threadid]}</h3>\n";
 	
 	echo "<div class=\"cpmid\">";
+
+	echo "<ul class=\"buttonlist\">";
 	$query = "SELECT id FROM imas_forum_posts WHERE forumid='$forumid' AND threadid<'$threadid' AND parent=0 ORDER BY threadid DESC LIMIT 1";
 	$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
 	if (mysql_num_rows($result)>0) {
 		$nextth = mysql_result($result,0,0);
-		echo "<a href=\"posts.php?cid=$cid&forum=$forumid&thread=$nextth\">Prev</a> ";
+		echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$nextth\">Prev</a></li>";
 	} else {
-		echo "Prev ";
+		echo "<li><a class=\"buttonactive\">Prev</a></li>";
 	}
 	
 	$query = "SELECT id FROM imas_forum_posts WHERE forumid='$forumid' AND threadid>'$threadid' AND parent=0 ORDER BY threadid LIMIT 1";
 	$result = mysql_query($query) or die("Query failed : $query " . mysql_error());
 	if (mysql_num_rows($result)>0) {
 		$nextth = mysql_result($result,0,0);
-		echo "<a href=\"posts.php?cid=$cid&forum=$forumid&thread=$nextth\">Next</a>";
+		echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$nextth\">Next</a></li>";
 	} else {
-		echo "Next";
+		echo "<li><a class=\"buttonactive\">Next</a></li>";
 	}
-	echo "<ul class=\"buttonlist\">";
+	echo "</ul><ul class=\"buttonlist\">";
 	echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markunread=true\">Mark Unread</a></li>";
 	if ($tagged) {
 		echo "<li><a href=\"posts.php?cid=$cid&forum=$forumid&thread=$threadid&page=$page&markuntagged=true\">Unflag</a></li>";
@@ -376,19 +378,19 @@
 				}*/
 				echo "<ul class=\"buttonlist\">";
 				if ($view == 2) {
-					echo "<li><input type=button id=\"buti$icnt\" value=\"Show\" onClick=\"toggleitem($icnt)\"></li>\n";
+					echo "<li><input type=button id=\"buti$icnt\" value=\"Show\" onClick=\"toggleitem($icnt)\"></li>";
 				} else {
-					echo "<li><input type=button id=\"buti$icnt\" value=\"Hide\" onClick=\"toggleitem($icnt)\"></li>\n";
+					echo "<li><input type=button id=\"buti$icnt\" value=\"Hide\" onClick=\"toggleitem($icnt)\"></li>";
 				}
 				
 				if ($isteacher) {
-					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&move=$child\">Move</a></li>\n";
+					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&move=$child\">Move</a></li>";
 				} 
 				if ($isteacher || ($ownerid[$child]==$userid && $allowmod)) {
-					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=$child\">Modify</a></li>\n";
+					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=$child\">Modify</a></li>";
 				}
 				if ($isteacher || ($allowdel && $ownerid[$child]==$userid && !isset($children[$child]))) {
-					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&remove=$child\">Remove</a></li>\n";
+					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&remove=$child\">Remove</a></li>";
 				}
 				if ($posttype[$child]!=2 && $myrights > 5 && $allowreply) {
 					echo "<li><a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&thread=$threadid&page=$page&modify=reply&replyto=$child\" class=\"specialbutton\">Reply</a></li>";
