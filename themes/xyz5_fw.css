@@ -72,11 +72,10 @@ div.block, div.blockitems div.blockitems div.block {
 	clear: both;
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll center top;
 	border: 1px solid #999;
-	padding:5px 10px;
+	padding:8px 10px;
 }
 div.block h3 {
-	color: #333;
-	font-size: 120%;
+	color: #666;
 	margin:0;
 }
 /*Default block item container*/
@@ -341,13 +340,6 @@ div#leftcolumn {
 	width:200px;
 	font-size:90%;
 }
-#leftcolumn .block {
-	padding:8px 10px;
-}
-#leftcolumn .block h3 {
-	color:#666;
-	font-size:100%;
-}
 #leftcolumn .blockitems {
 	background-color:#fff;
 	padding: 0;
@@ -586,9 +578,10 @@ div.navbar {
 div.navbar h4 {
 	display: block;
 	margin:0;
-	background:#fff url(../xyz/grey_gradient.gif) repeat-x scroll left top;
+	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left top;
 	padding: 10px;
 	color: #666;
+	border-bottom:1px solid #999;
 }
 div.navbar p {
 	padding: 0 10px;
@@ -689,12 +682,12 @@ div#topadditem {
 }
 div#topadditem span {
 }
-a.abutton {
+a.abutton, span.spanbutton {
 	border: 0;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
 }
-a.abutton, div#viewbuttoncont a, ul.buttonlist li a {
+a.abutton, span.spanbutton, div#viewbuttoncont a, ul.buttonlist li a {
 	font:normal 12px/15px Helvetica, Arial, sans-serif;
 	color: #fff;
 	display:inline-block;	
@@ -707,6 +700,12 @@ a.abutton, div#viewbuttoncont a.buttoninactive, ul.buttonlist li a  {
 }
 a.abutton:hover, div#viewbuttoncont a.buttoninactive:hover, ul.buttonlist li a:hover {
 	background-color: #666;
+}
+span.spanbutton {
+	background-color: #f93;
+}
+span.spanbutton:hover {
+	background-color: #c60;
 }
 div#viewbuttoncont {
 	margin-top: 5px;
