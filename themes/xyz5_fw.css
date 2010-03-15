@@ -848,6 +848,7 @@ legend {
 }
 table.forum td {
 	border:1px solid #999;
+	padding: 0.2em 0.5em;
 }
 div.quickview_options {
 	background:#ccc url(../xyz/grey_gradient.gif) repeat-x scroll left top;
