@@ -195,7 +195,7 @@
 	echo "<ul class=\"buttonlist\">";
 	echo "<li><input type=\"button\" value=\"Expand All\" onclick=\"expandall()\" /></li><li><input type=\"button\" value=\"Collapse All\" onclick=\"collapseall()\" /></li>";
 	echo "</ul> <ul class=\"buttonlist\">";
-	echo "</li><input type=button value=\"Show All\" onclick=\"showall()\" /></li><li><input type=button value=\"Hide All\" onclick=\"hideall()\" /></li>";
+	echo "<li><input type=\"button\" value=\"Show All\" onclick=\"showall()\" /></li><li><input type=button value=\"Hide All\" onclick=\"hideall()\" /></li>";
 	echo "</ul>";
 	/*if ($view==2) {
 		echo "<a href=\"posts.php?view=$view&cid=$cid&forum=$forumid&page=$page&thread=$threadid&view=0\">View Expanded</a>";
