@@ -351,7 +351,7 @@ function picshow(size) {
 	}
 }
 </script>	
-	<form id="qform class="formwcp" method="post" action="msglist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
+	<form id="qform" class="formwcp" method="post" action="msglist.php?page=<?php echo $page;?>&cid=<?php echo $cid;?>">
 	<div class="cpmid">
 	Filter <label for="filtercid">by course:</label> <select id="filtercid" onchange="chgfilter()">
 	<?php
