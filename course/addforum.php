@@ -258,8 +258,8 @@ if ($overwriteBody==1) {
 	<div id="headeraddforum" class="pagetitle"><h2><?php echo $pagetitle ?><img src="<?php echo $imasroot ?>/img/help.gif" alt="Help" onClick="window.open('<?php echo $imasroot ?>/help.php?section=forumitems','help','top=0,width=400,height=500,scrollbars=1,left='+(screen.width-420))"/></h2></div>
 
 	<form method=post action="addforum.php<?php echo $page_formActionTag ?>">
-		<span class=form>Name: </span>
-		<span class=formright><input type=text size=60 name=name value="<?php echo str_replace('"','&quot;',$line['name']);?>"></span>
+		<span class=form><label for="name">Name:</label></span>
+		<span class=formright><input type=text size=60 name=name id="name" value="<?php echo str_replace('"','&quot;',$line['name']);?>"></span>
 		<BR class=form>
 	
 		Description:<BR>
@@ -269,106 +269,106 @@ if ($overwriteBody==1) {
 		</div>
 		
 		<span class=form>Show:</span>
-		<span class=formright>
-			<input type=radio name="avail" value="0" <?php writeHtmlChecked($line['avail'],0);?>/>Hide<br/>
-			<input type=radio name="avail" value="1" <?php writeHtmlChecked($line['avail'],1);?>/>Show by Dates<br/>
-			<input type=radio name="avail" value="2" <?php writeHtmlChecked($line['avail'],2);?>/>Show Always<br/>
-		</span><br class="form"/>
-		<span class=form>Available After:</span>
-		<span class=formright>
-			<input type=radio name="sdatetype" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/> 
-			Always until end date<br/>
-			<input type=radio name="sdatetype" value="sdate" <?php  writeHtmlChecked($startdate,'0',1) ?>/>
+		<span class=formright><fieldset class="invisible"><legend>Show:</legend><ul>
+			<li><input type=radio name="avail" id="availhide" value="0" <?php writeHtmlChecked($line['avail'],0);?>/><label for="availhide">Hide</label></li>
+			<li><input type=radio name="avail" id="availdates" value="1" <?php writeHtmlChecked($line['avail'],1);?>/><label for="availdates">Show by Dates</label></li>
+			<li><input type=radio name="avail" id="availalways" value="2" <?php writeHtmlChecked($line['avail'],2);?>/><label for="availalways">Show Always</label></li>
+		</ul></fieldset></span><br class="form"/>
+
+		<span class=form>Available after:</span>
+		<span class=formright><fieldset class="invisible"><legend>Available after:</legend><ul>
+			<li><input type=radio name="sdatetype" id="suntile" value="0" <?php writeHtmlChecked($startdate,'0',0) ?>/> 
+			<label for="suntile">Always until end date</label></li>
+			<li><input type=radio name="sdatetype" value="sdate" <?php  writeHtmlChecked($startdate,'0',1) ?>/>
 			<input type=text size=10 name=sdate value="<?php echo $sdate;?>"> 
 			<a href="#" onClick="displayDatePicker('sdate', this); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></A>
-			at <input type=text size=10 name=stime value="<?php echo $stime;?>">
-		</span><BR class=form>
+			at <input type=text size=10 name=stime value="<?php echo $stime;?>"></li>
+		</ul></fieldset></span><br class="form"/>
 		
-		<span class=form>Available Until:</span>
-		<span class=formright>
-			<input type=radio name="edatetype" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000',0) ?>/>
-			 Always after start date<br/>
-			<input type=radio name="edatetype" value="edate"  <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
+		<span class=form>Available until:</span>
+		<span class=formright><fieldset class="invisible"><legend>Available until:</legend><ul>
+			<li><input type=radio name="edatetype" id="eafters" value="2000000000" <?php writeHtmlChecked($enddate,'2000000000',0) ?>/>
+			<label for="eafters">Always after start date</label></li>
+			<li><input type=radio name="edatetype" value="edate"  <?php writeHtmlChecked($enddate,'2000000000',1) ?>/>
 			<input type=text size=10 name=edate value="<?php echo $edate;?>"> 
 			<a href="#" onClick="displayDatePicker('edate', this, 'sdate', 'start date'); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></A>
-			at <input type=text size=10 name=etime value="<?php echo $etime;?>">
-		</span><BR class=form>
+			at <input type=text size=10 name=etime value="<?php echo $etime;?>"></li>
+		</ul></fieldset></span><BR class=form>
 	
-		<span class=form>Group linked forum?</span><span class=formright>
+		<span class=form><label for="grpaid">Group linked forum?</label></span><span class=formright>
 <?php
 	writeHtmlSelect("grpaid",$page_groupSelect['val'],$page_groupSelect['label'],$grpaid,"Not group forum",0);
 ?>
 		</span><br class="form"/>
 		
-		
-		<span class=form>Allow anonymous posts:</span>
+		<span class=form><label for="allowanon">Allow anonymous posts:</label></span>
 		<span class=formright>
-			<input type=checkbox name="allowanon" value="1" <?php if ($allowanon) { echo "checked=1";}?>/>
+			<input type=checkbox name="allowanon" id="allowanon" value="1" <?php if ($allowanon) { echo "checked=1";}?>/>
 		</span><br class="form"/>
 		
-		<span class=form>Allow students to modify posts:</span>
+		<span class=form><label for="allowmod">Allow students to modify posts:</label></span>
 		<span class=formright>
-			<input type=checkbox name="allowmod" value="1" <?php if ($allowmod) { echo "checked=1";}?>/>
+			<input type=checkbox name="allowmod" id="allowmod" value="1" <?php if ($allowmod) { echo "checked=1";}?>/>
 		</span><br class="form"/>
 		
-		<span class=form>Allow students to delete own posts (if no replies):</span>
+		<span class=form><label for="allowdel">Allow students to delete own posts (if no replies):</label></span>
 		<span class=formright>
-			<input type=checkbox name="allowdel" value="1" <?php if ($allowdel) { echo "checked=1";}?>/>
+			<input type=checkbox name="allowdel" id="allowdel" value="1" <?php if ($allowdel) { echo "checked=1";}?>/>
 		</span><br class="form"/>
 		
-		<span class=form>Get email notify of new posts:</span>
+		<span class=form><label for="subscribe">Get email notify of new posts:</label></span>
 		<span class=formright>
-			<input type=checkbox name="subscribe" value="1" <?php if ($hassubscrip) { echo "checked=1";}?>/>
+			<input type=checkbox name="subscribe" id="subscribe" value="1" <?php if ($hassubscrip) { echo "checked=1";}?>/>
 		</span><br class="form"/>
 		
-		<span class=form>Default display:</span>
+		<span class=form><label for="defdisplay">Default display:</label></span>
 		<span class=formright>
-			<select name="defdisplay">
+			<select name="defdisplay" id="defdisplay">
 				<option value="0" <?php if ($defdisplay==0) {echo "selected=1";}?>>Expanded</option>
 				<option value="1" <?php if ($defdisplay==1) {echo "selected=1";}?>>Collapsed</option>
 				<option value="2" <?php if ($defdisplay==2) {echo "selected=1";}?>>Condensed</option>
 			</select>
 		</span><br class="form" />
 		
-		<span class="form">Sort threads by: </span>
-		<span class="formright">
-			<input type="radio" name="sortby" value="0" <?php writeHtmlChecked($sortby,0);?>/> Thread start date<br/>
-			<input type="radio" name="sortby" value="1" <?php writeHtmlChecked($sortby,1);?>/> Most recent reply date
-		</span><br class="form" />
+		<span class="form">Sort threads by:</span>
+		<span class="formright"><fieldset class="invisible"><legend>Sort threads by:</legend><ul>
+			<li><input type="radio" name="sortby" id="sbystart" value="0" <?php writeHtmlChecked($sortby,0);?>/><label for="sbystart">Thread start date</label></li>
+			<li><input type="radio" name="sortby" id="sbyreply" value="1" <?php writeHtmlChecked($sortby,1);?>/><label for="sbyreply">Most recent reply date</label></li>
+		</ul></fieldset></span><br class="form" />
 		 
 		<span class=form>Students can reply to posts:</span>
-		<span class=formright>
-			<input type=radio name="replyby" value="Always" <?php if ($replyby==2000000000) { echo "checked=1";}?>/>Always<br/>
-			<input type=radio name="replyby" value="Never" <?php if ($replyby==0) { echo "checked=1";}?>/>Never<br/>
-			<input type=radio name="replyby" value="Date" <?php if ($replyby<2000000000 && $replyby>0) { echo "checked=1";}?>/>Before: 
+		<span class=formright><fieldset class="invisible"><legend>Students can reply to posts:</legend><ul>
+			<li><input type=radio name="replyby" id="ralways" value="Always" <?php if ($replyby==2000000000) { echo "checked=1";}?>/><label for="ralways">Always</label></li>
+			<li><input type=radio name="replyby" id="rnever" value="Never" <?php if ($replyby==0) { echo "checked=1";}?>/><label for="rnever">Never</label></li>
+			<li><input type=radio name="replyby" id="rbefore" value="Date" <?php if ($replyby<2000000000 && $replyby>0) { echo "checked=1";}?>/><label for="rbefore">Before:</label> 
 			<input type=text size=10 name="replybydate" value="<?php echo $replybydate;?>">
 			<a href="#" onClick="displayDatePicker('replybydate', this, 'sdate', 'start date'); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></A>
-			at <input type=text size=10 name=replybytime value="<?php echo $replybytime;?>">
-		</span><br class="form" />
+			at <input type=text size=10 name=replybytime value="<?php echo $replybytime;?>"></li>
+		</ul></fieldset></span><br class="form" />
 		
-		
-		<span class=form>Students can create new threads:</span><span class=formright>
-			<input type=radio name="postby" value="Always" <?php if ($postby==2000000000) { echo "checked=1";}?>/>Always<br/>
-			<input type=radio name="postby" value="Never" <?php if ($postby==0) { echo "checked=1";}?>/>Never<br/>
-			<input type=radio name="postby" value="Date" <?php if ($postby<2000000000 && $postby>0) { echo "checked=1";}?>/>Before: 
+		<span class=form>Students can create new threads:</span>
+		<span class=formright><fieldset class="invisible"><legend>Students can create new threads:</legend><ul>
+			<li><input type=radio name="postby" id="alwaysnewstuthr" value="Always" <?php if ($postby==2000000000) { echo "checked=1";}?>/><label for="alwaysnewstuthr">Always</label></li>
+			<li><input type=radio name="postby" id="nevernewstuthr" value="Never" <?php if ($postby==0) { echo "checked=1";}?>/><label for="nevernewstuthr">Never</label></li>
+			<li><input type=radio name="postby" id="beforenewstuthr" value="Date" <?php if ($postby<2000000000 && $postby>0) { echo "checked=1";}?>/><label for="beforenewstuthr">Before:</label> 
 			<input type=text size=10 name="postbydate" value="<?php echo $postbydate;?>">
 			<a href="#" onClick="displayDatePicker('postbydate', this, 'sdate', 'start date'); return false">
 			<img src="../img/cal.gif" alt="Calendar"/></A>
-			at <input type=text size=10 name=postbytime value="<?php echo $postbytime;?>">
-		</span><br class="form"/>
+			at <input type=text size=10 name=postbytime value="<?php echo $postbytime;?>"></li>
+		</ul></fieldset></span><br class="form"/>
 		
 		<span class="form">Count in gradebook?</span>
-		<span class="formright">
-			<input type=radio name="cntingb" value="0" <?php if ($cntingb==0) { echo 'checked=1';}?>/>No<br/>
-			<input type=radio name="cntingb" value="1" <?php if ($cntingb==1) { echo 'checked=1';}?>/>Yes<br/>
-			<input type=radio name="cntingb" value="2" <?php if ($cntingb==2) { echo 'checked=1';}?>/>Yes, as extra credit<br/>
-			If yes, for: <input type=text size=4 name="points" value="<?php echo $points;?>"/> points
-		</span><br class="form"/>
+		<span class="formright"><fieldset class="invisible"><legend>Count in gradebook?</legend><ul>
+			<li><input type=radio name="cntingb" id="gbnocnt" value="0" <?php if ($cntingb==0) { echo 'checked=1';}?>/><label for="gbnocnt">No</label></li>
+			<li><input type=radio name="cntingb" id="gbyescnt" value="1" <?php if ($cntingb==1) { echo 'checked=1';}?>/><label for="gbyescnt">Yes</label></li>
+			<li><input type=radio name="cntingb" id="gbeccnt" value="2" <?php if ($cntingb==2) { echo 'checked=1';}?>/><label for="gbeccnt">Yes, as extra credit</label></li></ul>
+			<label for="points">If yes, for:</label> <input type="text" size="4" name="points" id="points" value="<?php echo $points;?>"/> points
+		</fieldset></span><br class="form"/>
 		
-		<span class=form>Gradebook Category:</span>
+		<span class=form><label for="gbcat">Gradebook Category:</label></span>
 			<span class=formright>
 		
 <?php
